@@ -17,12 +17,37 @@ If your organization still manages TLS renewals manually or semi-manually, this 
 
 SC-081 lays out a phased reduction in maximum certificate validity:
 
-| Effective Date       | Max Lifetime | Approximate Renewals/Year |
-|----------------------|-------------|--------------------------|
-| Until March 15, 2026 | 398 days    | ~1                        |
-| March 15, 2026       | 200 days    | ~2                        |
-| March 15, 2027       | 100 days    | ~4                        |
-| March 15, 2029       | 47 days     | ~8                        |
+<table>
+  <thead>
+    <tr>
+      <th>Effective Date</th>
+      <th>Max Lifetime</th>
+      <th>Approximate Renewals/Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Until March 15, 2026</td>
+      <td>398 days</td>
+      <td>~1</td>
+    </tr>
+    <tr>
+      <td>March 15, 2026</td>
+      <td>200 days</td>
+      <td>~2</td>
+    </tr>
+    <tr>
+      <td>March 15, 2027</td>
+      <td>100 days</td>
+      <td>~4</td>
+    </tr>
+    <tr>
+      <td>March 15, 2029</td>
+      <td>47 days</td>
+      <td>~8</td>
+    </tr>
+  </tbody>
+</table>
 
 Equally important: Domain Control Validation (DCV) reuse shrinks to just 10 days under the new rules. By 2029, revalidation becomes nearly continuous.
 
