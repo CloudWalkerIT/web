@@ -67,12 +67,12 @@ Certificate expiry remains one of the most common causes of preventable outages 
 
 Most teams that have automated TLS at all rely on ACME clients like Certbot or acme.sh. These tools are excellent at what they do — requesting and installing certificates on a single host. But as the [KrakenKey team pointed out in their analysis of this change](https://krakenkey.io/blog/200-day-tls-certs-are-here/), ACME handles the *issuance* side of the problem. It does not solve lifecycle *management* across a fleet.
 
-What ACME clients typically lack:
+ACME clients typically fall short in a few key areas:
 
-- **Cross-infrastructure visibility** — no single pane of glass showing certificate status across dozens or hundreds of endpoints
-- **Failure detection and alerting** — a failed renewal on one server writes to a local log that nobody reads until the site goes down
-- **Team-based workflows** — renewing a certificate shouldn't require SSH access to a production box
-- **Audit trails** — when compliance asks who renewed what and when, grepping Certbot logs across 50 servers isn't an answer
+- **Cross-infrastructure visibility.** There is no unified view of certificate status across your endpoints. If you have dozens or hundreds of hosts, each one is its own island.
+- **Failure detection and alerting.** When a renewal fails, it writes to a local log on that server. Nobody notices until the site goes down.
+- **Team-based workflows.** Renewing a certificate should not require SSH access to a production box. Most ACME setups assume a single operator on each machine.
+- **Audit trails.** When compliance asks who renewed what and when, you need a real answer — not a grep across Certbot logs on 50 servers.
 
 These gaps are manageable when you renew once a year. At four to eight renewals per year per certificate, they become operational liabilities. A Certbot cronjob that silently fails is invisible until a service goes down. At two renewals per year, you might catch it. At eight, the odds shift against you.
 
