@@ -17,37 +17,39 @@ If your organization still manages TLS renewals manually or semi-manually, this 
 
 SC-081 lays out a phased reduction in maximum certificate validity:
 
-<table>
-  <thead>
-    <tr>
-      <th>Effective Date</th>
-      <th>Max Lifetime</th>
-      <th>Approximate Renewals/Year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Until March 15, 2026</td>
-      <td>398 days</td>
-      <td>~1</td>
-    </tr>
-    <tr>
-      <td>March 15, 2026</td>
-      <td>200 days</td>
-      <td>~2</td>
-    </tr>
-    <tr>
-      <td>March 15, 2027</td>
-      <td>100 days</td>
-      <td>~4</td>
-    </tr>
-    <tr>
-      <td>March 15, 2029</td>
-      <td>47 days</td>
-      <td>~8</td>
-    </tr>
-  </tbody>
-</table>
+<div class="my-6 overflow-x-auto rounded-xl border border-white/10 bg-dark-800/50">
+  <table class="w-full text-left text-sm">
+    <thead>
+      <tr class="border-b border-white/10 bg-dark-700/50">
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Effective Date</th>
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Max Lifetime</th>
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Renewals/Year</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5">
+      <tr>
+        <td class="whitespace-nowrap px-4 py-3 text-gray-400 sm:px-6">Until March 15, 2026</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">398 days</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">~1</td>
+      </tr>
+      <tr class="bg-cloud-500/5">
+        <td class="whitespace-nowrap px-4 py-3 font-medium text-cloud-400 sm:px-6">March 15, 2026</td>
+        <td class="px-4 py-3 text-white sm:px-6">200 days</td>
+        <td class="px-4 py-3 text-white sm:px-6">~2</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap px-4 py-3 text-gray-400 sm:px-6">March 15, 2027</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">100 days</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">~4</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap px-4 py-3 text-gray-400 sm:px-6">March 15, 2029</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">47 days</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">~8</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 Equally important: Domain Control Validation (DCV) reuse shrinks to just 10 days under the new rules. By 2029, revalidation becomes nearly continuous.
 
