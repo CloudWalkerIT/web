@@ -16,7 +16,7 @@ Production-ready marketing website for [cloudwalker.it](https://cloudwalker.it),
 |-------|-------------|
 | `/` | Home — hero, features, stats, CTA |
 | `/services/` | Services — cloud, AI, security, DevOps, managed IT |
-| `/products/` | Products — ContentEngine product page with pricing tiers |
+| `/products/` | Products — Atomatize product page with pricing tiers |
 | `/insights/` | Market Insights — blog listing |
 | `/insights/[slug]/` | Individual blog post |
 | `/about/` | About — mission, values, teams |

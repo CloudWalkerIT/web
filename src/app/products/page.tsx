@@ -3,35 +3,35 @@ import Link from "next/link";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
-  title: "ContentEngine — AI-Powered Content Intelligence",
+  title: "Atomatize — AI-Powered Content Repurposing",
   description:
-    "ContentEngine by Cloudwalker IT: AI-driven content analysis, market intelligence, and automated insight generation for data-driven enterprises.",
+    "Atomatize by Cloudwalker IT: transform long-form content into platform-ready social media posts and multi-format deliverables with AI.",
 };
 
 const features = [
   {
-    title: "AI Content Analysis",
-    desc: "Automatically analyze market content, competitor publications, and industry trends using advanced NLP and LLM pipelines.",
+    title: "Content Atomization",
+    desc: "Transform long-form articles, podcasts, and videos into dozens of platform-ready social media posts using AI-powered content repurposing.",
   },
   {
-    title: "Trend Forecasting",
-    desc: "Predictive models identify emerging market trends before they become mainstream, giving you a strategic time advantage.",
+    title: "Multi-Platform Output",
+    desc: "Generate tailored content for Twitter/X, LinkedIn, Instagram, TikTok, and more — each optimized for the platform's format and audience.",
   },
   {
-    title: "Automated Reporting",
-    desc: "Generate executive-ready reports, summaries, and briefs automatically — from raw data to polished deliverables.",
+    title: "Brand Voice Consistency",
+    desc: "AI maintains your unique brand voice and tone across every piece of repurposed content, ensuring cohesive messaging at scale.",
   },
   {
-    title: "Multi-Source Ingestion",
-    desc: "Ingest and correlate data from news feeds, social media, financial reports, patents, and internal documents.",
+    title: "Smart Scheduling",
+    desc: "Queue and schedule repurposed content across platforms with intelligent timing recommendations for maximum engagement.",
   },
   {
-    title: "Custom Dashboards",
-    desc: "Real-time dashboards tailored to your KPIs, with drill-down capabilities and alerting for critical signals.",
+    title: "Analytics Dashboard",
+    desc: "Track performance of repurposed content across all platforms with unified analytics and actionable insights.",
   },
   {
     title: "API-First Architecture",
-    desc: "RESTful APIs and webhooks let you integrate ContentEngine into your existing workflows and tools seamlessly.",
+    desc: "RESTful APIs and webhooks let you integrate Atomatize into your existing workflows and content pipelines seamlessly.",
   },
 ];
 
@@ -40,9 +40,9 @@ const tiers = [
     name: "Starter",
     price: "Contact Us",
     features: [
-      "Up to 1,000 analyses/month",
-      "3 data source integrations",
-      "Weekly trend reports",
+      "Up to 1,000 repurposed posts/month",
+      "3 platform integrations",
+      "Basic analytics",
       "Email support",
     ],
   },
@@ -51,10 +51,10 @@ const tiers = [
     price: "Contact Us",
     popular: true,
     features: [
-      "Up to 25,000 analyses/month",
-      "Unlimited data sources",
-      "Daily trend reports & alerts",
-      "Custom dashboards",
+      "Up to 25,000 repurposed posts/month",
+      "Unlimited platform integrations",
+      "Brand voice customization",
+      "Advanced analytics dashboard",
       "API access",
       "Priority support",
     ],
@@ -63,11 +63,11 @@ const tiers = [
     name: "Enterprise",
     price: "Contact Us",
     features: [
-      "Unlimited analyses",
-      "Custom ML model training",
-      "Real-time streaming analytics",
+      "Unlimited repurposed posts",
+      "Custom AI model fine-tuning",
+      "Real-time content pipeline",
       "Dedicated infrastructure",
-      "On-premise deployment option",
+      "White-label option",
       "Dedicated success manager",
     ],
   },
@@ -76,11 +76,12 @@ const tiers = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "ContentEngine",
+  name: "Atomatize",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Cloud",
+  url: "https://atomatize.com",
   description:
-    "AI-powered content intelligence and market analysis platform by Cloudwalker IT.",
+    "AI-powered content repurposing platform by Cloudwalker IT — transform long-form content into platform-ready social media posts.",
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/InStock",
@@ -106,17 +107,27 @@ export default function ProductsPage() {
             Our Product
           </p>
           <h1 className="mt-2 text-4xl font-bold sm:text-5xl">
-            Content<span className="text-electric-400">Engine</span>
+            Atom<span className="text-electric-400">atize</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            AI-powered content intelligence that transforms unstructured market data into actionable strategic insights — automatically.
+            AI-powered content repurposing that transforms long-form content into platform-ready social media posts — automatically.
           </p>
-          <Link
-            href="/contact/"
-            className="mt-8 inline-block rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-electric-500/25 transition hover:bg-electric-600"
-          >
-            Request a Demo
-          </Link>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="https://atomatize.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-electric-500/25 transition hover:bg-electric-600"
+            >
+              Try Atomatize
+            </a>
+            <Link
+              href="/contact/"
+              className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-electric-400/50 hover:text-electric-400"
+            >
+              Request a Demo
+            </Link>
+          </div>
         </div>
       </Section>
 
@@ -140,7 +151,7 @@ export default function ProductsPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold">Plans & Pricing</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Flexible plans that scale with your intelligence needs.
+            Flexible plans that scale with your content needs.
           </p>
         </div>
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "IT consulting",
     "AI solutions",
     "digital transformation",
-    "ContentEngine",
+    "Atomatize",
     "market insights",
     "managed IT services",
   ],

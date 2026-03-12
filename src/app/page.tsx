@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
   description:
-    "Cloud infrastructure, AI-driven insights, and digital transformation for modern enterprises. Discover ContentEngine and our managed IT services.",
+    "Cloud infrastructure, AI-driven insights, and digital transformation for modern enterprises. Discover Atomatize and our managed IT services.",
 };
 
 const features = [
@@ -27,7 +27,7 @@ const features = [
   {
     icon: "📊",
     title: "Market Intelligence",
-    desc: "AI-powered market analysis and trend forecasting through our proprietary ContentEngine platform.",
+    desc: "AI-powered content repurposing that transforms long-form content into platform-ready social media posts through our Atomatize platform.",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function HomePage() {
               href="/products/"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-cloud-400/50 hover:text-cloud-400"
             >
-              Explore ContentEngine
+              Explore Atomatize
             </Link>
           </div>
         </div>
