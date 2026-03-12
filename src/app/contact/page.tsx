@@ -64,7 +64,7 @@ export default function ContactPage() {
           </p>
           <h1 className="mt-2 text-4xl font-bold">Let&apos;s Build Something Great</h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Ready to transform your IT infrastructure? Have a question about ContentEngine? We&apos;re here to help.
+            Ready to transform your IT infrastructure? Have a question about Atomatize? We&apos;re here to help.
           </p>
         </div>
       </Section>

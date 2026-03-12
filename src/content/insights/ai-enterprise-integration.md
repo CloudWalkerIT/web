@@ -47,11 +47,11 @@ The gap between prototype and production is where most initiatives fail:
 
 ## Real-World Results
 
-Our ContentEngine platform demonstrates what's possible when AI is thoughtfully integrated. Clients typically see:
+Our Atomatize platform demonstrates what's possible when AI is thoughtfully integrated. Clients typically see:
 
-- 70% reduction in manual research time
-- 3x improvement in trend identification speed
-- 90% accuracy in automated content classification
+- 70% reduction in content creation time
+- 3x improvement in cross-platform publishing speed
+- 90% consistency in brand voice across repurposed content
 
 ## Getting Started
 
@@ -59,4 +59,4 @@ The key is starting pragmatically — pick one high-impact use case, prove value
 
 ---
 
-*Ready to bring AI into your workflow? [Explore ContentEngine](/products/) or [talk to our AI team](/contact/).*
+*Ready to bring AI into your workflow? [Explore Atomatize](/products/) or [talk to our AI team](/contact/).*
