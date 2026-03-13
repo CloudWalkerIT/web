@@ -28,3 +28,11 @@ body {
 ::selection {
   @apply bg-cloud-500/30 text-white;
 }
+
+.prose-dark > *:first-child {
+  margin-top: 0;
+}
+
+.prose-dark > *:last-child {
+  margin-bottom: 0;
+}
