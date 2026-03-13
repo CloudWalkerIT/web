@@ -42,6 +42,7 @@ export default function Header() {
           onClick={() => setOpen(!open)}
           className="text-gray-400 md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             {open ? (
