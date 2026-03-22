@@ -37,38 +37,37 @@ const features = [
 
 const tiers = [
   {
-    name: "Starter",
-    price: "Contact Us",
+    name: "Creator",
+    price: "$19/mo",
     features: [
-      "Up to 1,000 repurposed posts/month",
-      "3 platform integrations",
-      "Basic analytics",
+      "5 source content pieces/month",
+      "All text output types (12 per piece)",
+      "1 brand voice profile",
+      "Copy-to-clipboard",
       "Email support",
     ],
   },
   {
-    name: "Professional",
-    price: "Contact Us",
+    name: "Pro",
+    price: "$49/mo",
     popular: true,
     features: [
-      "Up to 25,000 repurposed posts/month",
-      "Unlimited platform integrations",
-      "Brand voice customization",
-      "Advanced analytics dashboard",
-      "API access",
-      "Priority support",
+      "20 source content pieces/month",
+      "All text output types (12 per piece)",
+      "2 brand voice profiles",
+      "Social publishing & scheduling",
+      "Priority email support",
     ],
   },
   {
-    name: "Enterprise",
-    price: "Contact Us",
+    name: "Scale",
+    price: "$149/mo",
     features: [
-      "Unlimited repurposed posts",
-      "Custom AI model fine-tuning",
-      "Real-time content pipeline",
-      "Dedicated infrastructure",
-      "White-label option",
-      "Dedicated success manager",
+      "Unlimited source content/month",
+      "All text output types (12 per piece)",
+      "5 brand voice profiles",
+      "Social publishing & scheduling",
+      "24-hour email support",
     ],
   },
 ];
@@ -82,11 +81,29 @@ const jsonLd = {
   url: "https://atomatize.com",
   description:
     "AI-powered content repurposing platform by Cloudwalker IT — transform long-form content into platform-ready social media posts.",
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/InStock",
-    priceCurrency: "USD",
-  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Creator",
+      price: "19.00",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    {
+      "@type": "Offer",
+      name: "Pro",
+      price: "49.00",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    {
+      "@type": "Offer",
+      name: "Scale",
+      price: "149.00",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  ],
 };
 
 export default function ProductsPage() {
@@ -151,7 +168,7 @@ export default function ProductsPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold">Plans & Pricing</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Flexible plans that scale with your content needs.
+            Every plan includes a 14-day free trial — no credit card required.
           </p>
         </div>
 
@@ -180,16 +197,18 @@ export default function ProductsPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact/"
+              <a
+                href="https://atomatize.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
                   tier.popular
                     ? "bg-electric-500 text-white hover:bg-electric-600"
                     : "border border-white/10 text-gray-300 hover:border-electric-400/50"
                 }`}
               >
-                Get Started
-              </Link>
+                Start Free Trial
+              </a>
             </div>
           ))}
         </div>
