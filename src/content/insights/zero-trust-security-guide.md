@@ -9,7 +9,7 @@ readTime: "7 min read"
 
 ## Why Zero Trust, Why Now
 
-Traditional perimeter-based security is dead. With distributed workforces, multi-cloud environments, and sophisticated threats, enterprises need a security model built on the principle of "never trust, always verify."
+Traditional perimeter-based security does not hold up against distributed workforces, multi-cloud environments, and targeted attacks. Enterprises need a security model built on the principle of "never trust, always verify."
 
 ## Core Principles
 
@@ -35,7 +35,7 @@ Grant the minimum permissions necessary, with just-in-time and just-enough-acces
 Design your architecture assuming the attacker is already inside:
 
 - Micro-segment networks to limit lateral movement
-- Encrypt data at rest and in transit — always
+- Encrypt data at rest and in transit, without exception
 - Implement comprehensive logging and real-time monitoring
 
 ## Implementation Roadmap
@@ -62,7 +62,7 @@ Design your architecture assuming the attacker is already inside:
 
 ## The Business Case
 
-Zero trust isn't just about security — it's a business enabler. Organizations with mature zero-trust architectures report 50% fewer breaches and 40% faster incident response times.
+Zero trust is also a business accelerator. Organizations with mature zero-trust architectures report 50% fewer breaches and 40% faster incident response times.
 
 ---
 
