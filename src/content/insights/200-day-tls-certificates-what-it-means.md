@@ -69,10 +69,38 @@ Most teams that have automated TLS at all rely on ACME clients like Certbot or a
 
 ACME clients typically fall short in a few key areas:
 
-- **Cross-infrastructure visibility.** There is no unified view of certificate status across your endpoints. If you have dozens or hundreds of hosts, each one is its own island.
-- **Failure detection and alerting.** When a renewal fails, it writes to a local log on that server. Nobody notices until the site goes down.
-- **Team-based workflows.** Renewing a certificate should not require SSH access to a production box. Most ACME setups assume a single operator on each machine.
-- **Audit trails.** When compliance asks who renewed what and when, you need a real answer, not a grep across Certbot logs on 50 servers.
+<div class="my-6 overflow-x-auto rounded-xl border border-white/10 bg-dark-800/50">
+  <table class="w-full text-left text-sm table-fixed">
+    <colgroup>
+      <col class="w-1/4" />
+      <col class="w-3/4" />
+    </colgroup>
+    <thead>
+      <tr class="border-b border-white/10 bg-dark-700/50">
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Gap</th>
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Impact</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5">
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Cross-infrastructure visibility</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">There is no unified view of certificate status across your endpoints. If you have dozens or hundreds of hosts, each one is its own island.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Failure detection and alerting</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">When a renewal fails, it writes to a local log on that server. Nobody notices until the site goes down.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Team-based workflows</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Renewing a certificate should not require SSH access to a production box. Most ACME setups assume a single operator on each machine.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Audit trails</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">When compliance asks who renewed what and when, you need a real answer, not a grep across Certbot logs on 50 servers.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 These gaps are manageable when you renew once a year. At four to eight renewals per year per certificate, they become operational liabilities. A Certbot cronjob that silently fails is invisible until a service goes down. At two renewals per year, you might catch it. At eight, the odds shift against you.
 
