@@ -9,7 +9,7 @@ readTime: "6 min read"
 
 ## The State of Cloud Spending
 
-Cloud infrastructure costs continue to rise as enterprises scale their digital operations. According to recent industry analysis, the average enterprise overspends on cloud by 30-35%. The good news? Most of this waste is addressable with the right strategies.
+Cloud infrastructure costs continue to rise as enterprises scale their digital operations. According to recent industry analysis, the average enterprise overspends on cloud by 30-35%. Most of this waste is addressable with the right strategies.
 
 ## Key Optimization Strategies
 
@@ -31,7 +31,7 @@ For predictable workloads, committed-use contracts offer 30-60% savings over on-
 
 ### 3. Storage Tiering & Lifecycle Policies
 
-Data gravity is real — storage costs compound silently. Implement intelligent tiering:
+Data gravity is real. Storage costs compound silently. Implement intelligent tiering:
 
 - Automate movement from hot to warm to cold storage
 - Set lifecycle policies to archive or delete stale data
