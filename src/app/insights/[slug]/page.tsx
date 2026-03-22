@@ -47,8 +47,11 @@ function sanitizeUrl(url: string): string {
 }
 
 function renderMarkdown(content: string): string {
-  // Strip any raw HTML tags for safety
-  let html = content.replace(/<[^>]*>/g, "");
+  // Preserve safe block-level HTML (tables, divs) and strip everything else
+  const safeTagPattern = /^(\/?)(?:div|table|thead|tbody|tfoot|tr|th|td|caption|colgroup|col)\b/i;
+  let html = content.replace(/<([^>]*)>/g, (_match, inner) =>
+    safeTagPattern.test(inner.trim()) ? _match : ""
+  );
 
   // Fenced code blocks (```lang ... ```)
   html = html.replace(/^```(\w*)\n([\s\S]*?)^```$/gm, (_match, _lang, code) =>
@@ -89,8 +92,8 @@ function renderMarkdown(content: string): string {
   // Horizontal rules
   html = html.replace(/^---$/gm, '<hr class="my-8 border-white/10" />');
 
-  // Paragraphs (lines not already wrapped in block elements)
-  html = html.replace(/^(?!<[hluopbc])((?!^$).+)$/gm, '<p class="mb-4 text-gray-400 leading-relaxed">$1</p>');
+  // Paragraphs (lines not already wrapped in block or table elements)
+  html = html.replace(/^(?!\s*<[hluopbc]|\s*<\/?(?:div|table|thead|tbody|tfoot|tr|th|td|caption)\b)((?!^$).+)$/gm, '<p class="mb-4 text-gray-400 leading-relaxed">$1</p>');
 
   // Wrap adjacent <li> in <ul>
   html = html.replace(/(<li[^>]*>.*<\/li>\n?)+/g, '<ul class="my-4 space-y-2">$&</ul>');

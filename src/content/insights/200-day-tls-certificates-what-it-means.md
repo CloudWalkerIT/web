@@ -90,17 +90,46 @@ We are not affiliated with KrakenKey, but their approach aligns well with the ki
 
 If you manage TLS certificates for any environment, the March 15 deadline is an opportunity to audit your current process:
 
-1. **Inventory your certificates.** Know every certificate in your infrastructure, where it's installed, and when it expires. If you cannot answer this question in under five minutes, that is the first problem to solve.
-
-2. **Identify manual processes.** Any certificate that requires a human to log in and run commands is a future outage waiting to happen at 47-day lifetimes.
-
-3. **Automate issuance.** If you are not already using ACME or an equivalent, start there. This is table stakes.
-
-4. **Add monitoring and alerting.** Automated issuance without verification is a false sense of security. You need to know when renewals fail, not discover it from a user report.
-
-5. **Evaluate lifecycle tooling.** Whether that is KrakenKey, an enterprise CLM platform, or a custom integration built on your existing stack, the key is closing the gap between issuance and management.
-
-6. **Plan for 47 days, not 200.** The 200-day limit is the gentle introduction. March 2027 brings 100-day certs, just twelve months away. Design your automation for the 2029 endpoint now so you are not scrambling through two more migration cycles.
+<div class="my-6 overflow-x-auto rounded-xl border border-white/10 bg-dark-800/50">
+  <table class="w-full text-left text-sm table-fixed">
+    <colgroup>
+      <col class="w-1/4" />
+      <col class="w-3/4" />
+    </colgroup>
+    <thead>
+      <tr class="border-b border-white/10 bg-dark-700/50">
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Action</th>
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Details</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5">
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Inventory your certificates</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Know every certificate in your infrastructure, where it's installed, and when it expires. If you cannot answer this question in under five minutes, that is the first problem to solve.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Identify manual processes</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Any certificate that requires a human to log in and run commands is a future outage waiting to happen at 47-day lifetimes.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Automate issuance</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">If you are not already using ACME or an equivalent, start there. This is table stakes.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Add monitoring and alerting</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Automated issuance without verification is a false sense of security. You need to know when renewals fail, not discover it from a user report.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Evaluate lifecycle tooling</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Whether that is KrakenKey, an enterprise CLM platform, or a custom integration built on your existing stack, the key is closing the gap between issuance and management.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Plan for 47 days, not 200</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">The 200-day limit is the gentle introduction. March 2027 brings 100-day certs, just twelve months away. Design your automation for the 2029 endpoint now so you are not scrambling through two more migration cycles.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## The Bottom Line
 
