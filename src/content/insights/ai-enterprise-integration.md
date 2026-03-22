@@ -17,9 +17,34 @@ AI tooling has caught up to the hype. Enterprises are moving past proof-of-conce
 
 Not every process benefits equally from AI. Focus on:
 
-- **High volume, repetitive tasks.** Document processing, data extraction, classification
-- **Complex pattern recognition.** Fraud detection, anomaly monitoring, predictive maintenance
-- **Knowledge synthesis.** Research summarization, market intelligence, customer insights
+<div class="my-6 overflow-x-auto rounded-xl border border-white/10 bg-dark-800/50">
+  <table class="w-full text-left text-sm table-fixed">
+    <colgroup>
+      <col class="w-1/4" />
+      <col class="w-3/4" />
+    </colgroup>
+    <thead>
+      <tr class="border-b border-white/10 bg-dark-700/50">
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Use Case</th>
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Examples</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5">
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">High volume, repetitive tasks</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Document processing, data extraction, classification</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Complex pattern recognition</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Fraud detection, anomaly monitoring, predictive maintenance</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Knowledge synthesis</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Research summarization, market intelligence, customer insights</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Phase 2: Data Readiness Assessment
 
@@ -33,9 +58,34 @@ AI is only as good as its data foundation:
 
 Choose the right deployment pattern:
 
-- **API-based integration.** Use hosted models for rapid deployment
-- **Fine-tuned models.** Customize pre-trained models for domain-specific tasks
-- **Edge deployment.** Run inference on-premise for latency-sensitive or air-gapped environments
+<div class="my-6 overflow-x-auto rounded-xl border border-white/10 bg-dark-800/50">
+  <table class="w-full text-left text-sm table-fixed">
+    <colgroup>
+      <col class="w-1/4" />
+      <col class="w-3/4" />
+    </colgroup>
+    <thead>
+      <tr class="border-b border-white/10 bg-dark-700/50">
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Pattern</th>
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">When to Use</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5">
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">API-based integration</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Use hosted models for rapid deployment</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Fine-tuned models</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Customize pre-trained models for domain-specific tasks</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Edge deployment</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Run inference on-premise for latency-sensitive or air-gapped environments</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Phase 4: Production Hardening
 

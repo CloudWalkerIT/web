@@ -79,17 +79,46 @@ Across the organizations we work with, the same failure modes come up repeatedly
 
 If you are at Stage 1 or 2 and want to move toward platform engineering without a year-long initiative, here is a sequence that works:
 
-1. **Audit developer friction.** Ask your teams: what takes the longest when you need to ship a new feature end-to-end? Where do you get stuck waiting? The answers will cluster around a few pain points. Those are your roadmap.
-
-2. **Pick one golden path.** Choose the single most common workflow and build an opinionated, fully supported path for it. For most teams, this is "deploy a new service to production." Define what good looks like (CI, observability, security scanning, all pre-configured) and make it one command or one PR.
-
-3. **Assign ownership.** Someone has to own the golden path as a product. This can be a single engineer initially. It does not need to be a full team on day one. What matters is that someone's job is making this path better over time, not just building it and walking away.
-
-4. **Measure adoption and satisfaction.** Track how many teams use the golden path versus rolling their own. Survey developer satisfaction quarterly. If adoption is low, you have a product problem, not a compliance problem. Fix the product.
-
-5. **Expand incrementally.** Once the first golden path has strong adoption, pick the next highest-friction workflow and repeat. Resist the urge to build a portal or service catalog before you have multiple golden paths worth cataloging.
-
-6. **Formalize the team when the workload justifies it.** Once you are maintaining three or more golden paths, you have enough surface area to justify a dedicated platform team with its own roadmap and stakeholder communication.
+<div class="my-6 overflow-x-auto rounded-xl border border-white/10 bg-dark-800/50">
+  <table class="w-full text-left text-sm table-fixed">
+    <colgroup>
+      <col class="w-1/4" />
+      <col class="w-3/4" />
+    </colgroup>
+    <thead>
+      <tr class="border-b border-white/10 bg-dark-700/50">
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Step</th>
+        <th class="px-4 py-3 font-semibold text-white sm:px-6">Details</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5">
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Audit developer friction</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Ask your teams: what takes the longest when you need to ship a new feature end-to-end? Where do you get stuck waiting? The answers will cluster around a few pain points. Those are your roadmap.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Pick one golden path</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Choose the single most common workflow and build an opinionated, fully supported path for it. For most teams, this is "deploy a new service to production." Define what good looks like (CI, observability, security scanning, all pre-configured) and make it one command or one PR.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Assign ownership</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Someone has to own the golden path as a product. This can be a single engineer initially. It does not need to be a full team on day one. What matters is that someone's job is making this path better over time, not just building it and walking away.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Measure adoption and satisfaction</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Track how many teams use the golden path versus rolling their own. Survey developer satisfaction quarterly. If adoption is low, you have a product problem, not a compliance problem. Fix the product.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Expand incrementally</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Once the first golden path has strong adoption, pick the next highest-friction workflow and repeat. Resist the urge to build a portal or service catalog before you have multiple golden paths worth cataloging.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-3 font-medium text-white sm:px-6 align-top">Formalize the team</td>
+        <td class="px-4 py-3 text-gray-400 sm:px-6">Once you are maintaining three or more golden paths, you have enough surface area to justify a dedicated platform team with its own roadmap and stakeholder communication.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## The Bottom Line
 
