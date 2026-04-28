@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import { getAllInsights } from "@/lib/insights";
 
 export const metadata: Metadata = {
-  title: "Market Insights",
+  title: "Insights",
   description:
     "Expert analysis on cloud computing, AI, cybersecurity, and digital transformation trends from the Cloudwalker IT team.",
 };
@@ -17,7 +17,7 @@ export default function InsightsPage() {
       <Section>
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Market Insights
+            Insights
           </p>
           <h1 className="mt-2 text-4xl font-bold">
             Analysis & Thought Leadership

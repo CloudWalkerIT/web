@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
   description:
-    "Cloud infrastructure, AI-driven insights, and digital transformation for modern enterprises. Discover Atomatize and our managed IT services.",
+    "Cloud infrastructure, insights, and digital transformation for modern enterprises. Discover Atomatize and our managed IT services.",
 };
 
 const features = [
@@ -59,7 +59,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-            We architect modern cloud infrastructure, deploy AI-driven analytics, and deliver the digital transformation your business needs to lead.
+            We architect modern cloud infrastructure, deliver insights, and drive the digital transformation your business needs to lead.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -72,7 +72,7 @@ export default function HomePage() {
               href="/products/"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-cloud-400/50 hover:text-cloud-400"
             >
-              Explore Atomatize
+              Explore Products
             </Link>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function HomePage() {
           </p>
           <h2 className="mt-2 text-3xl font-bold">End-to-End IT Excellence</h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            From cloud architecture to AI-powered insights, we provide the full spectrum of modern IT services.
+            From cloud architecture to expert insights, we provide the full spectrum of modern IT services.
           </p>
         </div>
 
