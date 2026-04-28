@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 
 const contactInfo = [
   { label: "Email", value: "hello@cloudwalker.it" },
-  { label: "Location", value: "Europe / Remote-First" },
+  { label: "Location", value: "United States / Remote-First" },
   { label: "Response Time", value: "Within 24 hours" },
 ];
 

@@ -10,14 +10,14 @@ export const metadata: Metadata = {
     template: "%s | Cloudwalker IT",
   },
   description:
-    "Cloudwalker IT delivers intelligent cloud infrastructure, AI-driven market insights, and digital transformation solutions for modern enterprises.",
+    "Cloudwalker IT delivers intelligent cloud infrastructure, insights, and digital transformation solutions for modern enterprises.",
   keywords: [
     "cloud infrastructure",
     "IT consulting",
     "AI solutions",
     "digital transformation",
     "Atomatize",
-    "market insights",
+    "insights",
     "managed IT services",
   ],
   authors: [{ name: "Cloudwalker IT" }],
@@ -28,13 +28,20 @@ export const metadata: Metadata = {
     siteName: "Cloudwalker IT",
     title: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
     description:
-      "Intelligent cloud infrastructure, AI-driven market insights, and digital transformation for modern enterprises.",
+      "Intelligent cloud infrastructure, insights, and digital transformation for modern enterprises.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
     description:
-      "Intelligent cloud infrastructure, AI-driven insights, and digital transformation.",
+      "Intelligent cloud infrastructure, insights, and digital transformation.",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,
@@ -48,7 +55,8 @@ const jsonLd = {
   name: "Cloudwalker IT",
   url: "https://cloudwalker.it",
   description:
-    "Intelligent cloud infrastructure, AI-driven market insights, and digital transformation solutions.",
+    "Intelligent cloud infrastructure, insights, and digital transformation solutions.",
+  logo: "https://cloudwalker.it/logo.svg",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
