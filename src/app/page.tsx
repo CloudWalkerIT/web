@@ -31,11 +31,46 @@ const features = [
   },
 ];
 
-const stats = [
-  { value: "Azure", label: "Primary cloud focus" },
-  { value: "AWS", label: "Delivered via 010 Consulting" },
-  { value: "2", label: "Live SaaS products" },
-  { value: "4", label: "Microsoft Expert · CKA · RHCSA" },
+const artifacts: Array<{
+  name: string;
+  desc: string;
+  badge: string;
+  href: string;
+  external: boolean;
+  accentClass: string;
+}> = [
+  {
+    name: "KrakenKey",
+    desc: "TLS certificate automation — one-time DNS setup, then 4-minute renewals.",
+    badge: "Live SaaS",
+    href: "https://krakenkey.io",
+    external: true,
+    accentClass: "text-accent-400",
+  },
+  {
+    name: "Atomatize",
+    desc: "AI content repurposing — long-form into platform-ready posts.",
+    badge: "Live SaaS",
+    href: "https://atomatize.com",
+    external: true,
+    accentClass: "text-electric-400",
+  },
+  {
+    name: "010 Consulting",
+    desc: "AWS delivery partner. Joint engagements when work demands deep AWS.",
+    badge: "Delivery partner",
+    href: "/contact/",
+    external: false,
+    accentClass: "text-cloud-400",
+  },
+  {
+    name: "Certified Expert",
+    desc: "Azure DevOps Expert · Solutions Architect Expert · CKA · RHCSA.",
+    badge: "Engineer credentials",
+    href: "/about/",
+    external: false,
+    accentClass: "text-cloud-400",
+  },
 ];
 
 export default function HomePage() {
@@ -78,15 +113,37 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Stats */}
+      {/* Proof — things I've shipped, partners, credentials */}
       <Section className="border-y border-white/5 bg-dark-800/50">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-bold text-cloud-400">{stat.value}</p>
-              <p className="mt-1 text-sm text-gray-500">{stat.label}</p>
-            </div>
-          ))}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {artifacts.map((a) => {
+            const inner = (
+              <>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+                  {a.badge}
+                </p>
+                <p className={`mt-3 text-lg font-bold ${a.accentClass}`}>{a.name}</p>
+                <p className="mt-2 text-sm text-gray-400">{a.desc}</p>
+              </>
+            );
+            const cardClass =
+              "block rounded-xl border border-white/5 bg-dark-900/40 p-6 transition hover:border-white/20 hover:bg-dark-800/60";
+            return a.external ? (
+              <a
+                key={a.name}
+                href={a.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cardClass}
+              >
+                {inner}
+              </a>
+            ) : (
+              <Link key={a.name} href={a.href} className={cardClass}>
+                {inner}
+              </Link>
+            );
+          })}
         </div>
       </Section>
 
