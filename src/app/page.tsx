@@ -85,29 +85,29 @@ export default function HomePage() {
 
         <div className="py-20 text-center lg:py-32">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Intelligent IT Solutions
+            Azure cloud engineering
           </p>
           <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Walk Above the Clouds.{" "}
+            Cloud platforms,{" "}
             <span className="bg-gradient-to-r from-cloud-400 to-electric-400 bg-clip-text text-transparent">
-              Transform Your IT.
+              built by the engineer who&apos;ll run them
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-            We architect modern cloud infrastructure, deliver insights, and drive the digital transformation your business needs to lead.
+            I&apos;m Luke Wilkinson. Cloudwalker IT is my solo cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. I also build and operate two SaaS products of my own (KrakenKey and Atomatize), so the patterns I ship to clients are ones I run in production myself.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact/"
               className="rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-600"
             >
-              Get Started
+              Start a conversation
             </Link>
             <Link
               href="/products/"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-cloud-400/50 hover:text-cloud-400"
             >
-              Explore Products
+              See the products
             </Link>
           </div>
         </div>
@@ -176,15 +176,15 @@ export default function HomePage() {
       {/* CTA */}
       <Section className="bg-gradient-to-br from-dark-800 to-dark-900">
         <div className="rounded-2xl border border-white/5 bg-dark-700/30 p-12 text-center">
-          <h2 className="text-3xl font-bold">Ready to Transform Your IT?</h2>
+          <h2 className="text-3xl font-bold">Want to talk?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Let&apos;s discuss how Cloudwalker IT can modernize your infrastructure and unlock new growth.
+            Tell me about the problem you&apos;re trying to solve. If I&apos;m a good fit, I&apos;ll say so. If not, I&apos;ll point you at someone better suited.
           </p>
           <Link
             href="/contact/"
             className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-600"
           >
-            Schedule a Consultation
+            Send me a note
           </Link>
         </div>
       </Section>
