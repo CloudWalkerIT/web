@@ -97,11 +97,18 @@ wrangler pages deploy out --project-name=cloudwalker-it
 
 ### Contact Form (Production)
 
-The contact form submits to `/api/contact`. For static export, configure one of:
+The form POSTs to `/api/contact`, implemented as a Cloudflare Pages Function at `functions/api/contact.ts` that sends mail via [Resend](https://resend.com).
 
-- **Cloudflare Workers**: Create a Worker to handle form submissions (email via Mailchannels, store in KV/D1)
-- **External service**: Use Formspree, Getform, or similar — update the form action URL in `src/app/contact/page.tsx`
-- **Fallback**: The form automatically falls back to `mailto:` if the API is unavailable
+To enable real form submissions:
+
+1. Sign up at resend.com (free tier: 100 emails/day, 3000/month).
+2. Add `cloudwalker.it` as a domain and complete DNS verification (3 records).
+3. Generate an API key in the Resend dashboard.
+4. In the Cloudflare Pages project: **Settings → Environment variables** → add `RESEND_API_KEY` (Production scope) with the value from step 3.
+5. Optional: override `CONTACT_FROM` (default `Cloudwalker IT <contact@cloudwalker.it>`) and `CONTACT_TO` (default `hello@cloudwalker.it`) the same way.
+6. Redeploy.
+
+If `RESEND_API_KEY` is missing or Resend rejects the request, the function returns a non-2xx response and the client falls back to opening a `mailto:hello@cloudwalker.it` link with the form contents prefilled — so the form keeps working even without Resend configured.
 
 ## SEO Features
 
