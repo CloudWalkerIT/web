@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Cloudwalker IT offers cloud infrastructure, AI & automation, cybersecurity, DevOps, and managed IT services for enterprises.",
+    "Cloudwalker IT offers cloud infrastructure, managed Terraform, AI & automation, cybersecurity, DevOps, and managed IT services for enterprises.",
 };
 
 const services = [
@@ -47,6 +47,16 @@ const services = [
       "Kubernetes & container orchestration",
       "Internal developer platforms & golden paths",
       "Observability (Prometheus, Grafana, OpenTelemetry)",
+    ],
+  },
+  {
+    title: "Managed Terraform",
+    desc: "We run your Terraform end-to-end — pipelines, state, drift, and policy — so your engineers ship features instead of fighting provider quirks.",
+    details: [
+      "Terraform pipeline operation & module development",
+      "Remote state management with disaster recovery",
+      "Drift detection & automated remediation",
+      "Policy-as-code (OPA, Sentinel) & compliance gates",
     ],
   },
   {
