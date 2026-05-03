@@ -41,8 +41,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Connect</h3>
             <ul className="mt-3 space-y-2">
-              <li><a href="https://linkedin.com/company/cloudwalker-it" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-cloud-400">LinkedIn</a></li>
-              <li><a href="https://github.com/cloudwalker-it" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-cloud-400">GitHub</a></li>
+              <li><a href="mailto:hello@cloudwalker.it" className="text-sm text-gray-500 hover:text-cloud-400">hello@cloudwalker.it</a></li>
+              {/* TODO: add real LinkedIn / GitHub URLs when confirmed —
+                  the previous linkedin.com/company/cloudwalker-it and
+                  github.com/cloudwalker-it links were placeholders. */}
             </ul>
           </div>
         </div>
