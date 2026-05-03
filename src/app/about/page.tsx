@@ -104,7 +104,7 @@ export default function AboutPage() {
               Approach
             </p>
             <h2 className="mt-2 text-3xl font-bold">
-              A boutique cloud engineering practice
+              Senior engineering, kept close to delivery
             </h2>
             <p className="mt-4 text-gray-400">
               Each engagement at Cloudwalker IT is led by a senior engineer who remains directly involved from initial scoping through production delivery. No intermediate project management layer, no rotating account team — architectural decisions are made by the same people who will operate the result.

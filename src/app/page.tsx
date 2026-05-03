@@ -89,7 +89,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-            Cloudwalker IT is a boutique cloud engineering practice — Azure-first, with AWS delivered through our 010 Consulting partnership. We also build and operate KrakenKey and Atomatize, so the patterns we recommend are ones we already use in production.
+            Cloudwalker IT is a senior cloud engineering practice — Azure delivery in-house, AWS through our 010 Consulting partnership. We also build and operate KrakenKey and Atomatize, so the patterns we recommend are ones we already use in production.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
