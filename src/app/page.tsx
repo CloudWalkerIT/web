@@ -3,31 +3,26 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
-  title: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
+  title: "Cloudwalker IT — Senior Azure Cloud Engineering",
   description:
-    "Cloud infrastructure, insights, and digital transformation for modern enterprises. Discover Atomatize and our managed IT services.",
+    "Senior cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
 };
 
-const features = [
+const homeServices = [
   {
-    icon: "☁️",
-    title: "Cloud Infrastructure",
-    desc: "Scalable, secure cloud architectures on AWS, Azure, and GCP — with managed Terraform, migration, and 24/7 operations.",
+    kicker: "Primary practice",
+    title: "Azure Cloud Engineering",
+    desc: "Architecture, migration, FinOps, and operations on Azure — anchored by Solutions Architect Expert and DevOps Engineer Expert credentials.",
   },
   {
-    icon: "🤖",
-    title: "AI & Automation",
-    desc: "Harness machine learning and intelligent automation to streamline operations and unlock actionable insights from your data.",
+    kicker: "Partnership offering",
+    title: "AWS — with 010 Consulting",
+    desc: "Joint engagements: Cloudwalker IT leads, 010 brings AWS-specialist hands. One contact, two firms' depth.",
   },
   {
-    icon: "🛡️",
-    title: "Cybersecurity",
-    desc: "Zero-trust security frameworks, threat detection, and compliance-ready infrastructure to protect your digital assets.",
-  },
-  {
-    icon: "📊",
-    title: "Market Intelligence",
-    desc: "AI-powered content repurposing that transforms long-form content into platform-ready social media posts through our Atomatize platform.",
+    kicker: "Cross-cloud capability",
+    title: "Platform Engineering & Managed Terraform",
+    desc: "Pipelines, modules, state, drift detection. AKS and EKS clusters. CI/CD with GitHub Actions and Azure DevOps.",
   },
 ];
 
@@ -147,29 +142,43 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Features */}
+      {/* Services overview */}
       <Section>
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
-            What We Do
+            What we do
           </p>
-          <h2 className="mt-2 text-3xl font-bold">End-to-End IT Excellence</h2>
+          <h2 className="mt-2 text-3xl font-bold">Three focused services</h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            From cloud architecture to expert insights, we provide the full spectrum of modern IT services.
+            Azure architecture and operations as the primary practice. AWS delivered jointly with 010 Consulting. Platform engineering and Managed Terraform across both clouds.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/20 hover:bg-dark-700/50"
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {homeServices.map((s) => (
+            <Link
+              key={s.title}
+              href="/services/"
+              className="group flex flex-col rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/30 hover:bg-dark-700/50"
             >
-              <div className="text-3xl">{f.icon}</div>
-              <h3 className="mt-4 text-lg font-semibold">{f.title}</h3>
-              <p className="mt-2 text-sm text-gray-400">{f.desc}</p>
-            </div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-cloud-400">
+                {s.kicker}
+              </p>
+              <h3 className="mt-2 text-lg font-semibold transition group-hover:text-cloud-400">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-sm text-gray-400">{s.desc}</p>
+            </Link>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/services/"
+            className="text-sm font-medium text-cloud-400 transition hover:text-cloud-300"
+          >
+            See all services →
+          </Link>
         </div>
       </Section>
 
