@@ -11,20 +11,20 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    title: "Innovation First",
-    desc: "We stay ahead of the technology curve, continuously exploring emerging tools and methodologies to deliver cutting-edge solutions.",
+    title: "Direct work",
+    desc: "The engineer designing your platform is the engineer typing the Terraform. No discovery decks, no SOW theatre, no rotating account team.",
   },
   {
-    title: "Client Partnership",
-    desc: "We don't just deliver projects — we build lasting partnerships. Your success is our success, and we're invested in your long-term growth.",
+    title: "Right cloud for the job",
+    desc: "Azure-first because that's my depth. AWS through 010 Consulting because they're better at AWS than I'd be alone. No upselling you to whichever cloud pays the highest partner margin.",
   },
   {
-    title: "Engineering Excellence",
-    desc: "Quality is non-negotiable. Every solution we deliver is built with robust architecture, clean code, and comprehensive testing.",
+    title: "Operator empathy",
+    desc: "I run KrakenKey and Atomatize as production systems with my name on them. The patterns I ship to your stack are patterns I'd be willing to run myself.",
   },
   {
-    title: "Transparent Operations",
-    desc: "No black boxes. We operate with full transparency — clear communication, honest timelines, and open documentation.",
+    title: "Work that fits",
+    desc: "Most engagements start small and grow if the fit is right. If a project isn't a good fit for a solo practice, I'll say so and point you somewhere better.",
   },
 ];
 
@@ -104,13 +104,13 @@ export default function AboutPage() {
       <Section>
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            About Us
+            About
           </p>
           <h1 className="mt-2 text-4xl font-bold">
-            Walking Above the Clouds Since Day One
+            One engineer. One practice. Two products in market.
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Cloudwalker IT was founded on a simple belief: enterprise technology should empower, not constrain. We combine deep technical expertise with strategic thinking to deliver IT solutions that drive real transformation.
+            Cloudwalker IT is the cloud engineering practice of Luke Wilkinson — Microsoft-certified senior engineer, Azure-focused, with an AWS delivery partnership through 010 Consulting. The same person you talk to is the person doing the work.
           </p>
         </div>
       </Section>
@@ -120,16 +120,16 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
-              Our Mission
+              How I work
             </p>
             <h2 className="mt-2 text-3xl font-bold">
-              Empowering Enterprises Through Intelligent Technology
+              Senior engineering without the agency overhead
             </h2>
             <p className="mt-4 text-gray-400">
-              We exist to bridge the gap between where enterprise IT is and where it needs to be. Through cloud-native architecture, artificial intelligence, and relentless focus on outcomes, we help organizations operate faster, smarter, and more securely.
+              Most cloud consulting tucks senior engineers behind layers of project managers, sales engineers, and rotating account teams. By the time something gets built, the people designing it are three steps from the keyboard. I run Cloudwalker IT solo specifically to remove those layers — the conversation you have is the conversation that becomes the architecture.
             </p>
             <p className="mt-4 text-gray-400">
-              Our approach is rooted in pragmatism: we choose the right tool for the job, not the trendiest. Whether that means deploying a cutting-edge LLM pipeline or optimizing a legacy system, we deliver measurable results.
+              I focus on Azure because that&apos;s where I have the most depth. AWS work goes through 010 Consulting because they have AWS specialists I&apos;d rather partner with than pretend to be. And I keep building my own SaaS — KrakenKey and Atomatize — because operating production systems I own keeps me honest about what actually works at 3 a.m.
             </p>
           </div>
           <div className="rounded-xl border border-white/5 bg-dark-700/30 p-8">
@@ -246,9 +246,9 @@ export default function AboutPage() {
       <Section className="bg-dark-800/30">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Our Values
+            Operating principles
           </p>
-          <h2 className="mt-2 text-3xl font-bold">What Drives Us</h2>
+          <h2 className="mt-2 text-3xl font-bold">Four things I won&apos;t compromise on</h2>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
           {values.map((v) => (
@@ -287,15 +287,15 @@ export default function AboutPage() {
       {/* CTA */}
       <Section>
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Join Our Journey</h2>
+          <h2 className="text-3xl font-bold">Want to work together?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Whether you&apos;re looking to partner with us or join our team, we&apos;d love to hear from you.
+            Most engagements start with a short conversation. Tell me what you&apos;re trying to do and I&apos;ll tell you whether I&apos;m the right fit.
           </p>
           <Link
             href="/contact/"
             className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-600"
           >
-            Get in Touch
+            Get in touch
           </Link>
         </div>
       </Section>
