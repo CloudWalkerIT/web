@@ -5,8 +5,8 @@ import Section from "@/components/Section";
 
 const contactInfo = [
   { label: "Email", value: "hello@cloudwalker.it" },
-  { label: "Location", value: "United States / Remote-First" },
-  { label: "Response Time", value: "Within 24 hours" },
+  { label: "Location", value: "United States — remote engagements" },
+  { label: "Response time", value: "Within one business day" },
 ];
 
 export default function ContactPage() {
@@ -61,11 +61,11 @@ export default function ContactPage() {
       <Section>
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Contact Us
+            Contact
           </p>
-          <h1 className="mt-2 text-4xl font-bold">Let&apos;s Build Something Great</h1>
+          <h1 className="mt-2 text-4xl font-bold">Get in touch</h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Ready to transform your IT infrastructure? Have a question about Atomatize? We&apos;re here to help.
+            Tell us about an engagement you are considering, ask about KrakenKey or Atomatize, or use the form to start a conversation. We respond within one business day.
           </p>
         </div>
       </Section>
@@ -76,9 +76,9 @@ export default function ContactPage() {
           <div className="lg:col-span-3">
             {submitted ? (
               <div className="rounded-xl border border-accent-400/20 bg-accent-400/5 p-8 text-center">
-                <p className="text-2xl font-bold text-accent-400">Thank You!</p>
+                <p className="text-2xl font-bold text-accent-400">Thank you.</p>
                 <p className="mt-2 text-gray-400">
-                  We&apos;ve received your message and will get back to you within 24 hours.
+                  Your message has reached us. We will respond within one business day.
                 </p>
               </div>
             ) : (
@@ -172,7 +172,7 @@ export default function ContactPage() {
           {/* Info */}
           <div className="lg:col-span-2">
             <div className="rounded-xl border border-white/5 bg-dark-800/50 p-8">
-              <h2 className="text-lg font-semibold">Get in Touch</h2>
+              <h2 className="text-lg font-semibold">Contact details</h2>
               <div className="mt-6 space-y-6">
                 {contactInfo.map((info) => (
                   <div key={info.label}>
@@ -185,25 +185,25 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 border-t border-white/5 pt-8">
-                <h3 className="text-sm font-semibold text-gray-300">What happens next?</h3>
+                <h3 className="text-sm font-semibold text-gray-300">What happens next</h3>
                 <ol className="mt-4 space-y-3">
                   <li className="flex gap-3 text-sm text-gray-400">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cloud-500/10 text-xs font-bold text-cloud-400">
                       1
                     </span>
-                    We review your inquiry within 24 hours
+                    We review your inquiry within one business day.
                   </li>
                   <li className="flex gap-3 text-sm text-gray-400">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cloud-500/10 text-xs font-bold text-cloud-400">
                       2
                     </span>
-                    A specialist schedules a discovery call
+                    A short call to understand the problem.
                   </li>
                   <li className="flex gap-3 text-sm text-gray-400">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cloud-500/10 text-xs font-bold text-cloud-400">
                       3
                     </span>
-                    We deliver a tailored proposal
+                    A scoped proposal if it is a fit, or a referral if it is not.
                   </li>
                 </ol>
               </div>

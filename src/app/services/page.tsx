@@ -88,9 +88,9 @@ export default function ServicesPage() {
 
       <Section className="bg-dark-800/30">
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Not sure which fits?</h2>
+          <h2 className="text-3xl font-bold">Unsure which service fits?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Most projects start with a short call. Tell us about the problem and we&apos;ll either scope something or point you at someone better suited.
+            Engagements typically start with a short call to understand what you are building. If our services can address it, we will scope an engagement. If not, we will point you toward a practice better suited.
           </p>
           <Link
             href="/contact/"
