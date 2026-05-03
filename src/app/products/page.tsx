@@ -10,28 +10,28 @@ export const metadata: Metadata = {
 
 const atomatizeFeatures = [
   {
-    title: "Content Atomization",
-    desc: "Transform long-form articles, podcasts, and videos into dozens of platform-ready social media posts using AI-powered content repurposing.",
+    title: "Twelve outputs per source",
+    desc: "Each piece of source content — a blog post, article, or newsletter — becomes twelve ready-to-use assets in seconds: LinkedIn posts, X/Twitter posts, a thread, an email block, and a long-form article.",
   },
   {
-    title: "Multi-Platform Output",
-    desc: "Generate tailored content for Twitter/X, LinkedIn, Instagram, TikTok, and more — each optimized for the platform's format and audience.",
+    title: "Trained on your voice",
+    desc: "Atomatize is trained on your writing style, so every output reads in your voice rather than as generic AI prose. Manage multiple voice profiles per account.",
   },
   {
-    title: "Brand Voice Consistency",
-    desc: "AI maintains your unique brand voice and tone across every piece of repurposed content, ensuring cohesive messaging at scale.",
+    title: "LinkedIn variations",
+    desc: "Four LinkedIn takes from every source — story, contrarian, tip, and discussion — so you can pick the angle that fits the audience and discard the rest.",
   },
   {
-    title: "Smart Scheduling",
-    desc: "Queue and schedule repurposed content across platforms with intelligent timing recommendations for maximum engagement.",
+    title: "X / Twitter coverage",
+    desc: "Five standalone X/Twitter post variants per source (insight, tip, hot take, quote, question) plus a six-tweet narrative thread, each tailored to platform format.",
   },
   {
-    title: "Analytics Dashboard",
-    desc: "Track performance of repurposed content across all platforms with unified analytics and actionable insights.",
+    title: "Long-form & email",
+    desc: "A 600–800 word article ready for blog publication, plus an email newsletter block formatted for any ESP — generated alongside the social outputs from the same source.",
   },
   {
-    title: "API-First Architecture",
-    desc: "RESTful APIs and webhooks let you integrate Atomatize into your existing workflows and content pipelines seamlessly.",
+    title: "No setup overhead",
+    desc: "Paste source content; receive twelve outputs in seconds. No prompt engineering, no template tweaking, no copying back and forth from a chatbot.",
   },
 ];
 
@@ -40,11 +40,10 @@ const atomatizeTiers = [
     name: "Creator",
     price: "$19/mo",
     features: [
-      "5 source content pieces/month",
-      "All text output types (12 per piece)",
+      "5 source pieces per month",
+      "12 outputs per piece",
       "1 brand voice profile",
       "Copy-to-clipboard",
-      "Email support",
     ],
   },
   {
@@ -52,10 +51,9 @@ const atomatizeTiers = [
     price: "$49/mo",
     popular: true,
     features: [
-      "20 source content pieces/month",
-      "All text output types (12 per piece)",
+      "20 source pieces per month",
+      "12 outputs per piece",
       "2 brand voice profiles",
-      "Social publishing & scheduling",
       "Priority email support",
     ],
   },
@@ -63,10 +61,9 @@ const atomatizeTiers = [
     name: "Scale",
     price: "$149/mo",
     features: [
-      "Unlimited source content/month",
-      "All text output types (12 per piece)",
+      "Unlimited source content per month",
+      "12 outputs per piece",
       "5 brand voice profiles",
-      "Social publishing & scheduling",
       "24-hour email support",
     ],
   },
@@ -238,7 +235,7 @@ export default function ProductsPage() {
             Atom<span className="text-electric-400">atize</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            AI-powered content repurposing that transforms long-form content into platform-ready social media posts — automatically.
+            Paste a blog post, article, or newsletter; receive twelve platform-ready outputs in your voice in seconds — LinkedIn variations, X/Twitter posts, a thread, an email block, and a long-form article.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
