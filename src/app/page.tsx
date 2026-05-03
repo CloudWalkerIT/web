@@ -85,11 +85,11 @@ export default function HomePage() {
           <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             Cloud platforms,{" "}
             <span className="bg-gradient-to-r from-cloud-400 to-electric-400 bg-clip-text text-transparent">
-              built by the engineer who&apos;ll run them
+              designed and operated by the same hands
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-            Cloudwalker IT is a senior cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. We also build and operate two SaaS products of our own (KrakenKey and Atomatize), so the patterns we ship to clients are ones we run in production ourselves.
+            Cloudwalker IT is a boutique cloud engineering practice — Azure-first, with AWS delivered through our 010 Consulting partnership. We also build and operate KrakenKey and Atomatize, so the patterns we recommend are ones we already use in production.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -185,15 +185,15 @@ export default function HomePage() {
       {/* CTA */}
       <Section className="bg-gradient-to-br from-dark-800 to-dark-900">
         <div className="rounded-2xl border border-white/5 bg-dark-700/30 p-12 text-center">
-          <h2 className="text-3xl font-bold">Want to talk?</h2>
+          <h2 className="text-3xl font-bold">Begin a conversation</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Tell us about the problem you&apos;re trying to solve. If we&apos;re a good fit, we&apos;ll say so. If not, we&apos;ll point you toward someone better suited.
+            Engagements typically start with a short call to understand the problem. If our practice is the right fit, we will say so. If not, we will recommend someone better suited.
           </p>
           <Link
             href="/contact/"
             className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-600"
           >
-            Send a note
+            Get in touch
           </Link>
         </div>
       </Section>
