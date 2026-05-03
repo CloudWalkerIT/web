@@ -14,7 +14,7 @@
   --color-electric-600: #7c3aed;
   --color-accent-400: #34d399;
   --color-accent-500: #10b981;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {

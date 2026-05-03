@@ -78,25 +78,6 @@ const credentials = [
   },
 ];
 
-const team = [
-  {
-    name: "Cloud Architecture Team",
-    desc: "Certified architects across AWS, Azure, and GCP who design and deploy infrastructure that scales globally.",
-  },
-  {
-    name: "AI & Data Science Team",
-    desc: "Machine learning engineers and data scientists who build intelligent systems that drive real business outcomes.",
-  },
-  {
-    name: "Security Operations Team",
-    desc: "Cybersecurity experts who protect your assets with zero-trust frameworks and 24/7 threat monitoring.",
-  },
-  {
-    name: "DevOps & Platform Team",
-    desc: "Platform engineers who accelerate delivery with modern CI/CD, containers, and developer experience tooling.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -258,27 +239,6 @@ export default function AboutPage() {
             >
               <h3 className="text-lg font-semibold">{v.title}</h3>
               <p className="mt-2 text-sm text-gray-400">{v.desc}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Teams */}
-      <Section>
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
-            Our Teams
-          </p>
-          <h2 className="mt-2 text-3xl font-bold">Expert Teams, Real Results</h2>
-        </div>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          {team.map((t) => (
-            <div
-              key={t.name}
-              className="rounded-xl border border-white/5 bg-dark-800/50 p-6"
-            >
-              <h3 className="text-lg font-semibold text-cloud-400">{t.name}</h3>
-              <p className="mt-2 text-sm text-gray-400">{t.desc}</p>
             </div>
           ))}
         </div>

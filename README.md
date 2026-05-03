@@ -14,13 +14,13 @@ Production-ready marketing website for [cloudwalker.it](https://cloudwalker.it),
 
 | Route | Description |
 |-------|-------------|
-| `/` | Home — hero, features, stats, CTA |
-| `/services/` | Services — cloud, AI, security, DevOps, managed IT |
-| `/products/` | Products — Atomatize product page with pricing tiers |
+| `/` | Home — hero, artifact proof strip (products + partner + credentials), services overview, CTA |
+| `/services/` | Services — three lines: Azure Cloud Engineering, AWS via 010 Consulting, Platform Engineering & Managed Terraform |
+| `/products/` | Products — Atomatize and KrakenKey, each with feature grid and pricing tiers |
 | `/insights/` | Insights — blog listing |
 | `/insights/[slug]/` | Individual blog post |
-| `/about/` | About — mission, values, teams |
-| `/contact/` | Contact — form with serverless fallback |
+| `/about/` | About — mission, credentials wall (5 verifiable cert badges), operating principles, CTA |
+| `/contact/` | Contact — form posts to `/api/contact` Pages Function (Resend); mailto fallback |
 
 ## Development
 

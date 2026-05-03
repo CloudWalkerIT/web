@@ -12,11 +12,11 @@ export default function Footer() {
               <span>
                 <span className="text-cloud-400">Cloud</span>
                 <span className="text-white">walker</span>
-                <span className="text-electric-400 text-sm">.it</span>
+                <span className="text-gray-500 text-sm">.it</span>
               </span>
             </Link>
             <p className="mt-3 text-sm text-gray-500">
-              Intelligent IT solutions for the modern enterprise. Cloud infrastructure, insights, and digital transformation.
+              Senior Azure cloud engineering. AWS via 010 Consulting. Builders of KrakenKey and Atomatize.
             </p>
           </div>
 
