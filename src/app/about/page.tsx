@@ -16,15 +16,15 @@ const values = [
   },
   {
     title: "Right cloud for the job",
-    desc: "Azure-first because that's my depth. AWS through 010 Consulting because they're better at AWS than I'd be alone. No upselling you to whichever cloud pays the highest partner margin.",
+    desc: "Azure-first because that's our deepest expertise. AWS through 010 Consulting because they're better at AWS than we are alone. No upselling you to whichever cloud pays the highest partner margin.",
   },
   {
     title: "Operator empathy",
-    desc: "I run KrakenKey and Atomatize as production systems with my name on them. The patterns I ship to your stack are patterns I'd be willing to run myself.",
+    desc: "We run KrakenKey and Atomatize as production systems we own. The patterns we ship to your stack are patterns we'd be willing to run ourselves.",
   },
   {
     title: "Work that fits",
-    desc: "Most engagements start small and grow if the fit is right. If a project isn't a good fit for a solo practice, I'll say so and point you somewhere better.",
+    desc: "Most engagements start small and grow if the fit is right. If a project isn't a good fit for our practice, we'll say so and point you somewhere better.",
   },
 ];
 
@@ -107,10 +107,10 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="mt-2 text-4xl font-bold">
-            One engineer. One practice. Two products in market.
+            Cloud engineering, anchored by the SaaS we run ourselves
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Cloudwalker IT is the cloud engineering practice of Luke Wilkinson — Microsoft-certified senior engineer, Azure-focused, with an AWS delivery partnership through 010 Consulting. The same person you talk to is the person doing the work.
+            Cloudwalker IT is a Microsoft-certified Azure cloud engineering practice with an AWS delivery partnership through 010 Consulting. We build and operate two SaaS products of our own, so the production patterns we ship to clients are patterns we already run.
           </p>
         </div>
       </Section>
@@ -120,16 +120,16 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
-              How I work
+              How we work
             </p>
             <h2 className="mt-2 text-3xl font-bold">
               Senior engineering without the agency overhead
             </h2>
             <p className="mt-4 text-gray-400">
-              Most cloud consulting tucks senior engineers behind layers of project managers, sales engineers, and rotating account teams. By the time something gets built, the people designing it are three steps from the keyboard. I run Cloudwalker IT solo specifically to remove those layers — the conversation you have is the conversation that becomes the architecture.
+              Most cloud consulting tucks senior engineers behind layers of project managers, sales engineers, and rotating account teams. By the time something gets built, the people designing it are three steps from the keyboard. Cloudwalker IT runs lean by design, so engagements stay with the same engineer from the first call through delivery — the conversation you have is the conversation that becomes the architecture.
             </p>
             <p className="mt-4 text-gray-400">
-              I focus on Azure because that&apos;s where I have the most depth. AWS work goes through 010 Consulting because they have AWS specialists I&apos;d rather partner with than pretend to be. And I keep building my own SaaS — KrakenKey and Atomatize — because operating production systems I own keeps me honest about what actually works at 3 a.m.
+              Our focus is Azure because that&apos;s where our deepest expertise lives. AWS work goes through 010 Consulting because they have AWS specialists we&apos;d rather partner with than pretend to be. And we keep building our own SaaS — KrakenKey and Atomatize — because operating production systems we own keeps us honest about what actually works at 3 a.m.
             </p>
           </div>
           <div className="rounded-xl border border-white/5 bg-dark-700/30 p-8">
@@ -140,10 +140,10 @@ export default function AboutPage() {
             <div className="mt-5 space-y-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
-                  Operator
+                  Practice
                 </p>
                 <p className="mt-1 text-sm text-gray-300">
-                  Solo principal engineer — the person you talk to is the person doing the work.
+                  Senior cloud engineering — engagements stay with the same engineer from first call through delivery.
                 </p>
               </div>
 
@@ -248,7 +248,7 @@ export default function AboutPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
             Operating principles
           </p>
-          <h2 className="mt-2 text-3xl font-bold">Four things I won&apos;t compromise on</h2>
+          <h2 className="mt-2 text-3xl font-bold">Four things we won&apos;t compromise on</h2>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
           {values.map((v) => (
@@ -289,7 +289,7 @@ export default function AboutPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold">Want to work together?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Most engagements start with a short conversation. Tell me what you&apos;re trying to do and I&apos;ll tell you whether I&apos;m the right fit.
+            Most engagements start with a short conversation. Tell us what you&apos;re trying to do and we&apos;ll tell you whether we&apos;re the right fit.
           </p>
           <Link
             href="/contact/"

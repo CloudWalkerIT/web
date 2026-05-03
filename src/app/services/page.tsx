@@ -23,10 +23,10 @@ const services = [
   {
     title: "AWS — delivered with 010 Consulting",
     kicker: "Partnership offering",
-    desc: "Same outcomes on AWS, delivered jointly with 010 Consulting. You get a single point of contact (me) and the depth of two firms' senior engineers — no agency layers, no rotating account team.",
+    desc: "Same outcomes on AWS, delivered jointly with 010 Consulting. You get a single point of contact and the depth of two firms' senior engineers — no agency layers, no rotating account team.",
     details: [
       "AWS architecture, migration, and ongoing operations",
-      "Joint delivery model: I lead the engagement, 010 brings AWS-specialist hands",
+      "Joint delivery model: Cloudwalker IT leads the engagement, 010 brings AWS-specialist hands",
       "Platform practice (IaC, GitOps, observability) consistent across Azure and AWS",
       "Right-sized for SMB and mid-market — not optimized only for enterprise scale",
     ],
@@ -90,7 +90,7 @@ export default function ServicesPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold">Not sure which fits?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Most projects start with a short call. Tell me about the problem and I&apos;ll either scope something or point you at someone better suited.
+            Most projects start with a short call. Tell us about the problem and we&apos;ll either scope something or point you at someone better suited.
           </p>
           <Link
             href="/contact/"
