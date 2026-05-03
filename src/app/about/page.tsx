@@ -12,19 +12,19 @@ export const metadata: Metadata = {
 const values = [
   {
     title: "Direct work",
-    desc: "The engineer designing your platform is the engineer typing the Terraform. No discovery decks, no SOW theatre, no rotating account team.",
+    desc: "The engineer who designs your platform is the same engineer implementing it. No project management layer between scoping and execution, no rotating account team.",
   },
   {
     title: "Right cloud for the job",
-    desc: "Azure-first because that's our deepest expertise. AWS through 010 Consulting because they're better at AWS than we are alone. No upselling you to whichever cloud pays the highest partner margin.",
+    desc: "Azure is the primary practice; AWS is delivered through our 010 Consulting partnership rather than claimed as in-house depth. Recommendations are based on fit, never on partner margin.",
   },
   {
     title: "Operator empathy",
-    desc: "We run KrakenKey and Atomatize as production systems we own. The patterns we ship to your stack are patterns we'd be willing to run ourselves.",
+    desc: "We build and operate KrakenKey and Atomatize as production systems we own. The patterns we recommend to clients are ones we already use in our own infrastructure.",
   },
   {
     title: "Work that fits",
-    desc: "Most engagements start small and grow if the fit is right. If a project isn't a good fit for our practice, we'll say so and point you somewhere better.",
+    desc: "Engagements typically begin small and expand as the fit becomes clear. When a project is not the right match for our practice, we will say so and point you toward someone better suited.",
   },
 ];
 
@@ -229,7 +229,7 @@ export default function AboutPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
             Operating principles
           </p>
-          <h2 className="mt-2 text-3xl font-bold">Four things we won&apos;t compromise on</h2>
+          <h2 className="mt-2 text-3xl font-bold">Four principles we hold to</h2>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
           {values.map((v) => (
