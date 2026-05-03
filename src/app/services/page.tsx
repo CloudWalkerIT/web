@@ -5,78 +5,41 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Cloudwalker IT offers cloud infrastructure, managed Terraform, AI & automation, cybersecurity, DevOps, and managed IT services for enterprises.",
+    "Three focused cloud engineering services: Azure architecture and operations, AWS delivered jointly with 010 Consulting, and platform engineering with Managed Terraform.",
 };
 
 const services = [
   {
-    title: "Cloud Architecture & Migration",
-    desc: "Design and deploy scalable cloud infrastructure on AWS, Azure, or GCP. We handle full-stack migration with zero downtime and optimized cost.",
+    title: "Azure Cloud Engineering",
+    kicker: "Primary practice",
+    desc: "Design, build, and operate Azure platforms for teams that need senior cloud engineering without a full-time hire. Anchored by Microsoft Azure Solutions Architect Expert and DevOps Engineer Expert credentials.",
     details: [
-      "Multi-cloud & hybrid architecture design",
-      "Lift-and-shift & re-platforming migrations",
-      "Infrastructure as Code (Terraform, Pulumi)",
-      "Cost optimization & FinOps consulting",
+      "Landing zones, hub-and-spoke networking, and Entra ID identity design",
+      "Migration to Azure — IaaS lift-and-shift through PaaS modernization",
+      "FinOps and cost optimization — right-sizing, reservations, policy hygiene",
+      "Production operations, incident response, and on-call coverage",
     ],
   },
   {
-    title: "AI & Intelligent Automation",
-    desc: "Deploy machine learning pipelines, NLP systems, and intelligent process automation to transform raw data into strategic advantage.",
+    title: "AWS — delivered with 010 Consulting",
+    kicker: "Partnership offering",
+    desc: "Same outcomes on AWS, delivered jointly with 010 Consulting. You get a single point of contact (me) and the depth of two firms' senior engineers — no agency layers, no rotating account team.",
     details: [
-      "Custom ML model development & deployment",
-      "Natural language processing & LLM integration",
-      "Robotic process automation (RPA)",
-      "Predictive analytics & forecasting",
+      "AWS architecture, migration, and ongoing operations",
+      "Joint delivery model: I lead the engagement, 010 brings AWS-specialist hands",
+      "Platform practice (IaC, GitOps, observability) consistent across Azure and AWS",
+      "Right-sized for SMB and mid-market — not optimized only for enterprise scale",
     ],
   },
   {
-    title: "Cybersecurity & Compliance",
-    desc: "Protect your digital assets with zero-trust architecture, continuous monitoring, and compliance-ready security frameworks.",
+    title: "Platform Engineering & Managed Terraform",
+    kicker: "Cross-cloud capability",
+    desc: "The platform layer that lets your engineers ship features instead of fighting infrastructure. Anchored by HashiCorp Terraform Associate, Certified Kubernetes Administrator, and RHCSA.",
     details: [
-      "Zero-trust network architecture",
-      "SOC-as-a-Service & SIEM implementation",
-      "Penetration testing & vulnerability assessments",
-      "GDPR, SOC 2, ISO 27001 compliance",
-    ],
-  },
-  {
-    title: "DevOps & Platform Engineering",
-    desc: "Accelerate delivery with CI/CD pipelines, container orchestration, and internal developer platforms built for velocity.",
-    details: [
-      "CI/CD pipeline design (GitHub Actions, GitLab CI)",
-      "Kubernetes & container orchestration",
-      "Internal developer platforms & golden paths",
-      "Observability (Prometheus, Grafana, OpenTelemetry)",
-    ],
-  },
-  {
-    title: "Managed Terraform",
-    desc: "We run your Terraform end-to-end — pipelines, state, drift, and policy — so your engineers ship features instead of fighting provider quirks.",
-    details: [
-      "Terraform pipeline operation & module development",
-      "Remote state management with disaster recovery",
-      "Drift detection & automated remediation",
-      "Policy-as-code (OPA, Sentinel) & compliance gates",
-    ],
-  },
-  {
-    title: "Managed IT Operations",
-    desc: "24/7 monitoring, incident response, and proactive maintenance so you can focus on building your business.",
-    details: [
-      "24/7 infrastructure monitoring & alerting",
-      "Incident response & escalation management",
-      "Patch management & system updates",
-      "SLA-backed uptime guarantees",
-    ],
-  },
-  {
-    title: "Data Engineering & Analytics",
-    desc: "Build modern data platforms that turn siloed information into real-time insights and competitive intelligence.",
-    details: [
-      "Data lake & warehouse architecture",
-      "ETL/ELT pipeline development",
-      "Real-time streaming analytics",
-      "Business intelligence & dashboarding",
+      "Managed Terraform — pipelines, modules, state management, drift detection, automated remediation",
+      "Kubernetes platform engineering — AKS, EKS, and on-prem clusters",
+      "CI/CD with GitHub Actions and Azure DevOps Pipelines",
+      "Policy-as-code (OPA, Sentinel) and self-service developer platforms",
     ],
   },
 ];
@@ -87,30 +50,33 @@ export default function ServicesPage() {
       <Section>
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Our Services
+            Services
           </p>
           <h1 className="mt-2 text-4xl font-bold">
-            Enterprise IT, Reimagined
+            Cloud engineering, end to end
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            We deliver comprehensive IT solutions that scale with your ambition. From cloud infrastructure to AI-powered automation, every service is engineered for performance.
+            Three focused services from a senior cloud engineer — no agency layers, no rotating account team. Azure as the primary practice, AWS delivered jointly with 010 Consulting, and platform engineering across both clouds.
           </p>
         </div>
       </Section>
 
       <Section className="pt-0">
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="mx-auto max-w-4xl space-y-8">
           {services.map((s) => (
             <div
               key={s.title}
               className="rounded-xl border border-white/5 bg-dark-800/50 p-8 transition hover:border-cloud-400/20"
             >
-              <h2 className="text-xl font-bold">{s.title}</h2>
+              <p className="text-xs font-semibold uppercase tracking-widest text-cloud-400">
+                {s.kicker}
+              </p>
+              <h2 className="mt-2 text-2xl font-bold">{s.title}</h2>
               <p className="mt-3 text-sm text-gray-400">{s.desc}</p>
               <ul className="mt-5 space-y-2">
                 {s.details.map((d) => (
                   <li key={d} className="flex items-start gap-2 text-sm text-gray-300">
-                    <span className="mt-1 block h-1.5 w-1.5 shrink-0 rounded-full bg-cloud-400" />
+                    <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-cloud-400" />
                     {d}
                   </li>
                 ))}
@@ -122,15 +88,15 @@ export default function ServicesPage() {
 
       <Section className="bg-dark-800/30">
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Need a Custom Solution?</h2>
+          <h2 className="text-3xl font-bold">Not sure which fits?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Every enterprise is different. Let&apos;s architect a solution tailored to your specific challenges and goals.
+            Most projects start with a short call. Tell me about the problem and I&apos;ll either scope something or point you at someone better suited.
           </p>
           <Link
             href="/contact/"
             className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-600"
           >
-            Talk to Our Team
+            Get in touch
           </Link>
         </div>
       </Section>
