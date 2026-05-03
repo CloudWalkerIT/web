@@ -101,16 +101,16 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
-              How we work
+              Approach
             </p>
             <h2 className="mt-2 text-3xl font-bold">
-              Senior engineering without the agency overhead
+              A boutique cloud engineering practice
             </h2>
             <p className="mt-4 text-gray-400">
-              Most cloud consulting tucks senior engineers behind layers of project managers, sales engineers, and rotating account teams. By the time something gets built, the people designing it are three steps from the keyboard. Cloudwalker IT runs lean by design, so engagements stay with the same engineer from the first call through delivery — the conversation you have is the conversation that becomes the architecture.
+              Each engagement at Cloudwalker IT is led by a senior engineer who remains directly involved from initial scoping through production delivery. No intermediate project management layer, no rotating account team — architectural decisions are made by the same people who will operate the result.
             </p>
             <p className="mt-4 text-gray-400">
-              Our focus is Azure because that&apos;s where our deepest expertise lives. AWS work goes through 010 Consulting because they have AWS specialists we&apos;d rather partner with than pretend to be. And we keep building our own SaaS — KrakenKey and Atomatize — because operating production systems we own keeps us honest about what actually works at 3 a.m.
+              Azure is our primary focus, anchored by senior Microsoft certifications and the depth of delivery to back them. AWS engagements are led jointly with 010 Consulting — a deliberate choice to lead with capability rather than claim breadth. We also build and operate two SaaS products of our own, KrakenKey and Atomatize, so the patterns we recommend are ones we already use ourselves.
             </p>
           </div>
           <div className="rounded-xl border border-white/5 bg-dark-700/30 p-8">
