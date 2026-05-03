@@ -83,11 +83,11 @@ function renderMarkdown(content: string): string {
     `<a href="${sanitizeUrl(url)}" class="text-cloud-400 hover:underline">${text}</a>`
   );
 
-  // Ordered lists
-  html = html.replace(/^\d+\. (.+)$/gm, '<li class="ml-4 flex gap-2 text-gray-300"><span class="mt-1.5 text-cloud-400 text-xs font-bold shrink-0">&#8226;</span>$1</li>');
+  // Ordered lists — preserve the actual number in the marker
+  html = html.replace(/^(\d+)\. (.+)$/gm, '<li data-md-list="ol" class="ml-4 flex gap-2 text-gray-300"><span class="text-cloud-400 font-semibold shrink-0 tabular-nums">$1.</span>$2</li>');
 
   // Unordered lists
-  html = html.replace(/^- (.+)$/gm, '<li class="ml-4 flex gap-2 text-gray-300"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cloud-400"></span>$1</li>');
+  html = html.replace(/^- (.+)$/gm, '<li data-md-list="ul" class="ml-4 flex gap-2 text-gray-300"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cloud-400"></span>$1</li>');
 
   // Horizontal rules
   html = html.replace(/^---$/gm, '<hr class="my-8 border-white/10" />');
@@ -95,8 +95,9 @@ function renderMarkdown(content: string): string {
   // Paragraphs (lines not already wrapped in block or table elements)
   html = html.replace(/^(?!\s*<[hluopbc]|\s*<\/?(?:div|table|thead|tbody|tfoot|tr|th|td|caption)\b)((?!^$).+)$/gm, '<p class="mb-4 text-gray-400 leading-relaxed">$1</p>');
 
-  // Wrap adjacent <li> in <ul>
-  html = html.replace(/(<li[^>]*>.*<\/li>\n?)+/g, '<ul class="my-4 space-y-2">$&</ul>');
+  // Wrap adjacent ordered items in <ol>; unordered in <ul>
+  html = html.replace(/(<li data-md-list="ol"[^>]*>.*<\/li>\n?)+/g, '<ol class="my-4 space-y-2">$&</ol>');
+  html = html.replace(/(<li data-md-list="ul"[^>]*>.*<\/li>\n?)+/g, '<ul class="my-4 space-y-2">$&</ul>');
 
   return html;
 }
