@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
 
@@ -24,6 +25,56 @@ const values = [
   {
     title: "Transparent Operations",
     desc: "No black boxes. We operate with full transparency — clear communication, honest timelines, and open documentation.",
+  },
+];
+
+const credentials = [
+  {
+    shortName: "Azure DevOps Expert",
+    fullName: "Microsoft Certified: DevOps Engineer Expert",
+    issuer: "Microsoft",
+    image: "/badges/microsoft-certified-expert.svg",
+    width: 256,
+    height: 256,
+    verifyUrl:
+      "https://learn.microsoft.com/api/credentials/share/en-us/LukeWilkinson-2810/7E14B7D5016741F2?sharingId=9C8FE829760CE9BF",
+  },
+  {
+    shortName: "Azure Architect Expert",
+    fullName: "Microsoft Certified: Azure Solutions Architect Expert",
+    issuer: "Microsoft",
+    image: "/badges/microsoft-certified-expert.svg",
+    width: 256,
+    height: 256,
+    verifyUrl:
+      "https://learn.microsoft.com/api/credentials/share/en-us/LukeWilkinson-2810/9C23BA9BD8A81BF2?sharingId=9C8FE829760CE9BF",
+  },
+  {
+    shortName: "CKA",
+    fullName: "Certified Kubernetes Administrator",
+    issuer: "Linux Foundation / CNCF",
+    image: "/badges/cka.png",
+    width: 672,
+    height: 352,
+    verifyUrl: "https://www.credly.com/badges/9eb693d4-14b4-408f-aae0-4651dc0c2861/public_url",
+  },
+  {
+    shortName: "Terraform Associate",
+    fullName: "HashiCorp Certified: Terraform Associate",
+    issuer: "HashiCorp",
+    image: "/badges/terraform.png",
+    width: 672,
+    height: 352,
+    verifyUrl: "https://www.credly.com/badges/2e7923cd-c392-49cc-92ef-1635c769ba3b/public_url",
+  },
+  {
+    shortName: "RHCSA",
+    fullName: "Red Hat Certified System Administrator",
+    issuer: "Red Hat",
+    image: "/badges/rhcsa.png",
+    width: 600,
+    height: 600,
+    verifyUrl: "https://www.credly.com/badges/63694e63-bab4-445d-bcdb-de19f2e54046/public_url",
   },
 ];
 
@@ -114,8 +165,12 @@ export default function AboutPage() {
                   <li>Microsoft Certified: Azure DevOps Engineer Expert</li>
                   <li>Microsoft Certified: Azure Solutions Architect Expert</li>
                   <li>Certified Kubernetes Administrator (CKA)</li>
+                  <li>HashiCorp Certified: Terraform Associate</li>
                   <li>Red Hat Certified System Administrator (RHCSA)</li>
                 </ul>
+                <p className="mt-2 text-xs text-gray-500">
+                  Verifiable badges below.
+                </p>
               </div>
 
               <div>
@@ -147,8 +202,48 @@ export default function AboutPage() {
         </div>
       </Section>
 
+      {/* Credentials wall */}
+      <Section id="credentials">
+        <div className="text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
+            Credentials
+          </p>
+          <h2 className="mt-2 text-3xl font-bold">Verifiable, current, senior</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+            Every badge below links to its issuer. Click any to verify directly with Microsoft, the Linux Foundation, HashiCorp, or Red Hat.
+          </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+          {credentials.map((cred) => (
+            <a
+              key={cred.shortName}
+              href={cred.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Verify ${cred.fullName} with ${cred.issuer}`}
+              className="group flex flex-col items-center rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/30 hover:bg-dark-700/50"
+            >
+              <div className="flex h-28 w-full items-center justify-center">
+                <Image
+                  src={cred.image}
+                  alt={`${cred.fullName} — issued by ${cred.issuer}`}
+                  width={cred.width}
+                  height={cred.height}
+                  className="max-h-28 w-auto object-contain"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm font-semibold text-white transition group-hover:text-cloud-400">
+                {cred.shortName}
+              </p>
+              <p className="mt-1 text-center text-xs text-gray-500">{cred.issuer}</p>
+            </a>
+          ))}
+        </div>
+      </Section>
+
       {/* Values */}
-      <Section>
+      <Section className="bg-dark-800/30">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
             Our Values
@@ -169,7 +264,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Teams */}
-      <Section className="bg-dark-800/30">
+      <Section>
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
             Our Teams

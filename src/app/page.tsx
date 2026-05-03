@@ -65,9 +65,9 @@ const artifacts: Array<{
   },
   {
     name: "Certified Expert",
-    desc: "Azure DevOps Expert · Solutions Architect Expert · CKA · RHCSA.",
+    desc: "Azure DevOps + Architect Expert · CKA · Terraform · RHCSA.",
     badge: "Engineer credentials",
-    href: "/about/",
+    href: "/about/#credentials",
     external: false,
     accentClass: "text-cloud-400",
   },
