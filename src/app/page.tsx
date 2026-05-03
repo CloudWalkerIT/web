@@ -12,7 +12,7 @@ const features = [
   {
     icon: "☁️",
     title: "Cloud Infrastructure",
-    desc: "Scalable, secure cloud architectures built on AWS, Azure, and GCP. Migration, optimization, and 24/7 managed operations.",
+    desc: "Scalable, secure cloud architectures on AWS, Azure, and GCP — with managed Terraform, migration, and 24/7 operations.",
   },
   {
     icon: "🤖",
@@ -32,10 +32,10 @@ const features = [
 ];
 
 const stats = [
-  { value: "99.9%", label: "Uptime SLA" },
-  { value: "150+", label: "Clients Served" },
-  { value: "40%", label: "Avg Cost Reduction" },
-  { value: "24/7", label: "Support Coverage" },
+  { value: "Azure", label: "Primary cloud focus" },
+  { value: "AWS", label: "Delivered via 010 Consulting" },
+  { value: "2", label: "Live SaaS products" },
+  { value: "4", label: "Microsoft Expert · CKA · RHCSA" },
 ];
 
 export default function HomePage() {

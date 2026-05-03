@@ -84,20 +84,20 @@ export default function AboutPage() {
           <div className="rounded-xl border border-white/5 bg-dark-700/30 p-8">
             <div className="grid grid-cols-2 gap-6 text-center">
               <div>
-                <p className="text-3xl font-bold text-cloud-400">150+</p>
-                <p className="mt-1 text-sm text-gray-500">Enterprise Clients</p>
+                <p className="text-3xl font-bold text-cloud-400">Azure</p>
+                <p className="mt-1 text-sm text-gray-500">Primary cloud focus</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-electric-400">50+</p>
-                <p className="mt-1 text-sm text-gray-500">Team Members</p>
+                <p className="text-3xl font-bold text-electric-400">AWS</p>
+                <p className="mt-1 text-sm text-gray-500">Via 010 Consulting</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-accent-400">99.9%</p>
-                <p className="mt-1 text-sm text-gray-500">Uptime Record</p>
+                <p className="text-3xl font-bold text-accent-400">2</p>
+                <p className="mt-1 text-sm text-gray-500">Live SaaS products</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-cloud-400">8+</p>
-                <p className="mt-1 text-sm text-gray-500">Years Operating</p>
+                <p className="text-3xl font-bold text-cloud-400">4</p>
+                <p className="mt-1 text-sm text-gray-500">Microsoft Expert · CKA · RHCSA</p>
               </div>
             </div>
           </div>
