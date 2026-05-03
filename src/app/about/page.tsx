@@ -82,22 +82,65 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="rounded-xl border border-white/5 bg-dark-700/30 p-8">
-            <div className="grid grid-cols-2 gap-6 text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+              At a glance
+            </p>
+
+            <div className="mt-5 space-y-5">
               <div>
-                <p className="text-3xl font-bold text-cloud-400">Azure</p>
-                <p className="mt-1 text-sm text-gray-500">Primary cloud focus</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
+                  Operator
+                </p>
+                <p className="mt-1 text-sm text-gray-300">
+                  Solo principal engineer — the person you talk to is the person doing the work.
+                </p>
               </div>
+
               <div>
-                <p className="text-3xl font-bold text-electric-400">AWS</p>
-                <p className="mt-1 text-sm text-gray-500">Via 010 Consulting</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
+                  Cloud focus
+                </p>
+                <p className="mt-1 text-sm text-gray-300">
+                  Azure (primary) · AWS delivered jointly with{" "}
+                  <span className="text-gray-100">010 Consulting</span>
+                </p>
               </div>
+
               <div>
-                <p className="text-3xl font-bold text-accent-400">2</p>
-                <p className="mt-1 text-sm text-gray-500">Live SaaS products</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
+                  Certifications
+                </p>
+                <ul className="mt-2 space-y-1 text-sm text-gray-300">
+                  <li>Microsoft Certified: Azure DevOps Engineer Expert</li>
+                  <li>Microsoft Certified: Azure Solutions Architect Expert</li>
+                  <li>Certified Kubernetes Administrator (CKA)</li>
+                  <li>Red Hat Certified System Administrator (RHCSA)</li>
+                </ul>
               </div>
+
               <div>
-                <p className="text-3xl font-bold text-cloud-400">4</p>
-                <p className="mt-1 text-sm text-gray-500">Microsoft Expert · CKA · RHCSA</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
+                  SaaS in market
+                </p>
+                <p className="mt-1 text-sm text-gray-300">
+                  <a
+                    href="https://krakenkey.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent-400 hover:underline"
+                  >
+                    KrakenKey
+                  </a>
+                  {" · "}
+                  <a
+                    href="https://atomatize.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-electric-400 hover:underline"
+                  >
+                    Atomatize
+                  </a>
+                </p>
               </div>
             </div>
           </div>
