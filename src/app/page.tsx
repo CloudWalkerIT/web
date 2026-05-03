@@ -59,8 +59,8 @@ const artifacts: Array<{
     name: "010 Consulting",
     desc: "AWS delivery partner. Joint engagements when work demands deep AWS.",
     badge: "Delivery partner",
-    href: "/contact/",
-    external: false,
+    href: "https://zero10consulting.com",
+    external: true,
     accentClass: "text-cloud-400",
   },
   {
