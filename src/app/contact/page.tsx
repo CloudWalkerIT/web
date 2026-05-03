@@ -27,6 +27,7 @@ export default function ContactPage() {
       email: data.get("email"),
       company: data.get("company"),
       message: data.get("message"),
+      website: data.get("website"),
     };
 
     try {
@@ -82,6 +83,19 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot — bots fill this, humans don't see it */}
+                <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden="true">
+                  <label>
+                    Don&apos;t fill this in:
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </label>
+                </div>
+
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-300">

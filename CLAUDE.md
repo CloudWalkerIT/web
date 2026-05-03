@@ -37,4 +37,8 @@ Every page exports Next.js `metadata`. JSON-LD structured data is embedded in pa
 
 ## Contact Form
 
-The contact form POSTs to `/api/contact` (expected to be a Cloudflare Worker) and falls back to `mailto:hello@cloudwalker.it` if the API is unavailable.
+The contact form POSTs to `/api/contact`, which is implemented as a Cloudflare Pages Function at `functions/api/contact.ts`. The function sends mail via Resend when `RESEND_API_KEY` is set in the Pages project's environment variables; if the key is missing or Resend fails, the function returns a non-2xx response and the client falls back to `mailto:hello@cloudwalker.it`.
+
+Optional Pages env vars: `CONTACT_FROM` and `CONTACT_TO` override the default sender (`Cloudwalker IT <contact@cloudwalker.it>`) and recipient (`hello@cloudwalker.it`). The form includes a honeypot field (`website`) — submissions where it's filled get a fake-success response.
+
+The `functions/` directory is excluded from the Next.js TypeScript project (see `tsconfig.json` exclude). Pages Functions are checked and deployed by Cloudflare at deploy time, not by `npm run build`.
