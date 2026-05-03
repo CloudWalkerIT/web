@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Cloudwalker IT products: Atomatize for AI-powered content repurposing and KrakenKey for automated TLS certificate management.",
+    "Cloudwalker IT products: Atomatize for AI-powered content repurposing, and KrakenKey for automated TLS certificate management and endpoint monitoring.",
 };
 
 const atomatizeFeatures = [
@@ -75,27 +75,27 @@ const atomatizeTiers = [
 const krakenKeyFeatures = [
   {
     title: "Automated ACME Challenges",
-    desc: "One-time DNS setup delegates certificate validation to KrakenKey. Every renewal after that is fully automatic — no manual DNS records, no cron jobs.",
+    desc: "Two DNS records once — a TXT for ownership and a CNAME to delegate ACME challenges — then KrakenKey handles every Let's Encrypt validation automatically. No manual records per certificate, no cron jobs.",
   },
   {
-    title: "Client-Side Key Generation",
-    desc: "Private keys are generated in your browser or CLI and never leave your device. Only the CSR is transmitted to our servers.",
+    title: "Client-Side CSR Generation",
+    desc: "Certificate Signing Requests are generated in-browser using the WebCrypto API. The private key is created locally and never transmitted to our servers — only the CSR is sent.",
   },
   {
     title: "REST API & CLI",
-    desc: "Every dashboard action is available via REST API and CLI. Integrate certificate management into CI/CD pipelines and infrastructure-as-code workflows.",
+    desc: "Every dashboard action is available via the REST API and the krakenkey CLI. AI agent tool definitions ship for automated workflows in agentic systems.",
   },
   {
-    title: "Auto-Renewal & Monitoring",
-    desc: "Automatic renewal with configurable windows, centralized expiry tracking, and email notifications for every certificate event.",
+    title: "Endpoint Monitoring",
+    desc: "Register any TLS endpoint and KrakenKey scans it on a schedule from distributed probes. Each scan performs a real TLS handshake and reports certificate health, chain validation, and latency.",
+  },
+  {
+    title: "Free TLS Scanner",
+    desc: "A public scanner at krakenkey.io/scanner — no signup, instant TLS configuration check for any host. Powered by the same open-source probe that runs paid endpoint monitoring.",
   },
   {
     title: "Team Access & RBAC",
-    desc: "Manage certificates across your organization with role-based access control — owner, admin, member, and viewer roles.",
-  },
-  {
-    title: "Scoped API Keys",
-    desc: "Create per-application API keys that can be independently revoked, giving fine-grained control over programmatic access.",
+    desc: "Invite team members into organizations with role-based access control — owner, admin, member, and viewer roles, available on the Team plan.",
   },
 ];
 
@@ -104,34 +104,34 @@ const krakenKeyTiers = [
     name: "Free",
     price: "$0",
     features: [
-      "3 domains",
-      "10 active certificates",
-      "5 certs + renewals/month",
-      "2 API keys",
-      "Expiry notifications",
+      "3 domains, 10 active certificates",
+      "ACME automation via Let's Encrypt",
+      "In-browser CSR generator",
+      "REST API & web dashboard",
+      "3 monitored endpoints",
     ],
   },
   {
     name: "Starter",
     price: "$29/mo",
+    popular: true,
     features: [
-      "10 domains",
-      "75 active certificates",
-      "50 certs + renewals/month",
-      "Priority ACME queue",
-      "30-day renewal window",
+      "10 domains, 75 active certificates",
+      "30-day auto-renewal window",
+      "Certificate expiry notifications",
+      "Double API rate limits",
+      "10 endpoints, 2 hosted probe regions",
     ],
   },
   {
     name: "Team",
     price: "$79/mo",
-    popular: true,
     features: [
-      "25 domains",
-      "375 active certificates",
-      "250 certs + renewals/month",
-      "RBAC & team access",
-      "30-day renewal window",
+      "25 domains, 375 active certificates",
+      "Organizations with RBAC",
+      "Team roles: owner, admin, member, viewer",
+      "Higher rate limits (300 reads/min)",
+      "50 endpoints, 5 hosted regions, 5-min scans",
     ],
   },
 ];
@@ -335,7 +335,7 @@ export default function ProductsPage() {
             Kraken<span className="text-accent-400">Key</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Automated TLS certificate management. One-time DNS setup, then certificates in 4 minutes — no cron jobs, no forgotten renewals.
+            Automated TLS certificate management. One-time DNS setup, then certificates in 4 minutes — no ongoing records to manage, no cron jobs, no forgotten renewals. Plus endpoint monitoring from distributed probes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
