@@ -25,6 +25,7 @@ const services = [
       "Migration runbook covering pre-flight checks, cutover, rollback, and post-cutover validation (where relevant)",
       "FinOps assessment with tagged usage analysis, right-sizing recommendations, and reservation strategy (where relevant)",
       "Operational runbooks covering the scenarios your team will actually face",
+      "Pairing sessions and code reviews with your team during implementation, not only at handover",
       "Handover session with your team and a defined post-engagement Q&A window",
     ],
   },
@@ -44,6 +45,7 @@ const services = [
       "Terraform or CDK (your preference) checked into your repository",
       "Cross-cloud platform components — CI/CD, observability, IAM — consistent with your Azure footprint",
       "Single point of contact (Cloudwalker IT) for the entire engagement",
+      "Joint pairing across both firms' engineers and your team during implementation",
       "Joint handover so your team operates the result without ongoing dependency on either firm",
     ],
   },
@@ -63,6 +65,7 @@ const services = [
       "Remote state management with backup, locking, and documented disaster recovery procedures",
       "Drift detection schedule and remediation procedures",
       "Policy-as-code definitions (OPA or Sentinel) covering your compliance scope",
+      "Walkthrough sessions and pairing while your team adopts the platform",
       "Self-service documentation so your developers consume the platform without ongoing intervention",
     ],
   },
@@ -71,6 +74,7 @@ const services = [
 const everyEngagement = [
   "Documentation written for your team to use, not for our records",
   "Infrastructure-as-code and configuration committed to your repositories from day one",
+  "Active knowledge transfer during the engagement, not only at handover",
   "A scoped handover so your team operates the result without ongoing dependency on us",
   "A written summary of what was decided, what was deferred, and what we recommend next",
   "A defined post-engagement Q&A window for follow-up questions",
@@ -126,9 +130,12 @@ export default function ServicesPage() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 2l4 4-4 4" />
                   </svg>
-                  What you take away
+                  Typical deliverables
                 </summary>
-                <ul className="mt-4 ml-5 space-y-2 border-l border-white/5 pl-4">
+                <p className="mt-3 ml-5 text-xs text-gray-500">
+                  Representative of what this service line typically produces. The actual deliverable set is scoped collaboratively at engagement kickoff.
+                </p>
+                <ul className="mt-3 ml-5 space-y-2 border-l border-white/5 pl-4">
                   {s.deliverables.map((d) => (
                     <li key={d} className="flex items-start gap-2 text-sm text-gray-300">
                       <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400" />
@@ -151,7 +158,7 @@ export default function ServicesPage() {
             </p>
             <h2 className="mt-2 text-3xl font-bold">Documentation that outlives the work</h2>
             <p className="mx-auto mt-4 text-gray-400">
-              Regardless of which service line fits, every Cloudwalker IT engagement delivers a baseline of documented work product so your team operates the result without ongoing dependency on us.
+              Service-specific deliverables vary by engagement and are scoped with you at kickoff. The items below appear in every Cloudwalker IT engagement regardless of service line, so your team operates the result without ongoing dependency on us.
             </p>
           </div>
           <ul className="mt-10 space-y-3">
