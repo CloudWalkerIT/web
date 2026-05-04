@@ -21,7 +21,7 @@ const services = [
     ],
     deliverables: [
       "Azure landing zone or solution architecture, documented in decision records and diagrams",
-      "Terraform or Bicep checked into your repository, with remote state and CI configured",
+      "Terraform checked into your repository, with remote state and CI configured",
       "Migration runbook covering pre-flight checks, cutover, rollback, and post-cutover validation (where relevant)",
       "FinOps assessment with tagged usage analysis, right-sizing recommendations, and reservation strategy (where relevant)",
       "Operational runbooks covering the scenarios your team will actually face",
