@@ -19,6 +19,14 @@ const services = [
       "FinOps and cost optimization — right-sizing, reservations, policy hygiene",
       "Production operations, incident response, and on-call coverage",
     ],
+    deliverables: [
+      "Azure landing zone or solution architecture, documented in decision records and diagrams",
+      "Terraform or Bicep checked into your repository, with remote state and CI configured",
+      "Migration runbook covering pre-flight checks, cutover, rollback, and post-cutover validation (where relevant)",
+      "FinOps assessment with tagged usage analysis, right-sizing recommendations, and reservation strategy (where relevant)",
+      "Operational runbooks covering the scenarios your team will actually face",
+      "Handover session with your team and a defined post-engagement Q&A window",
+    ],
   },
   {
     title: "AWS — delivered with 010 Consulting",
@@ -29,6 +37,14 @@ const services = [
       "Joint delivery model: Cloudwalker IT leads the engagement, 010 brings AWS-specialist hands",
       "Platform practice (IaC, GitOps, observability) consistent across Azure and AWS",
       "Right-sized for SMB and mid-market — not optimized only for enterprise scale",
+    ],
+    deliverables: [
+      "Joint engagement plan signed by both Cloudwalker IT and 010 Consulting at kickoff",
+      "AWS architecture and implementation, led by 010's specialists with cross-cloud platform decisions made jointly",
+      "Terraform or CDK (your preference) checked into your repository",
+      "Cross-cloud platform components — CI/CD, observability, IAM — consistent with your Azure footprint",
+      "Single point of contact (Cloudwalker IT) for the entire engagement",
+      "Joint handover so your team operates the result without ongoing dependency on either firm",
     ],
   },
   {
@@ -41,7 +57,23 @@ const services = [
       "CI/CD with GitHub Actions and Azure DevOps Pipelines",
       "Policy-as-code (OPA, Sentinel) and self-service developer platforms",
     ],
+    deliverables: [
+      "Terraform module library tailored to your environment — AKS or EKS, networking, IAM, and shared platform patterns",
+      "Pipeline configuration for terraform plan and apply, with policy gates and required approvals",
+      "Remote state management with backup, locking, and documented disaster recovery procedures",
+      "Drift detection schedule and remediation procedures",
+      "Policy-as-code definitions (OPA or Sentinel) covering your compliance scope",
+      "Self-service documentation so your developers consume the platform without ongoing intervention",
+    ],
   },
+];
+
+const everyEngagement = [
+  "Documentation written for your team to use, not for our records",
+  "Infrastructure-as-code and configuration committed to your repositories from day one",
+  "A scoped handover so your team operates the result without ongoing dependency on us",
+  "A written summary of what was decided, what was deferred, and what we recommend next",
+  "A defined post-engagement Q&A window for follow-up questions",
 ];
 
 export default function ServicesPage() {
@@ -81,12 +113,62 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
+
+              <details className="group mt-6 border-t border-white/5 pt-5">
+                <summary className="flex cursor-pointer select-none list-none items-center gap-2 text-sm font-medium text-cloud-400 transition hover:text-cloud-300 [&::-webkit-details-marker]:hidden">
+                  <svg
+                    className="h-3 w-3 shrink-0 transition-transform duration-200 group-open:rotate-90"
+                    fill="none"
+                    viewBox="0 0 12 12"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 2l4 4-4 4" />
+                  </svg>
+                  What you take away
+                </summary>
+                <ul className="mt-4 ml-5 space-y-2 border-l border-white/5 pl-4">
+                  {s.deliverables.map((d) => (
+                    <li key={d} className="flex items-start gap-2 text-sm text-gray-300">
+                      <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </details>
             </div>
           ))}
         </div>
       </Section>
 
+      {/* Every engagement — cross-cutting deliverable baseline */}
       <Section className="bg-dark-800/30">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
+              Every engagement
+            </p>
+            <h2 className="mt-2 text-3xl font-bold">Documentation that outlives the work</h2>
+            <p className="mx-auto mt-4 text-gray-400">
+              Regardless of which service line fits, every Cloudwalker IT engagement delivers a baseline of documented work product so your team operates the result without ongoing dependency on us.
+            </p>
+          </div>
+          <ul className="mt-10 space-y-3">
+            {everyEngagement.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 text-sm text-gray-300"
+              >
+                <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-cloud-400" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      <Section>
         <div className="text-center">
           <h2 className="text-3xl font-bold">Unsure which service fits?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
