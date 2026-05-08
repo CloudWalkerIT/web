@@ -54,8 +54,10 @@ function renderMarkdown(content: string): string {
   );
 
   // Fenced code blocks (```lang ... ```)
+  // Newlines are encoded as &#10; so the paragraph pass (which runs line-by-line
+  // via the gm flag) doesn't wrap each code line in <p> tags. <pre> renders &#10; correctly.
   html = html.replace(/^```(\w*)\n([\s\S]*?)^```$/gm, (_match, _lang, code) =>
-    `<pre class="my-6 overflow-x-auto rounded-lg bg-dark-800 p-4"><code class="text-sm text-gray-300">${escapeHtml(code.trimEnd())}</code></pre>`
+    `<pre class="my-6 overflow-x-auto rounded-lg bg-dark-800 p-4"><code class="text-sm text-gray-300">${escapeHtml(code.trimEnd()).replace(/\n/g, "&#10;")}</code></pre>`
   );
 
   // Blockquotes (> lines)
