@@ -37,7 +37,7 @@ $ListenerName = "SQLAGL01"
 Get-ClusterResource $ListenerName | Set-ClusterParameter -Name RegisterAllProvidersIP -Value 0
 Get-ClusterResource $ListenerName | Set-ClusterParameter -Name HostRecordTTL -Value 60
 
-# Take the listener offline and back online for the changes to take effect
+<# Take the listener offline and back online for the changes to take effect #>
 Stop-ClusterResource $ListenerName
 Start-ClusterResource $ListenerName
 ```
