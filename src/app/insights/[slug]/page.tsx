@@ -47,15 +47,25 @@ function sanitizeUrl(url: string): string {
 }
 
 function renderMarkdown(content: string): string {
+  // Extract fenced code blocks first so later passes (HTML sanitizer, headings,
+  // paragraph wrap) can't touch their contents. Each block is replaced with a
+  // unique placeholder and substituted back at the very end.
+  const codeBlocks: string[] = [];
+  let html = content.replace(/^```(\w*)\n([\s\S]*?)^```$/gm, (_match, _lang, code) => {
+    // Newlines are encoded as &#10; so the paragraph pass (line-by-line via gm)
+    // can't see them as separate lines. <pre> renders &#10; as a real newline.
+    codeBlocks.push(
+      `<pre class="my-6 overflow-x-auto rounded-lg bg-dark-800 p-4"><code class="text-sm text-gray-300">${escapeHtml(code.trimEnd()).replace(/\n/g, "&#10;")}</code></pre>`
+    );
+    // Placeholder uses <div> so the HTML sanitizer keeps it (div is whitelisted)
+    // and the paragraph regex skips it (it has a <div> exception).
+    return `<div data-codeblock="${codeBlocks.length - 1}"></div>`;
+  });
+
   // Preserve safe block-level HTML (tables, divs) and strip everything else
   const safeTagPattern = /^(\/?)(?:div|table|thead|tbody|tfoot|tr|th|td|caption|colgroup|col)\b/i;
-  let html = content.replace(/<([^>]*)>/g, (_match, inner) =>
+  html = html.replace(/<([^>]*)>/g, (_match, inner) =>
     safeTagPattern.test(inner.trim()) ? _match : ""
-  );
-
-  // Fenced code blocks (```lang ... ```)
-  html = html.replace(/^```(\w*)\n([\s\S]*?)^```$/gm, (_match, _lang, code) =>
-    `<pre class="my-6 overflow-x-auto rounded-lg bg-dark-800 p-4"><code class="text-sm text-gray-300">${escapeHtml(code.trimEnd())}</code></pre>`
   );
 
   // Blockquotes (> lines)
@@ -98,6 +108,9 @@ function renderMarkdown(content: string): string {
   // Wrap adjacent ordered items in <ol>; unordered in <ul>
   html = html.replace(/(<li data-md-list="ol"[^>]*>.*<\/li>\n?)+/g, '<ol class="my-4 space-y-2">$&</ol>');
   html = html.replace(/(<li data-md-list="ul"[^>]*>.*<\/li>\n?)+/g, '<ul class="my-4 space-y-2">$&</ul>');
+
+  // Substitute code block placeholders back in
+  html = html.replace(/<div data-codeblock="(\d+)"><\/div>/g, (_match, i) => codeBlocks[Number(i)]);
 
   return html;
 }
