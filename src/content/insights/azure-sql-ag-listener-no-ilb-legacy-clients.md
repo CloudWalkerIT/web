@@ -25,7 +25,7 @@ In this engagement, neither the ILB nor relying on `MultiSubnetFailover=True` wa
 
 The Windows Failover Clustering engine exposes a parameter on the AG listener resource called `RegisterAllProvidersIP`. Its default value of `1` causes WSFC to publish all replica IPs for the listener in DNS simultaneously -- the behavior that `MultiSubnetFailover` depends on. Setting it to `0` changes WSFC to register only the current primary replica's IP. To a legacy client that tries IPs sequentially, the listener always appears to have a single address, which is exactly what we needed.
 
-The companion parameter is `HostRecordTTL`, which controls the TTL of the listener's DNS record. After a failover, WSFC updates the DNS record to point the listener name at the new primary's IP, but any client that cached the old record keeps using it until the TTL expires. A shorter TTL means a shorter post-failover reconnect window.
+The companion parameter is `HostRecordTTL`, which controls the TTL of the listener's DNS record. After a failover, WSFC updates the DNS record to point the listener name at the new primary's IP -- but any client that cached the old record keeps using it until the TTL expires. A shorter TTL means a shorter post-failover reconnect window.
 
 ## The Fix
 
@@ -33,7 +33,7 @@ After deploying the WSFC with a DNN cluster name and creating the multi-subnet A
 
 ```powershell
 Import-Module FailoverClusters
-$ListenerName = <AGL-Name>
+$ListenerName = "SQLAGL01"
 Get-ClusterResource $ListenerName | Set-ClusterParameter -Name RegisterAllProvidersIP -Value 0
 Get-ClusterResource $ListenerName | Set-ClusterParameter -Name HostRecordTTL -Value 60
 
