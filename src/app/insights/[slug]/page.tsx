@@ -94,10 +94,10 @@ function renderMarkdown(content: string): string {
   );
 
   // Ordered lists — preserve the actual number in the marker
-  html = html.replace(/^(\d+)\. (.+)$/gm, '<li data-md-list="ol" class="ml-4 flex gap-2 text-gray-300"><span class="text-cloud-400 font-semibold shrink-0 tabular-nums">$1.</span>$2</li>');
+  html = html.replace(/^(\d+)\. (.+)$/gm, '<li data-md-list="ol" class="ml-4 flex gap-2 text-gray-300"><span class="text-cloud-400 font-semibold shrink-0 tabular-nums">$1.</span><span>$2</span></li>');
 
   // Unordered lists
-  html = html.replace(/^- (.+)$/gm, '<li data-md-list="ul" class="ml-4 flex gap-2 text-gray-300"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cloud-400"></span>$1</li>');
+  html = html.replace(/^- (.+)$/gm, '<li data-md-list="ul" class="ml-4 flex gap-2 text-gray-300"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cloud-400"></span><span>$1</span></li>');
 
   // Horizontal rules
   html = html.replace(/^---$/gm, '<hr class="my-8 border-white/10" />');
