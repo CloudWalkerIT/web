@@ -24,8 +24,8 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Solutions</h3>
             <ul className="mt-3 space-y-2">
               <li><Link href="/services/" className="text-sm text-gray-400 hover:text-cloud-400">Services</Link></li>
-              <li><Link href="/products/#atomatize" className="text-sm text-gray-400 hover:text-cloud-400">Atomatize</Link></li>
               <li><Link href="/products/#krakenkey" className="text-sm text-gray-400 hover:text-cloud-400">KrakenKey</Link></li>
+              <li><Link href="/products/#atomatize" className="text-sm text-gray-400 hover:text-cloud-400">Atomatize</Link></li>
               <li><Link href="/insights/" className="text-sm text-gray-400 hover:text-cloud-400">Insights</Link></li>
             </ul>
           </div>
