@@ -12,10 +12,10 @@ export default function Footer() {
               <span>
                 <span className="text-cloud-400">Cloud</span>
                 <span className="text-white">walker</span>
-                <span className="text-gray-500 text-sm">.it</span>
+                <span className="text-gray-400 text-sm">.it</span>
               </span>
             </Link>
-            <p className="mt-3 text-sm text-gray-500">
+            <p className="mt-3 text-sm text-gray-400">
               Senior Azure cloud engineering. AWS via 010 Consulting. Builders of KrakenKey and Atomatize.
             </p>
           </div>
@@ -23,25 +23,25 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Solutions</h3>
             <ul className="mt-3 space-y-2">
-              <li><Link href="/services/" className="text-sm text-gray-500 hover:text-cloud-400">Services</Link></li>
-              <li><Link href="/products/#atomatize" className="text-sm text-gray-500 hover:text-cloud-400">Atomatize</Link></li>
-              <li><Link href="/products/#krakenkey" className="text-sm text-gray-500 hover:text-cloud-400">KrakenKey</Link></li>
-              <li><Link href="/insights/" className="text-sm text-gray-500 hover:text-cloud-400">Insights</Link></li>
+              <li><Link href="/services/" className="text-sm text-gray-400 hover:text-cloud-400">Services</Link></li>
+              <li><Link href="/products/#atomatize" className="text-sm text-gray-400 hover:text-cloud-400">Atomatize</Link></li>
+              <li><Link href="/products/#krakenkey" className="text-sm text-gray-400 hover:text-cloud-400">KrakenKey</Link></li>
+              <li><Link href="/insights/" className="text-sm text-gray-400 hover:text-cloud-400">Insights</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Company</h3>
             <ul className="mt-3 space-y-2">
-              <li><Link href="/about/" className="text-sm text-gray-500 hover:text-cloud-400">About Us</Link></li>
-              <li><Link href="/contact/" className="text-sm text-gray-500 hover:text-cloud-400">Contact</Link></li>
+              <li><Link href="/about/" className="text-sm text-gray-400 hover:text-cloud-400">About Us</Link></li>
+              <li><Link href="/contact/" className="text-sm text-gray-400 hover:text-cloud-400">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Connect</h3>
             <ul className="mt-3 space-y-2">
-              <li><a href="mailto:hello@cloudwalker.it" className="text-sm text-gray-500 hover:text-cloud-400">hello@cloudwalker.it</a></li>
+              <li><a href="mailto:hello@cloudwalker.it" className="text-sm text-gray-400 hover:text-cloud-400">hello@cloudwalker.it</a></li>
               {/* TODO: add real LinkedIn / GitHub URLs when confirmed —
                   the previous linkedin.com/company/cloudwalker-it and
                   github.com/cloudwalker-it links were placeholders. */}
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/5 pt-8 text-center text-sm text-gray-500">
+        <div className="mt-12 border-t border-white/5 pt-8 text-center text-sm text-gray-400">
           &copy; {new Date().getFullYear()} Cloudwalker IT. All rights reserved.
         </div>
       </div>

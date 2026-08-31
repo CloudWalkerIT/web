@@ -114,7 +114,7 @@ export default function HomePage() {
           {artifacts.map((a) => {
             const inner = (
               <>
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
                   {a.badge}
                 </p>
                 <p className={`mt-3 text-lg font-bold ${a.accentClass}`}>{a.name}</p>

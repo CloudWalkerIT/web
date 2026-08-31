@@ -176,7 +176,7 @@ export default function ContactPage() {
               <div className="mt-6 space-y-6">
                 {contactInfo.map((info) => (
                   <div key={info.label}>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
                       {info.label}
                     </p>
                     <p className="mt-1 text-gray-300">{info.value}</p>
