@@ -141,7 +141,7 @@ export default async function InsightPage({ params }: Props) {
         <div className="mx-auto max-w-3xl">
           <Link
             href="/insights/"
-            className="mb-8 inline-flex items-center gap-1 text-sm text-gray-500 transition hover:text-cloud-400"
+            className="mb-8 inline-flex items-center gap-1 text-sm text-gray-400 transition hover:text-cloud-400"
           >
             &larr; Back to Insights
           </Link>
@@ -159,7 +159,7 @@ export default async function InsightPage({ params }: Props) {
 
           <h1 className="mt-4 text-3xl font-bold sm:text-4xl">{post.title}</h1>
 
-          <div className="mt-4 flex items-center gap-4 text-sm text-gray-500">
+          <div className="mt-4 flex items-center gap-4 text-sm text-gray-400">
             <span>{post.date}</span>
             <span>{post.readTime}</span>
             <span>{post.author}</span>

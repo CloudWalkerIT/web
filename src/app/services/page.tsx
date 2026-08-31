@@ -132,7 +132,7 @@ export default function ServicesPage() {
                   </svg>
                   Typical deliverables
                 </summary>
-                <p className="mt-3 ml-5 text-xs text-gray-500">
+                <p className="mt-3 ml-5 text-xs text-gray-400">
                   Representative of what this service line typically produces. The actual deliverable set is scoped collaboratively at engagement kickoff.
                 </p>
                 <ul className="mt-3 ml-5 space-y-2 border-l border-white/5 pl-4">

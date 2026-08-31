@@ -50,7 +50,7 @@ export default function InsightsPage() {
                 {post.title}
               </h2>
               <p className="mt-2 text-sm text-gray-400">{post.description}</p>
-              <div className="mt-4 flex items-center gap-4 text-xs text-gray-500">
+              <div className="mt-4 flex items-center gap-4 text-xs text-gray-400">
                 <span>{post.date}</span>
                 <span>{post.readTime}</span>
                 <span>{post.author}</span>

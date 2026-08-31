@@ -114,7 +114,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="rounded-xl border border-white/5 bg-dark-700/30 p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
               At a glance
             </p>
 
@@ -149,7 +149,7 @@ export default function AboutPage() {
                   <li>HashiCorp Certified: Terraform Associate</li>
                   <li>Red Hat Certified System Administrator (RHCSA)</li>
                 </ul>
-                <p className="mt-2 text-xs text-gray-500">
+                <p className="mt-2 text-xs text-gray-400">
                   Verifiable badges below.
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function AboutPage() {
               <p className="mt-4 text-center text-sm font-semibold text-white transition group-hover:text-cloud-400">
                 {cred.shortName}
               </p>
-              <p className="mt-1 text-center text-xs text-gray-500">{cred.issuer}</p>
+              <p className="mt-1 text-center text-xs text-gray-400">{cred.issuer}</p>
             </a>
           ))}
         </div>
