@@ -169,6 +169,35 @@ export default async function InsightPage({ params }: Props) {
             className="prose-dark mt-12"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
           />
+
+          <aside className="mt-16 rounded-xl border border-white/10 bg-dark-800/40 p-8">
+            <h2 className="text-xl font-bold">Working through something like this?</h2>
+            <p className="mt-3 text-gray-400">
+              Problems like the one above are what our engagements are built around:
+              assessment, implementation, and the operational follow-through. A short
+              call is usually enough to tell whether we are the right fit.
+            </p>
+            {post.tags.some((t) => ["tls", "certificates"].includes(t.toLowerCase())) && (
+              <p className="mt-3 text-gray-400">
+                If the pain is certificate lifecycle specifically, our product{" "}
+                <a
+                  href="https://krakenkey.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cloud-400 underline decoration-cloud-400/40 underline-offset-2 hover:decoration-cloud-400"
+                >
+                  KrakenKey
+                </a>{" "}
+                may solve it without an engagement.
+              </p>
+            )}
+            <Link
+              href="/contact/"
+              className="mt-6 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
+            >
+              Start a conversation
+            </Link>
+          </aside>
         </div>
       </Section>
     </>
