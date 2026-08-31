@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Cloudwalker IT products: Atomatize for AI-powered content repurposing, and KrakenKey for automated TLS certificate management and endpoint monitoring.",
+    "Cloudwalker IT products: KrakenKey for automated TLS certificate management and endpoint monitoring, and Atomatize for AI-powered content repurposing.",
 };
 
 const atomatizeFeatures = [
@@ -220,110 +220,13 @@ export default function ProductsPage() {
             Tools Built for Builders
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Purpose-built platforms that solve real problems — from content operations to certificate management.
+            Purpose-built platforms that solve real problems — from certificate management to content operations.
           </p>
-        </div>
-      </Section>
-
-      {/* Atomatize Hero */}
-      <Section id="atomatize" className="relative scroll-mt-24 overflow-hidden bg-dark-800/30">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-electric-500/10 blur-3xl" />
-        </div>
-        <div className="text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">
-            Atom<span className="text-electric-400">atize</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Paste a blog post, article, or newsletter; receive twelve platform-ready outputs in your voice in seconds — LinkedIn variations, X/Twitter posts, a thread, an email block, and a long-form article.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="https://atomatize.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-electric-500/25 transition hover:bg-electric-400"
-            >
-              Try Atomatize
-            </a>
-            <Link
-              href="/contact/"
-              className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-electric-400/50 hover:text-electric-400"
-            >
-              Request a Demo
-            </Link>
-          </div>
-        </div>
-      </Section>
-
-      {/* Atomatize Features */}
-      <Section>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {atomatizeFeatures.map((f) => (
-            <div
-              key={f.title}
-              className="rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-electric-400/20"
-            >
-              <h3 className="text-lg font-semibold">{f.title}</h3>
-              <p className="mt-2 text-sm text-gray-400">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Atomatize Pricing */}
-      <Section className="bg-dark-800/30">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold">Atomatize Plans</h2>
-          <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Every plan includes a 14-day free trial — no credit card required.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-8 lg:grid-cols-3">
-          {atomatizeTiers.map((tier) => (
-            <div
-              key={tier.name}
-              className={`rounded-xl border p-8 ${
-                tier.popular
-                  ? "border-electric-400/50 bg-dark-700/50 shadow-lg shadow-electric-500/10"
-                  : "border-white/5 bg-dark-800/50"
-              }`}
-            >
-              {tier.popular && (
-                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-electric-400">
-                  Most Popular
-                </p>
-              )}
-              <h3 className="text-xl font-bold">{tier.name}</h3>
-              <p className="mt-2 text-2xl font-bold text-electric-400">{tier.price}</p>
-              <ul className="mt-6 space-y-3">
-                {tier.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-gray-300">
-                    <span className="mt-0.5 text-accent-400">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="https://atomatize.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
-                  tier.popular
-                    ? "bg-electric-500 text-dark-900 hover:bg-electric-400"
-                    : "border border-white/10 text-gray-300 hover:border-electric-400/50"
-                }`}
-              >
-                Start Free Trial
-              </a>
-            </div>
-          ))}
         </div>
       </Section>
 
       {/* KrakenKey Hero */}
-      <Section id="krakenkey" className="relative scroll-mt-24 overflow-hidden">
+      <Section id="krakenkey" className="relative scroll-mt-24 overflow-hidden bg-dark-800/30">
         <div className="absolute inset-0 -z-10">
           <div className="absolute right-1/3 top-1/3 h-80 w-80 rounded-full bg-accent-500/10 blur-3xl" />
         </div>
@@ -354,7 +257,7 @@ export default function ProductsPage() {
       </Section>
 
       {/* KrakenKey Features */}
-      <Section className="bg-dark-800/30">
+      <Section>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {krakenKeyFeatures.map((f) => (
             <div
@@ -369,7 +272,7 @@ export default function ProductsPage() {
       </Section>
 
       {/* KrakenKey Pricing */}
-      <Section>
+      <Section className="bg-dark-800/30">
         <div className="text-center">
           <h2 className="text-3xl font-bold">KrakenKey Plans</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
@@ -413,6 +316,102 @@ export default function ProductsPage() {
                 }`}
               >
                 {tier.price === "$0" ? "Get Started Free" : "Start Free"}
+              </a>
+            </div>
+          ))}
+        </div>
+      </Section>
+      {/* Atomatize Hero */}
+      <Section id="atomatize" className="relative scroll-mt-24 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-electric-500/10 blur-3xl" />
+        </div>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            Atom<span className="text-electric-400">atize</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
+            Paste a blog post, article, or newsletter; receive twelve platform-ready outputs in your voice in seconds — LinkedIn variations, X/Twitter posts, a thread, an email block, and a long-form article.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="https://atomatize.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-electric-500/25 transition hover:bg-electric-400"
+            >
+              Try Atomatize
+            </a>
+            <Link
+              href="/contact/"
+              className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-electric-400/50 hover:text-electric-400"
+            >
+              Request a Demo
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      {/* Atomatize Features */}
+      <Section className="bg-dark-800/30">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {atomatizeFeatures.map((f) => (
+            <div
+              key={f.title}
+              className="rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-electric-400/20"
+            >
+              <h3 className="text-lg font-semibold">{f.title}</h3>
+              <p className="mt-2 text-sm text-gray-400">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Atomatize Pricing */}
+      <Section>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold">Atomatize Plans</h2>
+          <p className="mx-auto mt-4 max-w-xl text-gray-400">
+            Every plan includes a 14-day free trial — no credit card required.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          {atomatizeTiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={`rounded-xl border p-8 ${
+                tier.popular
+                  ? "border-electric-400/50 bg-dark-700/50 shadow-lg shadow-electric-500/10"
+                  : "border-white/5 bg-dark-800/50"
+              }`}
+            >
+              {tier.popular && (
+                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-electric-400">
+                  Most Popular
+                </p>
+              )}
+              <h3 className="text-xl font-bold">{tier.name}</h3>
+              <p className="mt-2 text-2xl font-bold text-electric-400">{tier.price}</p>
+              <ul className="mt-6 space-y-3">
+                {tier.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm text-gray-300">
+                    <span className="mt-0.5 text-accent-400">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://atomatize.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
+                  tier.popular
+                    ? "bg-electric-500 text-dark-900 hover:bg-electric-400"
+                    : "border border-white/10 text-gray-300 hover:border-electric-400/50"
+                }`}
+              >
+                Start Free Trial
               </a>
             </div>
           ))}
