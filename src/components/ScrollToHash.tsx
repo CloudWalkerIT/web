@@ -18,10 +18,14 @@ export default function ScrollToHash() {
     const el = document.getElementById(decodeURIComponent(hash.slice(1)));
     if (!el) return;
 
-    // Wait one frame so layout is settled before jumping.
-    requestAnimationFrame(() => {
-      el.scrollIntoView();
-    });
+    // behavior: "instant" on purpose. The page sets scroll-behavior: smooth
+    // globally, and a smooth jump started here loses a race with the App
+    // Router's scroll restoration, which cancels it mid-animation and the
+    // page ends back at the top. An instant jump cannot be interrupted.
+    // The second application catches a restoration that fires after us.
+    el.scrollIntoView({ behavior: "instant" });
+    const t = setTimeout(() => el.scrollIntoView({ behavior: "instant" }), 150);
+    return () => clearTimeout(t);
   }, [pathname]);
 
   return null;
