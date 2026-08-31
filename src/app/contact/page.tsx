@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import Section from "@/components/Section";
 
 const contactInfo = [
@@ -12,16 +12,27 @@ const contactInfo = [
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [mailtoHref, setMailtoHref] = useState("mailto:hello@cloudwalker.it");
+  const successRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (submitted) successRef.current?.focus();
+  }, [submitted]);
+
+  useEffect(() => {
+    if (failed) errorRef.current?.focus();
+  }, [failed]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
+    setFailed(false);
 
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    // Serverless-friendly: POST to a Cloudflare Worker or any endpoint
-    // For static export, we encode as mailto fallback or use external service
     const body = {
       name: data.get("name"),
       email: data.get("email"),
@@ -30,8 +41,15 @@ export default function ContactPage() {
       website: data.get("website"),
     };
 
+    // Prefilled fallback shown in the error state; the user chooses to
+    // open it rather than being redirected into it.
+    const mailto = `mailto:hello@cloudwalker.it?subject=Contact from ${encodeURIComponent(
+      String(body.name ?? "")
+    )}&body=${encodeURIComponent(
+      `Name: ${body.name}\nEmail: ${body.email}\nCompany: ${body.company}\n\n${body.message}`
+    )}`;
+
     try {
-      // Attempt to send to API endpoint (configure in production)
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -41,16 +59,12 @@ export default function ContactPage() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        // Fallback: open mailto
-        window.location.href = `mailto:hello@cloudwalker.it?subject=Contact from ${body.name}&body=${encodeURIComponent(
-          `Name: ${body.name}\nEmail: ${body.email}\nCompany: ${body.company}\n\n${body.message}`
-        )}`;
+        setMailtoHref(mailto);
+        setFailed(true);
       }
     } catch {
-      // Offline/no API fallback
-      window.location.href = `mailto:hello@cloudwalker.it?subject=Contact from ${body.name}&body=${encodeURIComponent(
-        `Name: ${body.name}\nEmail: ${body.email}\nCompany: ${body.company}\n\n${body.message}`
-      )}`;
+      setMailtoHref(mailto);
+      setFailed(true);
     } finally {
       setSending(false);
     }
@@ -75,7 +89,12 @@ export default function ContactPage() {
           {/* Form */}
           <div className="lg:col-span-3">
             {submitted ? (
-              <div className="rounded-xl border border-accent-400/20 bg-accent-400/5 p-8 text-center">
+              <div
+                ref={successRef}
+                role="status"
+                tabIndex={-1}
+                className="rounded-xl border border-accent-400/20 bg-accent-400/5 p-8 text-center outline-none"
+              >
                 <p className="text-2xl font-bold text-accent-400">Thank you.</p>
                 <p className="mt-2 text-gray-400">
                   Your message has reached us. We will respond within one business day.
@@ -83,6 +102,29 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {failed && (
+                  <div
+                    ref={errorRef}
+                    role="alert"
+                    tabIndex={-1}
+                    className="rounded-xl border border-red-400/30 bg-red-400/5 p-6 outline-none"
+                  >
+                    <p className="font-semibold text-red-300">
+                      Your message didn&apos;t send.
+                    </p>
+                    <p className="mt-2 text-sm text-gray-400">
+                      Try again in a moment, or email us directly at{" "}
+                      <a
+                        href={mailtoHref}
+                        className="text-cloud-400 underline decoration-cloud-400/40 underline-offset-2 hover:decoration-cloud-400"
+                      >
+                        hello@cloudwalker.it
+                      </a>
+                      {" "}(the link opens your mail app with the message prefilled).
+                      Nothing you typed has been lost.
+                    </p>
+                  </div>
+                )}
                 {/* Honeypot — bots fill this, humans don't see it */}
                 <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden="true">
                   <label>
@@ -105,6 +147,7 @@ export default function ContactPage() {
                       type="text"
                       id="name"
                       name="name"
+                      autoComplete="name"
                       required
                       maxLength={200}
                       className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400/50 focus:ring-1 focus:ring-cloud-400/50"
@@ -119,6 +162,7 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       name="email"
+                      autoComplete="email"
                       required
                       maxLength={320}
                       pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
@@ -137,6 +181,7 @@ export default function ContactPage() {
                     type="text"
                     id="company"
                     name="company"
+                    autoComplete="organization"
                     maxLength={200}
                     className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400/50 focus:ring-1 focus:ring-cloud-400/50"
                     placeholder="Your company"
