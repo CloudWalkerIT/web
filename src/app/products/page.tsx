@@ -242,7 +242,7 @@ export default function ProductsPage() {
               href="https://atomatize.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-electric-500/25 transition hover:bg-electric-600"
+              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-electric-500/25 transition hover:bg-electric-400"
             >
               Try Atomatize
             </a>
@@ -311,7 +311,7 @@ export default function ProductsPage() {
                 rel="noopener noreferrer"
                 className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
                   tier.popular
-                    ? "bg-electric-500 text-white hover:bg-electric-600"
+                    ? "bg-electric-500 text-dark-900 hover:bg-electric-400"
                     : "border border-white/10 text-gray-300 hover:border-electric-400/50"
                 }`}
               >

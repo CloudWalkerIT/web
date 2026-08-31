@@ -42,7 +42,7 @@ export default function Header() {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="text-gray-400 md:hidden"
+          className="-m-2.5 p-2.5 text-gray-400 md:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
@@ -64,7 +64,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block py-2 text-sm text-gray-400 transition-colors hover:text-cloud-400"
+              className="block py-3 text-sm text-gray-400 transition-colors hover:text-cloud-400"
             >
               {item.label}
             </Link>
