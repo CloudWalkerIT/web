@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
-import { getInsightBySlug, getAllInsightSlugs } from "@/lib/insights";
+import { getInsightBySlug, getAllInsightSlugs, formatInsightDate } from "@/lib/insights";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -160,7 +160,7 @@ export default async function InsightPage({ params }: Props) {
           <h1 className="mt-4 text-3xl font-bold sm:text-4xl">{post.title}</h1>
 
           <div className="mt-4 flex items-center gap-4 text-sm text-gray-400">
-            <span>{post.date}</span>
+            <time dateTime={post.date}>{formatInsightDate(post.date)}</time>
             <span>{post.readTime}</span>
             <span>{post.author}</span>
           </div>

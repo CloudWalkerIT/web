@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const nav = [
@@ -15,6 +16,10 @@ const nav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-dark-900/80 backdrop-blur-xl">
@@ -32,7 +37,10 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-gray-400 transition-colors hover:text-cloud-400"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={`text-sm transition-colors hover:text-cloud-400 ${
+                isActive(item.href) ? "font-medium text-cloud-400" : "text-gray-400"
+              }`}
             >
               {item.label}
             </Link>
@@ -64,7 +72,10 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-sm text-gray-400 transition-colors hover:text-cloud-400"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={`block py-3 text-sm transition-colors hover:text-cloud-400 ${
+                isActive(item.href) ? "font-medium text-cloud-400" : "text-gray-400"
+              }`}
             >
               {item.label}
             </Link>

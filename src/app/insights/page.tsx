@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
-import { getAllInsights } from "@/lib/insights";
+import { formatInsightDate, getAllInsights } from "@/lib/insights";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -51,7 +51,7 @@ export default function InsightsPage() {
               </h2>
               <p className="mt-2 text-sm text-gray-400">{post.description}</p>
               <div className="mt-4 flex items-center gap-4 text-xs text-gray-400">
-                <span>{post.date}</span>
+                <time dateTime={post.date}>{formatInsightDate(post.date)}</time>
                 <span>{post.readTime}</span>
                 <span>{post.author}</span>
               </div>
