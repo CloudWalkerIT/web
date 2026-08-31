@@ -226,7 +226,7 @@ export default function ProductsPage() {
       </Section>
 
       {/* Atomatize Hero */}
-      <Section id="atomatize" className="relative overflow-hidden bg-dark-800/30">
+      <Section id="atomatize" className="relative scroll-mt-24 overflow-hidden bg-dark-800/30">
         <div className="absolute inset-0 -z-10">
           <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-electric-500/10 blur-3xl" />
         </div>
@@ -323,7 +323,7 @@ export default function ProductsPage() {
       </Section>
 
       {/* KrakenKey Hero */}
-      <Section id="krakenkey" className="relative overflow-hidden">
+      <Section id="krakenkey" className="relative scroll-mt-24 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute right-1/3 top-1/3 h-80 w-80 rounded-full bg-accent-500/10 blur-3xl" />
         </div>
