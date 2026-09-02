@@ -29,7 +29,7 @@ export default function Header() {
           <span>
             <span className="text-cloud-400">Cloud</span>
             <span className="text-white">walker</span>
-            <span className="text-gray-400 text-sm font-medium">.IT</span>
+            <span className="text-gray-400">.IT</span>
           </span>
         </Link>
 
