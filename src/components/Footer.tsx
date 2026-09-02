@@ -12,7 +12,7 @@ export default function Footer() {
               <span>
                 <span className="text-cloud-400">Cloud</span>
                 <span className="text-white">walker</span>
-                <span className="text-gray-400 text-sm">.it</span>
+                <span className="text-gray-400 text-sm">.IT</span>
               </span>
             </Link>
             <p className="mt-3 text-sm text-gray-400">
