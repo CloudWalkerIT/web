@@ -4,7 +4,7 @@ description: "Practical strategies to reduce your cloud spending by up to 40% wi
 date: "2026-03-01"
 author: "Cloudwalker IT"
 tags: ["cloud", "finops", "cost optimization"]
-readTime: "6 min read"
+readTime: "2 min read"
 ---
 
 ## The State of Cloud Spending
