@@ -20,7 +20,7 @@ export default function InsightsPage() {
             Insights
           </p>
           <h1 className="mt-2 text-4xl font-bold">
-            Analysis & Thought Leadership
+            Analysis & thought leadership
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
             Deep dives into cloud, AI, security, and enterprise technology trends — written by practitioners, not pundits.

@@ -150,7 +150,7 @@ export default function ContactPage() {
                       autoComplete="name"
                       required
                       maxLength={200}
-                      className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400/50 focus:ring-1 focus:ring-cloud-400/50"
+                      className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400 focus:ring-2 focus:ring-cloud-400"
                       placeholder="Your name"
                     />
                   </div>
@@ -167,7 +167,7 @@ export default function ContactPage() {
                       maxLength={320}
                       pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                       title="Please enter a valid email address"
-                      className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400/50 focus:ring-1 focus:ring-cloud-400/50 invalid:[&:not(:placeholder-shown)]:border-red-500/50"
+                      className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400 focus:ring-2 focus:ring-cloud-400 invalid:[&:not(:placeholder-shown)]:border-red-500/50"
                       placeholder="you@company.com"
                     />
                   </div>
@@ -183,7 +183,7 @@ export default function ContactPage() {
                     name="company"
                     autoComplete="organization"
                     maxLength={200}
-                    className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400/50 focus:ring-1 focus:ring-cloud-400/50"
+                    className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400 focus:ring-2 focus:ring-cloud-400"
                     placeholder="Your company"
                   />
                 </div>
@@ -198,7 +198,7 @@ export default function ContactPage() {
                     required
                     rows={5}
                     maxLength={5000}
-                    className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400/50 focus:ring-1 focus:ring-cloud-400/50"
+                    className="w-full rounded-lg border border-white/10 bg-dark-800 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-cloud-400 focus:ring-2 focus:ring-cloud-400"
                     placeholder="Tell us about your project or question..."
                   />
                 </div>
