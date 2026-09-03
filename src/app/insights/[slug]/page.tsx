@@ -211,6 +211,16 @@ export default async function InsightPage({ params }: Props) {
             >
               Start a conversation
             </Link>
+            <p className="mt-6 text-sm text-gray-400">
+              Not ready for that? New posts land in the{" "}
+              <a
+                href="/feed.xml"
+                className="text-cloud-400 underline decoration-cloud-400/40 underline-offset-2 hover:decoration-cloud-400"
+              >
+                RSS feed
+              </a>
+              .
+            </p>
           </aside>
         </div>
       </Section>

@@ -25,6 +25,14 @@ export default function InsightsPage() {
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
             Deep dives into cloud, AI, security, and enterprise technology trends — written by practitioners, not pundits.
           </p>
+          <p className="mt-4 text-sm">
+            <a
+              href="/feed.xml"
+              className="text-cloud-400 transition hover:text-cloud-300"
+            >
+              Subscribe via RSS →
+            </a>
+          </p>
         </div>
       </Section>
 
