@@ -217,7 +217,7 @@ export default function ProductsPage() {
             Our Products
           </p>
           <h1 className="mt-2 text-4xl font-bold sm:text-5xl">
-            Tools Built for Builders
+            Tools built for builders
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
             Purpose-built platforms that solve real problems — from certificate management to content operations.

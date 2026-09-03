@@ -31,6 +31,13 @@ body {
   @apply bg-cloud-500/30 text-white;
 }
 
+/* Branded keyboard focus. Form fields opt out via outline-none and
+   carry their own ring styles instead. */
+:focus-visible {
+  outline: 2px solid var(--color-cloud-400);
+  outline-offset: 2px;
+}
+
 /* Cap running text at a readable measure; code blocks and table
    wrappers keep the full column. */
 .prose-dark > :not(pre, div) {

@@ -11,7 +11,7 @@ npm run lint       # Lint with Next.js built-in linter
 npx serve out      # Preview production build locally
 ```
 
-Deployment to Cloudflare Pages: `wrangler pages deploy out --project-name=cloudwalker-it`
+Deployment: the Cloudflare Pages project `cwit` is git-connected to `krakenhavoc/CWIT`. Merges to `main` deploy production automatically; every PR gets a preview deployment linked in a PR comment. Never commit directly to `main` — branch and PR. Do not use wrangler direct upload (the old `cloudwalker-it` direct-upload project and its proxy worker are retired).
 
 ## Architecture
 

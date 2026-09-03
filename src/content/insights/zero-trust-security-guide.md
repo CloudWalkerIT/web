@@ -4,7 +4,7 @@ description: "How to implement a zero-trust security architecture that protects 
 date: "2026-01-20"
 author: "Cloudwalker IT"
 tags: ["security", "zero trust", "cybersecurity", "compliance"]
-readTime: "7 min read"
+readTime: "2 min read"
 ---
 
 ## Why Zero Trust, Why Now

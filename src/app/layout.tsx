@@ -15,19 +15,21 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://cloudwalker.it"),
   title: {
-    default: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
+    default: "Cloudwalker IT — Senior Azure Cloud Engineering",
     template: "%s | Cloudwalker IT",
   },
   description:
-    "Cloudwalker IT delivers intelligent cloud infrastructure, insights, and digital transformation solutions for modern enterprises.",
+    "Senior cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
   keywords: [
-    "cloud infrastructure",
-    "IT consulting",
-    "AI solutions",
-    "digital transformation",
+    "Azure consulting",
+    "Azure cloud engineering",
+    "platform engineering",
+    "managed Terraform",
+    "AKS",
+    "cloud migration",
+    "FinOps",
+    "KrakenKey",
     "Atomatize",
-    "insights",
-    "managed IT services",
   ],
   authors: [{ name: "Cloudwalker IT" }],
   openGraph: {
@@ -35,15 +37,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://cloudwalker.it",
     siteName: "Cloudwalker IT",
-    title: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
+    title: "Cloudwalker IT — Senior Azure Cloud Engineering",
     description:
-      "Intelligent cloud infrastructure, insights, and digital transformation for modern enterprises.",
+      "Senior cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Cloudwalker IT — Azure cloud engineering",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cloudwalker IT — Intelligent Cloud & IT Solutions",
+    title: "Cloudwalker IT — Senior Azure Cloud Engineering",
     description:
-      "Intelligent cloud infrastructure, insights, and digital transformation.",
+      "Senior cloud engineering practice — Azure-first, with AWS via 010 Consulting. Builders of KrakenKey and Atomatize.",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
@@ -64,7 +75,7 @@ const jsonLd = {
   name: "Cloudwalker IT",
   url: "https://cloudwalker.it",
   description:
-    "Intelligent cloud infrastructure, insights, and digital transformation solutions.",
+    "Senior Azure cloud engineering practice. AWS delivered jointly with 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
   logo: "https://cloudwalker.it/logo.svg",
   contactPoint: {
     "@type": "ContactPoint",
@@ -85,6 +96,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {process.env.NEXT_PUBLIC_CF_BEACON_TOKEN && (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({
+              token: process.env.NEXT_PUBLIC_CF_BEACON_TOKEN,
+            })}
+          />
+        )}
       </head>
       <body className="flex min-h-screen flex-col">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-cloud-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-dark-900">

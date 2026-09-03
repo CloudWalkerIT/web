@@ -6,7 +6,7 @@ import { formatInsightDate, getAllInsights } from "@/lib/insights";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Expert analysis on cloud computing, AI, cybersecurity, and digital transformation trends from the Cloudwalker IT team.",
+    "Practitioner notes on Azure, Kubernetes, platform engineering, and cloud security: field reports from real engagements and the SaaS we operate.",
 };
 
 export default function InsightsPage() {
@@ -20,7 +20,7 @@ export default function InsightsPage() {
             Insights
           </p>
           <h1 className="mt-2 text-4xl font-bold">
-            Analysis & Thought Leadership
+            Analysis & thought leadership
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
             Deep dives into cloud, AI, security, and enterprise technology trends — written by practitioners, not pundits.
