@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
+import { formatInsightDate, getAllInsights } from "@/lib/insights";
 
 export const metadata: Metadata = {
   title: "Cloudwalker IT — Senior Azure Cloud Engineering",
@@ -38,7 +39,7 @@ const artifacts: Array<{
     name: "KrakenKey",
     desc: "TLS certificate automation — one-time DNS setup, then 4-minute renewals.",
     badge: "Live SaaS",
-    href: "https://krakenkey.io",
+    href: "https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=home",
     external: true,
     accentClass: "text-accent-400",
   },
@@ -46,7 +47,7 @@ const artifacts: Array<{
     name: "Atomatize",
     desc: "AI content repurposing — long-form into platform-ready posts.",
     badge: "Live SaaS",
-    href: "https://atomatize.com",
+    href: "https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=home",
     external: true,
     accentClass: "text-electric-400",
   },
@@ -69,6 +70,7 @@ const artifacts: Array<{
 ];
 
 export default function HomePage() {
+  const latestInsights = getAllInsights().slice(0, 3);
   return (
     <>
       {/* Hero */}
@@ -178,6 +180,43 @@ export default function HomePage() {
             className="text-sm font-medium text-cloud-400 transition hover:text-cloud-300"
           >
             See all services →
+          </Link>
+        </div>
+      </Section>
+
+      {/* Latest insights */}
+      <Section className="border-t border-white/5 bg-dark-800/30">
+        <div className="text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
+            Insights
+          </p>
+          <h2 className="mt-2 text-3xl font-bold">Latest from the practice</h2>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {latestInsights.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/insights/${post.slug}/`}
+              className="group flex flex-col rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/30 hover:bg-dark-700/50"
+            >
+              <p className="text-xs text-gray-400">
+                <time dateTime={post.date}>{formatInsightDate(post.date)}</time>
+                {" · "}
+                {post.readTime}
+              </p>
+              <h3 className="mt-3 text-lg font-semibold transition group-hover:text-cloud-400">
+                {post.title}
+              </h3>
+              <p className="mt-3 text-sm text-gray-400">{post.description}</p>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link
+            href="/insights/"
+            className="text-sm font-medium text-cloud-400 transition hover:text-cloud-300"
+          >
+            All insights →
           </Link>
         </div>
       </Section>
