@@ -18,6 +18,9 @@ export default function Footer() {
             <p className="mt-3 text-sm text-gray-400">
               Senior Azure cloud engineering. AWS via 010 Consulting. Builders of KrakenKey and Atomatize.
             </p>
+            <p className="mt-3 text-sm text-gray-400">
+              United States · Remote engagements
+            </p>
           </div>
 
           <div>
@@ -35,6 +38,7 @@ export default function Footer() {
             <ul className="mt-3 space-y-2">
               <li><Link href="/about/" className="text-sm text-gray-400 hover:text-cloud-400">About Us</Link></li>
               <li><Link href="/contact/" className="text-sm text-gray-400 hover:text-cloud-400">Contact</Link></li>
+              <li><Link href="/privacy/" className="text-sm text-gray-400 hover:text-cloud-400">Privacy</Link></li>
             </ul>
           </div>
 
