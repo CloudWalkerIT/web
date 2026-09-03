@@ -39,7 +39,7 @@ Get-AzADGroup -DisplayName AdminAgents
 Then, against the customer's subscription, the role assignment gets created using that object ID:
 
 ```powershell
-Connect-AzAccount -TenantID "<Customer tenant>"
+Connect-AzAccount -Tenant "<Customer tenant ID>"
 Set-AzContext -SubscriptionID "<Subscription ID>"
 New-AzRoleAssignment -ObjectID "<AdminAgents object ID>" -RoleDefinitionName "Owner" -Scope "/subscriptions/<Subscription ID>" -ObjectType "ForeignGroup"
 ```
