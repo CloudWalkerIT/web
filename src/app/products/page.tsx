@@ -239,19 +239,21 @@ export default function ProductsPage() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="https://krakenkey.io"
+              href="https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg bg-accent-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 transition hover:bg-accent-600"
             >
               Get Started Free
             </a>
-            <Link
-              href="/contact/"
+            <a
+              href="https://krakenkey.io/scanner?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-accent-400/50 hover:text-accent-400"
             >
-              Learn More
-            </Link>
+              Try the Free Scanner
+            </a>
           </div>
         </div>
       </Section>
@@ -306,7 +308,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
               <a
-                href="https://krakenkey.io"
+                href="https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=pricing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
@@ -335,19 +337,19 @@ export default function ProductsPage() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="https://atomatize.com"
+              href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-electric-500/25 transition hover:bg-electric-400"
             >
               Try Atomatize
             </a>
-            <Link
-              href="/contact/"
+            <a
+              href="#atomatize-pricing"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-electric-400/50 hover:text-electric-400"
             >
-              Request a Demo
-            </Link>
+              See Pricing
+            </a>
           </div>
         </div>
       </Section>
@@ -368,7 +370,7 @@ export default function ProductsPage() {
       </Section>
 
       {/* Atomatize Pricing */}
-      <Section>
+      <Section id="atomatize-pricing" className="scroll-mt-24">
         <div className="text-center">
           <h2 className="text-3xl font-bold">Atomatize Plans</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
@@ -402,7 +404,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
               <a
-                href="https://atomatize.com"
+                href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=pricing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
