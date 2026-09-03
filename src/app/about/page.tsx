@@ -6,7 +6,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Cloudwalker IT — our mission, values, and the team behind intelligent cloud and IT solutions for modern enterprises.",
+    "Cloudwalker IT is a Microsoft-certified Azure cloud engineering practice that builds and operates the KrakenKey and Atomatize SaaS products. Verifiable credentials, direct senior delivery.",
 };
 
 const values = [

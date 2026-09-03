@@ -4,7 +4,7 @@ description: "A pragmatic approach to deploying AI and LLMs in enterprise enviro
 date: "2026-02-15"
 author: "Cloudwalker IT"
 tags: ["AI", "enterprise", "automation", "LLM"]
-readTime: "8 min read"
+readTime: "3 min read"
 ---
 
 ## Beyond the Hype: Practical AI Integration
