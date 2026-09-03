@@ -32,7 +32,7 @@ Microsoft publishes the exact procedure for this in [Reinstate admin privileges 
 On the partner side, you pull the object ID of the `AdminAgents` group from your own tenant:
 
 ```powershell
-Connect-AzAccount -Tenant "Partner tenant"
+Connect-AzAccount -Tenant "<Partner tenant ID>"
 Get-AzADGroup -DisplayName AdminAgents
 ```
 
