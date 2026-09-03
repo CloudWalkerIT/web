@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "Atomatize",
   ],
   authors: [{ name: "Cloudwalker IT" }],
+  alternates: {
+    types: { "application/rss+xml": "/feed.xml" },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
