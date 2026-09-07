@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Section from "@/components/Section";
+import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 
 const contactInfo = [
   { label: "Email", value: "hello@cloudwalker.it" },
@@ -79,8 +80,25 @@ export default function ContactPage() {
           </p>
           <h1 className="mt-2 text-4xl font-bold">Get in touch</h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Tell us about an engagement you are considering, ask about KrakenKey or Atomatize, or use the form to start a conversation. We respond within one business day.
+            The fastest path is booking a call directly. If you would rather write first, the form below reaches us within one business day.
           </p>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-2xl rounded-xl border border-cloud-400/20 bg-dark-800/50 p-8 text-center">
+          <h2 className="text-xl font-bold">Book the intro call</h2>
+          <p className="mx-auto mt-3 max-w-md text-sm text-gray-400">
+            30 minutes, video via Proton Meet, no account needed. We use it to
+            understand the problem and tell you honestly whether we are the
+            right fit.
+          </p>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
+          >
+            {BOOKING_CTA}
+          </a>
         </div>
       </Section>
 
