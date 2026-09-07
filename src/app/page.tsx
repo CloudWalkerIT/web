@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import { formatInsightDate, getAllInsights } from "@/lib/insights";
+import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Cloudwalker IT — Senior Azure Cloud Engineering",
@@ -94,12 +95,14 @@ export default function HomePage() {
             Cloudwalker IT is a senior cloud engineering practice — Azure delivery in-house, AWS through our 010 Consulting partnership. We also build and operate KrakenKey and Atomatize, so the patterns we recommend are ones we already use in production.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact/"
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
             >
-              Start a conversation
-            </Link>
+              {BOOKING_CTA}
+            </a>
             <Link
               href="/products/"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-cloud-400/50 hover:text-cloud-400"
@@ -228,12 +231,20 @@ export default function HomePage() {
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
             Engagements typically start with a short call to understand the problem. If our practice is the right fit, we will say so. If not, we will recommend someone better suited.
           </p>
-          <Link
-            href="/contact/"
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
           >
-            Get in touch
-          </Link>
+            {BOOKING_CTA}
+          </a>
+          <p className="mt-4 text-sm text-gray-400">
+            Prefer to write first?{" "}
+            <Link href="/contact/" className="text-cloud-400 transition hover:text-cloud-300">
+              Use the contact form
+            </Link>
+          </p>
         </div>
       </Section>
     </>
