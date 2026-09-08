@@ -11,7 +11,7 @@ readTime: "5 min read"
 
 Admin On Behalf Of access to a customer's Azure subscription is supposed to be automatic once a reseller relationship is in place. We ran into a subscription where that access wasn't there, and getting it back turned out to be less obvious than it should be -- Microsoft has a documented path for it, but it's one we've found most people in the partner channel have never had to use.
 
-[GAP: the specific trigger -- what surfaced the missing access (couldn't manage the subscription, it wasn't listed in Partner Center, an error on a specific action) and what caused it to go missing in the first place -- wasn't detailed in the intake notes.]
+> [GAP: the specific trigger -- what surfaced the missing access (couldn't manage the subscription, it wasn't listed in Partner Center, an error on a specific action) and what caused it to go missing in the first place -- wasn't detailed in the intake notes.]
 
 ## Tenant Access and Subscription Access Are Two Different Grants
 
@@ -41,7 +41,11 @@ Then, against the customer's subscription, the role assignment gets created usin
 ```powershell
 Connect-AzAccount -Tenant "<Customer tenant ID>"
 Set-AzContext -SubscriptionID "<Subscription ID>"
-New-AzRoleAssignment -ObjectID "<AdminAgents object ID>" -RoleDefinitionName "Owner" -Scope "/subscriptions/<Subscription ID>" -ObjectType "ForeignGroup"
+New-AzRoleAssignment `
+    -ObjectID "<AdminAgents object ID>" `
+    -RoleDefinitionName "Owner" `
+    -Scope "/subscriptions/<Subscription ID>" `
+    -ObjectType "ForeignGroup"
 ```
 
 `-ObjectType "ForeignGroup"` is the part that's easy to overlook. It's what tells Azure that the object ID belongs to a security group in a different tenant rather than the customer's own directory, and without it the assignment doesn't resolve correctly. The same command works with the scope narrowed to a resource group or a single resource instead of the whole subscription, which is how we applied it -- no broader than the situation called for.
@@ -52,7 +56,9 @@ The part that wasn't obvious going in: none of this is specific to the CSP billi
 
 That means the same mechanism applies to a customer on ordinary Pay-As-You-Go billing with no reseller relationship in place -- an MSP providing management services only, rather than reselling Azure, can be granted the same scoped Owner role against a foreign security group to get working access. The CSP program's automatic grant is just one path that creates this RBAC assignment; the assignment itself can be created by hand for any subscription, on any billing model, independent of any reseller relationship.
 
-We're packaging this as a tool for the CloudWalker IT toolbox -- wrapping the object ID lookup and the scoped role assignment into something repeatable instead of re-deriving the right flags from documentation each time it comes up. [GAP: toolbox tool name and any additional detail, to be linked here once it ships.]
+We're packaging this as a tool for the CloudWalker IT toolbox -- wrapping the object ID lookup and the scoped role assignment into something repeatable instead of re-deriving the right flags from documentation each time it comes up.
+
+> [GAP: toolbox tool name and any additional detail, to be linked here once it ships.]
 
 ## The Takeaway
 
