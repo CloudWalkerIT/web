@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
 import { getInsightBySlug, getAllInsightSlugs, formatInsightDate } from "@/lib/insights";
+import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -205,14 +206,23 @@ export default async function InsightPage({ params }: Props) {
                 may solve it without an engagement.
               </p>
             )}
-            <Link
-              href="/contact/"
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
             >
-              Start a conversation
-            </Link>
+              {BOOKING_CTA}
+            </a>
             <p className="mt-6 text-sm text-gray-400">
-              Not ready for that? New posts land in the{" "}
+              Not ready for a call? Use the{" "}
+              <Link
+                href="/contact/"
+                className="text-cloud-400 underline decoration-cloud-400/40 underline-offset-2 hover:decoration-cloud-400"
+              >
+                contact form
+              </Link>
+              , or follow new posts in the{" "}
               <a
                 href="/feed.xml"
                 className="text-cloud-400 underline decoration-cloud-400/40 underline-offset-2 hover:decoration-cloud-400"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
+import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -251,12 +252,20 @@ export default function AboutPage() {
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
             Most engagements start with a short conversation. Tell us what you&apos;re trying to do and we&apos;ll tell you whether we&apos;re the right fit.
           </p>
-          <Link
-            href="/contact/"
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
           >
-            Get in touch
-          </Link>
+            {BOOKING_CTA}
+          </a>
+          <p className="mt-4 text-sm text-gray-400">
+            Prefer to write first?{" "}
+            <Link href="/contact/" className="text-cloud-400 transition hover:text-cloud-300">
+              Use the contact form
+            </Link>
+          </p>
         </div>
       </Section>
     </>
