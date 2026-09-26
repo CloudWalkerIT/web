@@ -21,6 +21,8 @@ Production-ready marketing website for [cloudwalker.it](https://cloudwalker.it),
 | `/insights/[slug]/` | Individual blog post |
 | `/about/` | About — mission, credentials wall (5 verifiable cert badges), operating principles, CTA |
 | `/contact/` | Contact — form posts to `/api/contact` Pages Function (Resend); mailto fallback |
+| `/privacy/` | Privacy policy |
+| `/feed.xml` | RSS feed of insights |
 
 ## Development
 
@@ -31,12 +33,23 @@ npm install
 # Start dev server
 npm run dev
 
-# Build for production
+# Lint
+npm run lint
+
+# Build for production (static export to out/)
 npm run build
 
 # Preview production build
 npx serve out
 ```
+
+## Architecture
+
+- Next.js App Router with `output: "export"` in `next.config.ts`, so the whole site is static HTML. That means no API routes, no SSR and no ISR. Images are unoptimized and all routes use trailing slashes.
+- Pages are server components. The only client components are the Header (mobile menu), the contact form and `ScrollToHash`.
+- `@/*` is an import alias for `./src/*`.
+- Styling is Tailwind CSS 4 with a custom dark theme defined via `@theme` in `src/app/globals.css`. Color tokens: `--color-dark-*` (backgrounds), `--color-cloud-*` (cyan), `--color-electric-*` (purple), `--color-accent-*` (green). Font is Inter.
+- The only server-side code is the Cloudflare Pages Function in `functions/`. It is excluded from the Next.js TypeScript project (see `tsconfig.json`) and is built and deployed by Cloudflare, not by `npm run build`.
 
 ## Adding Blog Posts
 
@@ -55,45 +68,26 @@ readTime: "5 min read"
 Your markdown content here...
 ```
 
-The post will be automatically picked up at build time and available at `/insights/your-file-name/`.
+All frontmatter fields shown are required. The post is picked up at build time and served at `/insights/your-file-name/` (the slug is the filename).
 
-## Deploying to Cloudflare Pages
+Loading lives in `src/lib/insights.ts` (`getAllInsights()`, `getInsightBySlug()`, `getAllInsightSlugs()`). The post page renders markdown with its own small regex-based `renderMarkdown()` in `src/app/insights/[slug]/page.tsx` rather than a markdown library, so check how new syntax renders before relying on it.
 
-### Via Dashboard
+## Deployment
 
-1. Go to [Cloudflare Pages](https://pages.cloudflare.com/)
-2. Create a new project and connect your Git repository
-3. Configure build settings:
-   - **Build command**: `npm run build`
-   - **Build output directory**: `out`
-   - **Node.js version**: `22` (set via environment variable `NODE_VERSION=22`)
-4. Deploy
+The site is hosted on Cloudflare Pages in the `cwit` project, which is connected to this GitHub repo (`CloudWalkerIT/web`).
 
-### Via Wrangler CLI
+- Merging to `main` deploys production.
+- Every pull request gets a preview deployment, and a link to it is posted as a PR comment.
+- Don't push directly to `main`. Work on a branch and open a PR.
+- Don't deploy with `wrangler pages deploy`. The old `cloudwalker-it` direct-upload project and its proxy worker are retired.
 
-```bash
-# Install wrangler
-npm install -g wrangler
+Build settings in the Pages project:
 
-# Login to Cloudflare
-wrangler login
+- **Build command**: `npm run build`
+- **Build output directory**: `out`
+- **Node.js version**: `22` (environment variable `NODE_VERSION=22`)
 
-# Build the site
-npm run build
-
-# Deploy
-wrangler pages deploy out --project-name=cloudwalker-it
-```
-
-### Custom Domain (cloudwalker.it)
-
-1. In Cloudflare Pages project settings, go to **Custom domains**
-2. Add `cloudwalker.it` and `www.cloudwalker.it`
-3. If your domain DNS is managed by Cloudflare, records are added automatically
-4. If external DNS, add the CNAME record as instructed:
-   - `cloudwalker.it` → `cloudwalker-it.pages.dev`
-   - `www.cloudwalker.it` → `cloudwalker-it.pages.dev`
-5. SSL is provisioned automatically by Cloudflare
+DNS for `cloudwalker.it` is on Cloudflare, and the domain is attached under the `cwit` project's **Custom domains**. Cloudflare manages the DNS records and certificates.
 
 ### Contact Form (Production)
 
@@ -110,6 +104,8 @@ To enable real form submissions:
 
 If `RESEND_API_KEY` is missing or Resend rejects the request, the function returns a non-2xx response and the client falls back to opening a `mailto:hello@cloudwalker.it` link with the form contents prefilled — so the form keeps working even without Resend configured.
 
+The form has a hidden honeypot field (`website`). Submissions that fill it in get a fake success response and are not sent.
+
 ## SEO Features
 
 - Full Open Graph and Twitter Card metadata on all pages
@@ -121,6 +117,8 @@ If `RESEND_API_KEY` is missing or Resend rejects the request, the function retur
 ## Project Structure
 
 ```
+functions/
+└── api/contact.ts          # Contact form Pages Function (Resend)
 src/
 ├── app/
 │   ├── layout.tsx          # Root layout with header/footer
@@ -129,6 +127,8 @@ src/
 │   ├── sitemap.ts          # Auto-generated sitemap
 │   ├── robots.ts           # Robots.txt
 │   ├── globals.css         # Tailwind + theme config
+│   ├── feed.xml/route.ts   # RSS feed
+│   ├── privacy/page.tsx
 │   ├── services/page.tsx
 │   ├── products/page.tsx
 │   ├── about/page.tsx
@@ -141,6 +141,7 @@ src/
 ├── components/
 │   ├── Header.tsx          # Navigation with mobile menu
 │   ├── Footer.tsx          # Footer with links
+│   ├── ScrollToHash.tsx    # Scrolls to #anchors after navigation
 │   └── Section.tsx         # Reusable section wrapper
 ├── content/
 │   └── insights/           # Markdown blog posts
