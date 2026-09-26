@@ -7,11 +7,11 @@ tags: ["azure", "csp", "rbac", "partner-center", "powershell"]
 readTime: "5 min read"
 ---
 
-When an Azure subscription moves between partners, the incoming partner needs a separate Owner assignment for its admin group. Admin-on-behalf-of (AOBO) access requires its own check after the transfer: verify that the receiving partner can manage the resources.
+Admin-on-behalf-of (AOBO) access doesn't transfer with an Azure subscription. When a subscription moves between partners, the incoming partner's admin group gets no Owner assignment on it, so check access yourself after every transfer.
 
 ## The Relationship Is Not the Role Assignment
 
-CSP administration has two layers. Tenant-level delegated privileges cover directory administration. Subscription-level privileges come from Azure RBAC assignments on the resources being managed. A reseller relationship and granular delegated admin privileges (GDAP) leave a missing subscription role assignment to be restored separately.
+CSP administration has two layers. Tenant-level delegated privileges cover directory administration. Subscription-level privileges come from Azure RBAC assignments on the resources being managed. Having a reseller relationship and granular delegated admin privileges (GDAP) in place won't bring back a missing subscription role assignment.
 
 For a newly provisioned Azure Plan subscription, the automatic grant gives the partner's `AdminAgents` group Owner at subscription scope. The group lives in the partner tenant. Azure represents it as a foreign principal on the customer's subscription.
 
@@ -28,7 +28,7 @@ Connect-AzAccount -Tenant "<Partner tenant ID>"
 Get-AzADGroup -DisplayName AdminAgents
 ```
 
-Use that group's object ID. Keep it distinct from the partner tenant ID and any group ID from the customer's directory. The customer-side operator needs Owner or User Access Administrator and permission to create role assignments at subscription scope. A partner repairing missing access must establish who already has permission to perform the grant.
+Use that group's object ID, not the partner tenant ID or a group from the customer's directory. The customer-side operator needs Owner or User Access Administrator and permission to create role assignments at subscription scope. A partner repairing missing access must establish who already has permission to perform the grant.
 
 Microsoft's customer-side procedure starts by updating `Az.Resources`. The customer then connects to the correct tenant and selects the subscription explicitly:
 
@@ -43,7 +43,7 @@ New-AzRoleAssignment `
     -ObjectType "ForeignGroup"
 ```
 
-This subscription-scope grant matches the automatic Azure Plan assignment and gives the group Owner permissions, beyond portal visibility. Before running it, confirm the customer tenant and subscription, then check that the object ID belongs to the intended partner group.
+This subscription-scope grant matches the automatic Azure Plan assignment, and it grants full Owner on the subscription. Before running it, confirm the customer tenant and subscription, then check that the object ID belongs to the intended partner group.
 
 ## ForeignGroup Is the Important Detail
 
@@ -77,7 +77,7 @@ We also recommend PIM eligibility on the GDAP security groups in the partner ten
 
 ## Where Lighthouse Fits
 
-The foreign-group procedure applies independently of whether the subscription is under an Azure plan. It can cover a Pay-As-You-Go subscription where a partner provides management services only. The reseller relationship and GDAP remain prerequisites, limiting this procedure to established partner relationships.
+The foreign-group procedure works whether or not the subscription is under an Azure plan. It can cover a Pay-As-You-Go subscription where a partner provides management services only. The reseller relationship and GDAP still have to exist first.
 
 For repeatable managed services on subscriptions sold elsewhere, we'd start with [Azure Lighthouse](https://learn.microsoft.com/en-us/azure/lighthouse/overview), Microsoft's purpose-built cross-tenant management service. It supports CSP and Pay-As-You-Go subscriptions, with delegation at subscription or resource-group scope. Template-based onboarding provides a consistent setup. Customers control delegated permissions and scopes; they can audit provider activity and remove access.
 
@@ -85,4 +85,4 @@ A narrowly scoped foreign-group assignment remains pragmatic for a specific acce
 
 ## The Takeaway
 
-After a subscription transfer, verify that the foreign-principal Owner assignment names the incoming partner's group and covers the intended scope. Where narrower access was deliberately chosen, check that boundary explicitly. Verify AOBO through the actual RBAC assignment, independently of the partner relationship.
+After a subscription transfer, verify that the foreign-principal Owner assignment names the incoming partner's group and covers the intended scope. Where narrower access was deliberately chosen, check that boundary explicitly. The partner relationship won't tell you whether AOBO works; only the RBAC assignment will.
