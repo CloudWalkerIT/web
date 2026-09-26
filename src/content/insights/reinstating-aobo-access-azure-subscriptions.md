@@ -1,65 +1,88 @@
 ---
 title: "Reinstating Admin-on-Behalf-Of Access on an Azure Subscription"
-description: "Admin On Behalf Of access to a customer's Azure subscription doesn't always carry over the way partners expect. The documented fix is a scoped RBAC grant to a foreign security group -- and it turns out to work well beyond the CSP program."
-date: "2026-09-01"
+description: "AOBO access does not transfer with an Azure subscription. Restore the partner's foreign-group RBAC assignment, then choose the right scope and access model."
+date: "2026-09-26"
 author: "Cloudwalker IT"
 tags: ["azure", "csp", "rbac", "partner-center", "powershell"]
 readTime: "5 min read"
 ---
 
-## The Problem
+Admin-on-behalf-of (AOBO) access does not transfer with a subscription. When a subscription moves between partners, the new partner's admin group does not automatically receive its Owner assignment on that subscription. The transfer and the access grant are separate operations, so a completed transfer is not evidence that the incoming partner can manage the resources.
 
-Admin On Behalf Of access to a customer's Azure subscription is supposed to be automatic once a reseller relationship is in place. We ran into a subscription where that access wasn't there, and getting it back turned out to be less obvious than it should be -- Microsoft has a documented path for it, but it's one we've found most people in the partner channel have never had to use.
+## The Relationship Is Not the Role Assignment
 
-> [GAP: the specific trigger -- what surfaced the missing access (couldn't manage the subscription, it wasn't listed in Partner Center, an error on a specific action) and what caused it to go missing in the first place -- wasn't detailed in the intake notes.]
+CSP administration has two layers. Tenant-level delegated privileges cover directory administration. Subscription-level privileges come from Azure RBAC assignments on the resources being managed. Establishing a reseller relationship and granular delegated admin privileges (GDAP) does not, by itself, recreate a missing subscription role assignment.
 
-## Tenant Access and Subscription Access Are Two Different Grants
+For a newly provisioned Azure Plan subscription, the automatic grant gives the partner's `AdminAgents` group Owner at subscription scope. The group lives in the partner tenant, not the customer's directory. Azure represents it as a foreign principal on the customer's subscription.
 
-In the CSP program, a partner's rights over a customer split into two layers that don't move together. Tenant-level access -- resetting passwords, managing licenses, that kind of administration -- comes from establishing a reseller relationship and getting granular delegated admin privileges (GDAP) with the customer's tenant.
+A transfer is not that provisioning event. We need to check the receiving partner's group and the subscription's assignments independently of the relationship in Partner Center. Otherwise, the directory relationship can look correct while the Azure access needed to operate the subscription is absent.
 
-Subscription-level access is separate. It's an ordinary Azure RBAC role assignment made against the subscription itself, granted to a security group that lives in the partner's own tenant (traditionally the `AdminAgents` group). Azure represents that group as a foreign principal, since it doesn't belong to the customer's directory. When a partner provisions a new Azure Plan subscription for a customer, Microsoft creates that RBAC assignment automatically, and the `AdminAgents` group gets Owner on the subscription out of the gate.
+## Restore the Documented Subscription Grant
 
-That automatic step is what creates the assumption: set up the reseller relationship once, and subscription access just follows forever. It doesn't. The RBAC assignment on the subscription is independent of the tenant-level GDAP relationship, and it can end up missing without anyone having touched the delegated admin relationship at all.
+Microsoft's [procedure for reinstating CSP admin privileges](https://learn.microsoft.com/en-us/partner-center/customers/reinstate-csp) separates partner actions from customer actions. Before creating the assignment, the reseller relationship and GDAP must already exist. If either is missing, establish it first; the role-assignment command is not a replacement for those prerequisites.
 
-## What We Expected vs. What Was Actually There
-
-We went in expecting a straightforward fix: find the subscription, add the partner's admin group back as Owner, done. What we found instead is that "Owner on the subscription" isn't a single flat grant to hand out. The same RBAC granularity that applies to any other principal in Azure applies to the partner's admin group -- the assignment can be scoped to the whole subscription, a resource group, or a single resource, and access to the group that holds it can itself be gated by Privileged Identity Management in the partner's management tenant rather than being a standing membership. "Just re-add Owner" turned into confirming which group needed the role, at what scope, and whether it needed to be activated through PIM rather than assumed to already be active.
-
-## The Documented Fix
-
-Microsoft publishes the exact procedure for this in [Reinstate admin privileges for a customer's Azure CSP subscriptions](https://learn.microsoft.com/partner-center/customers/reinstate-csp). It splits into a partner-side step and a customer-side (or delegated-admin-side) step.
-
-On the partner side, you pull the object ID of the `AdminAgents` group from your own tenant:
+The partner retrieves the object ID of its own `AdminAgents` group:
 
 ```powershell
 Connect-AzAccount -Tenant "<Partner tenant ID>"
 Get-AzADGroup -DisplayName AdminAgents
 ```
 
-Then, against the customer's subscription, the role assignment gets created using that object ID:
+Use that group's object ID, not the partner tenant ID or a group from the customer's directory. The customer-side operator needs Owner or User Access Administrator and permission to create role assignments at subscription scope. A partner whose access is missing cannot assume it has permission to repair its own assignment.
+
+Microsoft's customer-side procedure starts by updating `Az.Resources`. The customer then connects to the correct tenant and selects the subscription explicitly:
 
 ```powershell
-Connect-AzAccount -Tenant "<Customer tenant ID>"
+Update-Module Az.Resources
+Connect-AzAccount -TenantID "<Customer tenant ID>"
 Set-AzContext -SubscriptionID "<Subscription ID>"
 New-AzRoleAssignment `
-    -ObjectID "<AdminAgents object ID>" `
+    -ObjectID "<AdminAgents group object ID>" `
     -RoleDefinitionName "Owner" `
     -Scope "/subscriptions/<Subscription ID>" `
     -ObjectType "ForeignGroup"
 ```
 
-`-ObjectType "ForeignGroup"` is the part that's easy to overlook. It's what tells Azure that the object ID belongs to a security group in a different tenant rather than the customer's own directory, and without it the assignment doesn't resolve correctly. The same command works with the scope narrowed to a resource group or a single resource instead of the whole subscription, which is how we applied it -- no broader than the situation called for.
+This is the subscription-scope grant that matches the automatic Azure Plan assignment. Confirm the tenant, subscription and partner group before running it: the command is granting Owner, not merely making the subscription visible in a portal.
 
-## It Isn't Actually a CSP-Specific Trick
+## ForeignGroup Is the Important Detail
 
-The part that wasn't obvious going in: none of this is specific to the CSP billing relationship. `New-AzRoleAssignment` against a foreign-group object ID is a generic Azure RBAC operation. It works on any subscription the person running the command has rights to modify, in any tenant, regardless of whether that subscription was ever sold as an Azure Plan through a CSP relationship at all.
+Without `-ObjectType "ForeignGroup"`, the cmdlet tries to resolve the object ID in the customer's directory, where the partner's group does not exist. The object ID can be correct and still be looked up in the wrong directory. The explicit object type tells Azure what kind of principal the assignment targets.
 
-That means the same mechanism applies to a customer on ordinary Pay-As-You-Go billing with no reseller relationship in place -- an MSP providing management services only, rather than reselling Azure, can be granted the same scoped Owner role against a foreign security group to get working access. The CSP program's automatic grant is just one path that creates this RBAC assignment; the assignment itself can be created by hand for any subscription, on any billing model, independent of any reseller relationship.
+The Azure CLI equivalent is:
 
-We're packaging this as a tool for the CloudWalker IT toolbox -- wrapping the object ID lookup and the scoped role assignment into something repeatable instead of re-deriving the right flags from documentation each time it comes up.
+```bash
+az role assignment create --assignee-object-id "<AdminAgents group object ID>" --assignee-principal-type ForeignGroup --role Owner --scope "/subscriptions/<Subscription ID>"
+```
 
-> [GAP: toolbox tool name and any additional detail, to be linked here once it ships.]
+Run that equivalent in the customer's tenant and subscription context, just as with PowerShell. Changing the client does not change the principal type or the permissions required to create the assignment.
+
+For an indirect reseller, Microsoft's route is to establish the customer relationship, request GDAP and obtain the object ID of the reseller's own AdminAgent group. An indirect provider with OBO rights and RBAC Owner can grant AOBO to that reseller group; otherwise, an end customer with subscription ownership can perform the grant.
+
+## Narrow the Access Before Making It Routine
+
+Subscription Owner is the documented restoration target, not the right default for every management task. Microsoft also documents resource-group and individual-resource scope. Keep `-ObjectType "ForeignGroup"` and replace the subscription scope with the appropriate value:
+
+```powershell
+# Resource-group scope
+-Scope "/subscriptions/<Subscription ID>/resourceGroups/<Resource group name>"
+
+# Individual-resource scope
+-Scope "<Resource URI>"
+```
+
+These are replacements for the `-Scope` argument, not standalone commands. Choose the boundary that covers the work; a resource-group assignment deliberately does not restore subscription-wide Owner access.
+
+We also recommend PIM eligibility on the GDAP security groups in the partner tenant instead of standing `AdminAgents` membership. Treat who can activate access and where the group has Azure permissions as separate design decisions. PIM eligibility does not create the subscription assignment, and a narrower scope does not remove standing membership. Both need attention before this becomes a repeatable operating pattern.
+
+## Where Lighthouse Fits
+
+The foreign-group procedure is agnostic about whether the subscription is under an Azure plan. It can apply to a Pay-As-You-Go subscription where a partner provides management services only, but the reseller relationship and GDAP must already exist. It is not a recipe for granting an arbitrary group access across unrelated tenants.
+
+For repeatable managed services on subscriptions the partner did not sell, we would start with [Azure Lighthouse](https://learn.microsoft.com/en-us/azure/lighthouse/overview), Microsoft's purpose-built cross-tenant management service. It supports CSP and Pay-As-You-Go subscriptions, subscription and resource-group delegation, and template-based onboarding. Customers control delegated permissions and scopes, can audit provider activity, and can remove access.
+
+A narrowly scoped foreign-group assignment remains pragmatic when an existing CSP AOBO relationship needs a specific access repair. Lighthouse is the better architectural starting point when the requirement is ongoing management across customers, consistent onboarding and customer-visible delegation. Restoring one assignment and designing a managed-services platform are different jobs.
 
 ## The Takeaway
 
-The full procedure, including the tenant-level GDAP steps and the resource-group- and resource-scoped variants of the role assignment, is documented in Microsoft's Partner Center reference for reinstating CSP admin privileges.
+After any subscription transfer, verify the foreign-principal Owner assignment yourself: check that it names the incoming partner's group and covers the intended scope. If narrower access was deliberately chosen, verify that boundary explicitly rather than treating it as subscription-wide restoration. AOBO is an RBAC assignment, not a property of the partner relationship.
