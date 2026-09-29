@@ -44,7 +44,7 @@ Start-ClusterResource $ListenerName
 
 With `RegisterAllProvidersIP` at `0` and a 60-second `HostRecordTTL`, clients reconnect to the new primary within roughly 60 seconds of a failover. That's not transparent failover -- connections drop and reconnect -- but the window was within the acceptable threshold for this engagement.
 
-## The Part Nobody Warns You About
+## The port binding problem
 
 SQL Server binds to all IP addresses on the host by default. In practice, that means it claims port 1433 on every NIC and every virtual IP that comes online on the node -- including the AG listener's IP when it's brought online on the primary replica.
 
@@ -54,6 +54,6 @@ We added a secondary IP configuration to each SQL node's network interface, then
 
 It's one of those things that's easy to miss until the listener comes online and connections fail -- obvious in retrospect, but not something that surfaces in most AG deployment guides.
 
-## The Takeaway
+## Before you call it done
 
 `RegisterAllProvidersIP=0` with a reduced `HostRecordTTL` is the documented path for supporting legacy clients in multi-subnet AG configurations. The SQL Server default port binding behavior is separately documented but easy to overlook when the rest of the configuration is what's demanding your attention. If you're standing up an Azure SQL AG without an ILB and need a standard port on the listener, verify SQL Server's TCP binding before you consider the listener tested.

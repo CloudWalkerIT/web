@@ -83,6 +83,6 @@ For repeatable managed services on subscriptions sold elsewhere, we'd start with
 
 A narrowly scoped foreign-group assignment remains pragmatic for a specific access repair within an existing CSP AOBO relationship. For ongoing management across customers, we'd choose Lighthouse as the architectural starting point for consistent onboarding and customer-visible delegation.
 
-## The Takeaway
+## After every transfer
 
 After a subscription transfer, verify that the foreign-principal Owner assignment names the incoming partner's group and covers the intended scope. Where narrower access was deliberately chosen, check that boundary explicitly. The partner relationship won't tell you whether AOBO works; only the RBAC assignment will.
