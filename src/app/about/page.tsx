@@ -37,8 +37,6 @@ const credentials = [
     image: "/badges/microsoft-certified-expert.svg",
     width: 256,
     height: 256,
-    verifyUrl:
-      "https://learn.microsoft.com/api/credentials/share/en-us/LukeWilkinson-2810/7E14B7D5016741F2?sharingId=9C8FE829760CE9BF",
   },
   {
     shortName: "Azure Architect Expert",
@@ -47,8 +45,6 @@ const credentials = [
     image: "/badges/microsoft-certified-expert.svg",
     width: 256,
     height: 256,
-    verifyUrl:
-      "https://learn.microsoft.com/api/credentials/share/en-us/LukeWilkinson-2810/9C23BA9BD8A81BF2?sharingId=9C8FE829760CE9BF",
   },
   {
     shortName: "CKA",
@@ -57,7 +53,6 @@ const credentials = [
     image: "/badges/cka.png",
     width: 672,
     height: 352,
-    verifyUrl: "https://www.credly.com/badges/9eb693d4-14b4-408f-aae0-4651dc0c2861/public_url",
   },
   {
     shortName: "Terraform Associate",
@@ -66,7 +61,6 @@ const credentials = [
     image: "/badges/terraform.png",
     width: 672,
     height: 352,
-    verifyUrl: "https://www.credly.com/badges/2e7923cd-c392-49cc-92ef-1635c769ba3b/public_url",
   },
   {
     shortName: "RHCSA",
@@ -75,7 +69,6 @@ const credentials = [
     image: "/badges/rhcsa.png",
     width: 600,
     height: 600,
-    verifyUrl: "https://www.credly.com/badges/63694e63-bab4-445d-bcdb-de19f2e54046/public_url",
   },
 ];
 
@@ -132,9 +125,6 @@ export default function AboutPage() {
                   <li>HashiCorp Certified: Terraform Associate</li>
                   <li>Red Hat Certified System Administrator (RHCSA)</li>
                 </ul>
-                <p className="mt-2 text-xs text-gray-400">
-                  Verifiable badges below.
-                </p>
               </div>
 
               <div>
@@ -171,19 +161,15 @@ export default function AboutPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold">Certifications</h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Each badge links to the issuer&apos;s own verification page.
+            Credential IDs and verification links are available on request.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
           {credentials.map((cred) => (
-            <a
+            <div
               key={cred.shortName}
-              href={cred.verifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`Verify ${cred.fullName} with ${cred.issuer}`}
-              className="group flex flex-col items-center rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/30 hover:bg-dark-700/50"
+              className="flex flex-col items-center rounded-xl border border-white/5 bg-dark-800/50 p-6"
             >
               <div className="flex h-28 w-full items-center justify-center">
                 <Image
@@ -194,11 +180,11 @@ export default function AboutPage() {
                   className="max-h-28 w-auto object-contain"
                 />
               </div>
-              <p className="mt-4 text-center text-sm font-semibold text-white transition group-hover:text-cloud-400">
+              <p className="mt-4 text-center text-sm font-semibold text-white">
                 {cred.shortName}
               </p>
               <p className="mt-1 text-center text-xs text-gray-400">{cred.issuer}</p>
-            </a>
+            </div>
           ))}
         </div>
       </Section>
