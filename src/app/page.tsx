@@ -22,7 +22,8 @@ const homeServices = [
   },
   {
     title: "Platform engineering and Terraform",
-    desc: "Terraform modules and pipelines, AKS and EKS clusters, and CI/CD in GitHub Actions or Azure DevOps.",
+    desc: "Terraform modules and pipelines, AKS and EKS clusters, CI/CD, and bringing hand-built Azure resources under Terraform.",
+    href: "/services/#platform",
   },
 ];
 
@@ -165,7 +166,7 @@ export default function HomePage() {
           {homeServices.map((s) => (
             <Link
               key={s.title}
-              href="/services/"
+              href={s.href ?? "/services/"}
               className="group flex flex-col rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/30 hover:bg-dark-700/50"
             >
               <h3 className="text-lg font-semibold transition group-hover:text-cloud-400">

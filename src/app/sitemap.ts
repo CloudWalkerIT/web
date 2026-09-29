@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "/",
     "/services/",
+    "/services/azure-terraform-adoption/",
     "/products/",
     "/insights/",
     "/about/",
