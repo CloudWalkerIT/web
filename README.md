@@ -48,8 +48,30 @@ npx serve out
 - Next.js App Router with `output: "export"` in `next.config.ts`, so the whole site is static HTML. That means no API routes, no SSR and no ISR. Images are unoptimized and all routes use trailing slashes.
 - Pages are server components. The only client components are the Header (mobile menu), the contact form and `ScrollToHash`.
 - `@/*` is an import alias for `./src/*`.
-- Styling is Tailwind CSS 4 with a custom dark theme defined via `@theme` in `src/app/globals.css`. Color tokens: `--color-dark-*` (backgrounds), `--color-cloud-*` (cyan), `--color-electric-*` (purple), `--color-accent-*` (green). Font is Inter.
+- Styling is Tailwind CSS 4 with a custom dark theme defined via `@theme` in `src/app/globals.css`. Font is Inter. See Brand colours below.
 - The only server-side code is the Cloudflare Pages Function in `functions/`. It is excluded from the Next.js TypeScript project (see `tsconfig.json`) and is built and deployed by Cloudflare, not by `npm run build`.
+
+## Brand colours
+
+All colour tokens live in the `@theme` block in `src/app/globals.css`, in two groups.
+
+**Cloudwalker IT** is used for everything the firm owns: header, footer, headings, links, the booking button, the hero gradient and background glows.
+
+| Token | Hex | Role |
+|---|---|---|
+| `cloud-400` / `500` / `600` | `#38bdf8` / `#0ea5e9` / `#0284c7` | Blue. The lead colour: links, primary buttons, labels |
+| `electric-400` / `500` / `600` | `#a78bfa` / `#8b5cf6` / `#7c3aed` | Purple. Second stop of the hero gradient, glows |
+| `accent-400` / `500` | `#34d399` / `#10b981` | Green. Success states and small highlights |
+| `dark-500` to `dark-900` | `#334155` to `#0a0e17` | Navy backgrounds and surfaces |
+
+**Products** use their own sites' colours, and only where that product is the subject: its section on /products, its card on the home page, its buttons, pricing and links. Don't use them for Cloudwalker's own UI, and don't use Cloudwalker's green or purple to stand in for a product.
+
+| Product | Tokens | Where it comes from |
+|---|---|---|
+| KrakenKey | `krakenkey-amber` `#f59e0b` (actions, prices), `krakenkey-cyan` `#06b6d4` / `krakenkey-cyan-light` `#22d3ee` (highlights, checkmarks) | krakenkey.io buttons and accent colour |
+| Atomatize | `atomatize-orange` `#ea9941` (actions, prices), `atomatize-teal` `#2dd4bf` (highlights), `atomatize-stone` `#1c1917` / `atomatize-ink` `#0f0a07` (section backgrounds) | atomatize.com dark theme and logo |
+
+Product logos are in `public/products/`. `atomatize.svg` is the dark-mode version of the atomatize.com icon with its colours fixed, because this site is always dark. If a product rebrands, update its tokens in `globals.css` and its logo in `public/products/`; the pages pick up the change.
 
 ## Adding Blog Posts
 
@@ -126,7 +148,7 @@ src/
 │   ├── not-found.tsx       # 404 page
 │   ├── sitemap.ts          # Auto-generated sitemap
 │   ├── robots.ts           # Robots.txt
-│   ├── globals.css         # Tailwind + theme config
+│   ├── globals.css         # Tailwind + theme config (brand colours)
 │   ├── feed.xml/route.ts   # RSS feed
 │   ├── privacy/page.tsx
 │   ├── services/page.tsx

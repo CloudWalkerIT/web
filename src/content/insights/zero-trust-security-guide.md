@@ -1,69 +1,86 @@
 ---
-title: "Zero Trust Security: The Enterprise Implementation Guide"
-description: "How to implement a zero-trust security architecture that protects modern cloud-native enterprise environments."
+title: "Zero Trust on Azure Starts in Entra ID"
+description: "Most zero trust programmes start with network segmentation. On Azure, the controls that matter most live in Entra ID: emergency accounts, Conditional Access, PIM and workload identities. An order of work that holds up."
 date: "2026-01-20"
 author: "Cloudwalker IT"
 tags: ["security", "zero trust", "cybersecurity", "compliance"]
-readTime: "2 min read"
+readTime: "7 min read"
 ---
 
-## Why Zero Trust, Why Now
+Ask a team to plan a zero trust programme and the first draft usually looks like a network project: segment the VNets, add firewalls between tiers, put private endpoints on everything. Those are worthwhile, but on Azure they're not where attackers get in. The common incidents we see start with an identity: a phished admin, a client secret committed to a repository, a service principal with Owner on a subscription it was only meant to deploy one app into.
 
-Traditional perimeter-based security does not hold up against distributed workforces, multi-cloud environments, and targeted attacks. Enterprises need a security model built on the principle of "never trust, always verify."
+So we start in Entra ID, and we work in a particular order. Each step makes the next one safer to do.
 
-## Core Principles
+## 1. Emergency access accounts, before anything else
 
-### 1. Verify Explicitly
+The next steps involve Conditional Access policies, and a mistake there can lock every administrator out of the tenant. Before creating any policy, set up two [emergency access accounts](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access):
 
-Every access request must be authenticated and authorized based on all available data points:
+- cloud-only accounts on the `onmicrosoft.com` domain, not synced from on-premises AD;
+- Global Administrator assigned permanently, not through PIM;
+- phishing-resistant authentication such as FIDO2 security keys, stored separately;
+- excluded from Conditional Access policies, so a bad policy can't lock them out;
+- an alert on any sign-in, because nobody should be using them day to day.
 
-- User identity and authentication strength
-- Device health and compliance status
-- Network location and anomaly signals
-- Resource sensitivity classification
+Azure now [enforces MFA](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication) for sign-ins to the Azure portal, CLI, PowerShell and management APIs. An emergency account with only a password won't get into Azure resources when you need it. The FIDO2 keys are what let it satisfy that requirement while staying outside your own policies.
 
-### 2. Least Privilege Access
+Test both accounts once they're set up, and put a recurring reminder to test them again.
 
-Grant the minimum permissions necessary, with just-in-time and just-enough-access approaches:
+## 2. A Conditional Access baseline
 
-- Implement role-based access control (RBAC) with regular reviews
-- Use privileged access management (PAM) for sensitive operations
-- Time-bound access grants that auto-expire
+Microsoft publishes a set of [common Conditional Access policies](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policy-common). The ones we treat as the baseline for almost every tenant:
 
-### 3. Assume Breach
+- **Require MFA for all users.** Exclude the emergency accounts and nothing else without a written reason.
+- **Block legacy authentication.** Legacy protocols can't do MFA, so they'd bypass the previous policy. Exchange Online has already switched most of them off, but SMTP AUTH and older line-of-business apps can still use them. Check the sign-in logs for legacy client apps first; there's usually a scanner or printer somewhere.
+- **Require phishing-resistant MFA for administrator roles.** Use an authentication strength, not just "require MFA". Push notifications and SMS codes can be phished or fatigued; FIDO2 keys and Windows Hello for Business can't.
+- **Require a compliant or hybrid-joined device for admin roles.** An admin session from an unmanaged personal laptop is a risk you can close with one policy, if the devices are enrolled in Intune.
+- **Risk-based policies**, if you have Entra ID P2: require a password change on high user risk and MFA on medium or high sign-in risk.
 
-Design your architecture assuming the attacker is already inside:
+Create every policy in report-only mode first. Leave it for a week or two, read the results in the sign-in logs, and use the What If tool for edge cases before switching it on. Most outages from Conditional Access come from a policy that went straight to "On".
 
-- Micro-segment networks to limit lateral movement
-- Encrypt data at rest and in transit, without exception
-- Implement comprehensive logging and real-time monitoring
+## 3. No standing admin access
 
-## Implementation Roadmap
+Count the permanent privileged assignments you have now. For Azure resources:
 
-### Quarter 1: Foundation
-- Deploy identity provider with MFA enforcement
-- Implement device compliance policies
-- Begin network segmentation planning
+```bash
+az role assignment list --all --include-inherited \
+  --query "[?roleDefinitionName=='Owner' || roleDefinitionName=='User Access Administrator'].{who:principalName, type:principalType, scope:scope}" \
+  -o table
+```
 
-### Quarter 2: Core Controls
-- Roll out conditional access policies
-- Deploy endpoint detection and response (EDR)
-- Implement SIEM with automated alerting
+For Entra roles, check Global Administrator, Privileged Role Administrator and the other high-impact roles in the portal or with Microsoft Graph.
 
-### Quarter 3: Advanced Protection
-- Enable micro-segmentation across cloud environments
-- Implement data loss prevention (DLP)
-- Deploy deception technologies (honeypots)
+The number is usually larger than anyone expected, and a good share of it is people who needed access once. [Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure) (Entra ID P2) turns those into eligible assignments. A person activates the role when they need it, for a limited time, with a justification and optionally an approval. Every activation is logged.
 
-### Quarter 4: Maturity
-- Automate incident response workflows
-- Conduct red team exercises
-- Achieve compliance certification targets
+Start with Global Administrator and Owner on production subscriptions, then work down. Keep activation durations short, and set up an access review so eligible assignments that nobody activates get removed.
 
-## The Business Case
+## 4. Workload identities without secrets
 
-Zero trust is also a business accelerator. Organizations with mature zero-trust architectures report 50% fewer breaches and 40% faster incident response times.
+Human accounts are now behind MFA, device checks and just-in-time access. Service principals with client secrets have none of that. A secret in a pipeline variable or an app setting works from anywhere, for as long as it's valid, often a year or two.
 
----
+Replace them in this order:
 
-*Need help implementing zero trust? [Our security team](/contact/) can assess your current posture and build a tailored roadmap.*
+- **Azure-hosted workloads** (App Service, Functions, Container Apps, VMs): use a managed identity. There's no credential to store or rotate.
+- **AKS workloads:** use [workload identity](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview), which federates a Kubernetes service account with a managed identity.
+- **CI/CD** (GitHub Actions, Azure DevOps, GitLab): use [workload identity federation](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation). The pipeline gets a short-lived token from its own identity provider and exchanges it with Entra ID. Nothing long-lived sits in the pipeline settings.
+
+While you're there, check what each service principal can do. A deployment pipeline for one app needs Contributor on that app's resource group, not Owner on the subscription.
+
+## 5. Keep the logs long enough to use
+
+Entra ID keeps sign-in and audit logs for a limited time: [30 days](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/reference-reports-data-retention) with P1 or P2, less without. Incidents often surface later than that.
+
+Send sign-in logs (including service principal and managed identity sign-ins), audit logs and Azure activity logs to a Log Analytics workspace with retention that matches your investigation needs. If you use Microsoft Sentinel, this is the same workspace. If you don't, it's still the place you'll want to query when something looks wrong.
+
+## 6. Then the network
+
+With identity in order, network controls add depth instead of being the only line:
+
+- **Private endpoints** for PaaS services holding data, such as Storage, SQL and Key Vault, with public network access disabled. The work here is mostly DNS. Private DNS zones need to be linked to every VNet that resolves them, and on-premises clients need a forwarder, usually Azure DNS Private Resolver.
+- **Segmentation** between workloads with NSGs and a central firewall in the hub, starting with the paths that would let a compromised app server reach a database it has no business talking to.
+- **No public management ports.** RDP and SSH go through Azure Bastion or just-in-time VM access, not public IPs.
+
+## What this doesn't cover
+
+Endpoint protection, email security, data classification and SaaS app governance are all part of a full zero trust model, and they matter. But for an organisation whose crown jewels live in Azure, the list above covers the paths most attacks actually take. It also gives the rest of the programme a solid base: you can't enforce device compliance or data policies for identities you haven't secured.
+
+There's no fixed timeline to any of this. A small tenant can get through the first four steps in a few weeks. A large one with years of accumulated service principals and standing access will spend longer on steps 3 and 4 than on everything else combined, and that time is well spent.

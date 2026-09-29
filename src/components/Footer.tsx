@@ -16,15 +16,15 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-sm text-gray-400">
-              Senior Azure cloud engineering. AWS via 010 Consulting. Builders of KrakenKey and Atomatize.
+              Azure cloud engineering, with AWS through 010 Consulting. Makers of KrakenKey and Atomatize.
             </p>
             <p className="mt-3 text-sm text-gray-400">
-              United States · Remote engagements
+              United States, working remotely
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Solutions</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Site</h3>
             <ul className="mt-3 space-y-2">
               <li><Link href="/services/" className="text-sm text-gray-400 hover:text-cloud-400">Services</Link></li>
               <li><Link href="/products/#krakenkey" className="text-sm text-gray-400 hover:text-cloud-400">KrakenKey</Link></li>
@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Company</h3>
             <ul className="mt-3 space-y-2">
-              <li><Link href="/about/" className="text-sm text-gray-400 hover:text-cloud-400">About Us</Link></li>
+              <li><Link href="/about/" className="text-sm text-gray-400 hover:text-cloud-400">About</Link></li>
               <li><Link href="/contact/" className="text-sm text-gray-400 hover:text-cloud-400">Contact</Link></li>
               <li><Link href="/privacy/" className="text-sm text-gray-400 hover:text-cloud-400">Privacy</Link></li>
             </ul>
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/5 pt-8 text-center text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} Cloudwalker IT. All rights reserved.
+          &copy; {new Date().getFullYear()} Cloudwalker IT
         </div>
       </div>
     </footer>

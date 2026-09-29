@@ -9,21 +9,21 @@ readTime: "4 min read"
 
 Azure announced general availability of [Azure Bastion integration with AKS](https://azure.microsoft.com/updates?id=570030) on August 26, 2026. The feature lets an operator open an encrypted tunnel from a local machine, through Bastion, straight to a private AKS cluster's API server, and run `kubectl` or `helm` against it as if the endpoint were reachable directly. It had been in public preview since August 2025.
 
-## What Changed
+## What the GA release covers
 
-The mechanism is Bastion's existing native client tunneling, now formally supported and documented for AKS. The dedicated CLI surface is `az aks bastion tunnel --name <cluster> --resource-group <rg>`, which opens a subshell with `kubeconfig` pointed at a local port. Older documentation shows an equivalent longer form, `az aks bastion --name <cluster> --resource-group <rg> --admin --bastion <bastion-resource-id>`, paired with a manual `sed` rewrite of the kubeconfig server field to `localhost:<port>`. Either way, the tunnel rides an outbound TLS connection on port 443 from Bastion to the API server's private endpoint; the client never touches an intermediate VM.
+The mechanism is Bastion's existing native client tunneling, now formally supported and documented for AKS. The dedicated CLI surface is `az aks bastion tunnel --name CLUSTER --resource-group RESOURCE_GROUP`, which opens a subshell with `kubeconfig` pointed at a local port. Older documentation shows an equivalent longer form, `az aks bastion --name CLUSTER --resource-group RESOURCE_GROUP --admin --bastion BASTION_RESOURCE_ID`, paired with a manual `sed` rewrite of the kubeconfig server field to `localhost:PORT`. Either way, the tunnel rides an outbound TLS connection on port 443 from Bastion to the API server's private endpoint; the client never touches an intermediate VM.
 
 Requirements: Bastion deployed at Standard or Premium SKU with Native Client Support enabled in its configuration, and Reader role on the AKS cluster, the Bastion resource, and the virtual network. No changes to the AKS cluster's own network configuration are needed if it's already a private cluster.
 
 Two exclusions matter. The feature is not supported for AKS Automatic clusters, and it is not supported for clusters with network resource group (NRG) lockdown enabled. Both are increasingly common configurations for teams standardizing on Microsoft's more opinionated, locked-down AKS defaults, which puts a meaningful slice of newer deployments outside this feature's reach for now.
 
-## Why It Matters Operationally
+## What it replaces
 
 Before this, reaching a private AKS API server meant one of: a jump-box VM behind Bastion (RDP/SSH in, run `kubectl` from there), VNet peering, a private endpoint, ExpressRoute/VPN, or `az aks command invoke`, which executes commands server-side without a real interactive session. The jump-box pattern is the one most teams actually ran, and it comes with real maintenance cost: a VM to patch and monitor, credentials or agents to manage on it, and an experience where operators can't use their own local tooling, IDE Kubernetes extensions, or shell aliases.
 
 Native tunneling removes the VM from that path entirely while keeping the API server off the public internet, which is the property most compliance frameworks (CIS Kubernetes Benchmark, PCI-scoped clusters) actually check for. Standard SKU Bastion supports concurrent sessions, so multiple operators can tunnel in independently without contending for a shared jump box. For platform teams managing several private clusters, this collapses per-cluster jump-box sprawl into a single Bastion deployment per VNet.
 
-## Tradeoffs and Caveats
+## Where a jump box still makes sense
 
 This is a genuine operational improvement, but it doesn't replace jump boxes outright. Microsoft's own AKS baseline architecture guidance still recommends a jump box when operators use untrusted devices, connect over unstable networks, or need diagnostic tooling like packet capture that doesn't cooperate well with tunneled connections. Teams with those constraints should keep a jump box available rather than migrating wholesale.
 

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: "/og-image.png",
           width: 1200,
           height: 630,
-          alt: "Cloudwalker IT — Azure cloud engineering",
+          alt: "Cloudwalker IT, Azure cloud engineering",
         },
       ],
     },
@@ -188,9 +188,9 @@ export default async function InsightPage({ params }: Props) {
           <aside className="mt-16 rounded-xl border border-white/10 bg-dark-800/40 p-8">
             <h2 className="text-xl font-bold">Working through something like this?</h2>
             <p className="mt-3 text-gray-400">
-              Problems like the one above are what our engagements are built around:
-              assessment, implementation, and the operational follow-through. A short
-              call is usually enough to tell whether we are the right fit.
+              If you&apos;re dealing with this in your own environment, we can help
+              with the fix and with keeping it fixed. A short call is usually enough
+              to work out how.
             </p>
             {post.tags.some((t) => ["tls", "certificates"].includes(t.toLowerCase())) && (
               <p className="mt-3 text-gray-400">

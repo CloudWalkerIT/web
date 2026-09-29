@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Cloudwalker IT. Schedule a consultation for cloud infrastructure, AI solutions, or Atomatize.",
+    "Book a call or send a message about Azure, AWS or platform engineering work.",
 };
 
 export default function ContactLayout({

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
@@ -5,68 +6,68 @@ import { formatInsightDate, getAllInsights } from "@/lib/insights";
 import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Cloudwalker IT — Senior Azure Cloud Engineering",
+  title: "Cloudwalker IT | Azure cloud engineering",
   description:
-    "Senior cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
+    "Azure architecture, migration and operations, with AWS work delivered alongside 010 Consulting. We also build and run KrakenKey and Atomatize.",
 };
 
 const homeServices = [
   {
-    kicker: "Primary practice",
-    title: "Azure Cloud Engineering",
-    desc: "Architecture, migration, FinOps, and operations on Azure — anchored by Solutions Architect Expert and DevOps Engineer Expert credentials.",
+    title: "Azure",
+    desc: "Landing zones, networking and identity, migrations, cost reviews, and day-to-day operations.",
   },
   {
-    kicker: "Partnership offering",
-    title: "AWS — with 010 Consulting",
-    desc: "Joint engagements: Cloudwalker IT leads, 010 brings AWS-specialist hands. One contact, two firms' depth.",
+    title: "AWS, with 010 Consulting",
+    desc: "We run the engagement and 010 Consulting's engineers handle the AWS-heavy work. You still have one contact.",
   },
   {
-    kicker: "Cross-cloud capability",
-    title: "Platform Engineering & Managed Terraform",
-    desc: "Pipelines, modules, state, drift detection. AKS and EKS clusters. CI/CD with GitHub Actions and Azure DevOps.",
+    title: "Platform engineering and Terraform",
+    desc: "Terraform modules and pipelines, AKS and EKS clusters, and CI/CD in GitHub Actions or Azure DevOps.",
   },
 ];
 
 const artifacts: Array<{
   name: string;
   desc: string;
-  badge: string;
   href: string;
   external: boolean;
   accentClass: string;
+  hoverClass: string;
+  logo?: { src: string; width: number; height: number };
 }> = [
   {
     name: "KrakenKey",
-    desc: "TLS certificate automation — one-time DNS setup, then 4-minute renewals.",
-    badge: "Live SaaS",
+    desc: "Our TLS certificate service. Two DNS records once, then issuance and renewal run on their own.",
     href: "https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=home",
     external: true,
-    accentClass: "text-accent-400",
+    accentClass: "text-krakenkey-amber",
+    hoverClass: "hover:border-krakenkey-amber/40",
+    logo: { src: "/products/krakenkey.svg", width: 30, height: 28 },
   },
   {
     name: "Atomatize",
-    desc: "AI content repurposing — long-form into platform-ready posts.",
-    badge: "Live SaaS",
+    desc: "Our content tool. Turns one article, PDF or video into a week of posts in your voice.",
     href: "https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=home",
     external: true,
-    accentClass: "text-electric-400",
+    accentClass: "text-atomatize-teal",
+    hoverClass: "hover:border-atomatize-teal/40",
+    logo: { src: "/products/atomatize.svg", width: 28, height: 28 },
   },
   {
     name: "010 Consulting",
-    desc: "AWS delivery partner. Joint engagements when work demands deep AWS.",
-    badge: "Delivery partner",
+    desc: "Our AWS delivery partner for engagements that need deep AWS experience.",
     href: "https://zero10consulting.com",
     external: true,
     accentClass: "text-cloud-400",
+    hoverClass: "hover:border-white/20",
   },
   {
-    name: "Certified Expert",
-    desc: "Azure DevOps + Architect Expert · CKA · Terraform · RHCSA.",
-    badge: "Engineer credentials",
+    name: "Certifications",
+    desc: "Azure Solutions Architect and DevOps Engineer Expert, CKA, Terraform Associate, RHCSA.",
     href: "/about/#credentials",
     external: false,
     accentClass: "text-cloud-400",
+    hoverClass: "hover:border-white/20",
   },
 ];
 
@@ -83,16 +84,16 @@ export default function HomePage() {
 
         <div className="py-20 text-center lg:py-32">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Azure cloud engineering
+            Cloudwalker IT
           </p>
           <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Cloud platforms,{" "}
+            Azure engineering for teams{" "}
             <span className="bg-gradient-to-r from-cloud-400 to-electric-400 bg-clip-text text-transparent">
-              designed and operated by the same hands
+              that don&apos;t have a platform team
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-            Cloudwalker IT is a senior cloud engineering practice — Azure delivery in-house, AWS through our 010 Consulting partnership. We also build and operate KrakenKey and Atomatize, so the patterns we recommend are ones we already use in production.
+            We design, build and run Azure environments, and bring in 010 Consulting when the work is on AWS. We also run two products of our own, KrakenKey and Atomatize, on the same setup we build for clients.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -113,21 +114,28 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Proof — what we've shipped, partners, credentials */}
+      {/* Products, partner, credentials */}
       <Section className="border-y border-white/5 bg-dark-800/50">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {artifacts.map((a) => {
             const inner = (
               <>
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
-                  {a.badge}
+                <p className={`flex items-center gap-2 text-lg font-bold ${a.accentClass}`}>
+                  {a.logo && (
+                    <Image
+                      src={a.logo.src}
+                      alt=""
+                      width={a.logo.width}
+                      height={a.logo.height}
+                      className="h-7 w-auto"
+                    />
+                  )}
+                  {a.name}
                 </p>
-                <p className={`mt-3 text-lg font-bold ${a.accentClass}`}>{a.name}</p>
                 <p className="mt-2 text-sm text-gray-400">{a.desc}</p>
               </>
             );
-            const cardClass =
-              "block rounded-xl border border-white/5 bg-dark-900/40 p-6 transition hover:border-white/20 hover:bg-dark-800/60";
+            const cardClass = `block rounded-xl border border-white/5 bg-dark-900/40 p-6 transition hover:bg-dark-800/60 ${a.hoverClass}`;
             return a.external ? (
               <a
                 key={a.name}
@@ -150,13 +158,7 @@ export default function HomePage() {
       {/* Services overview */}
       <Section>
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
-            What we do
-          </p>
-          <h2 className="mt-2 text-3xl font-bold">Three focused services</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Azure architecture and operations as the primary practice. AWS delivered jointly with 010 Consulting. Platform engineering and Managed Terraform across both clouds.
-          </p>
+          <h2 className="text-3xl font-bold">What we do</h2>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -166,10 +168,7 @@ export default function HomePage() {
               href="/services/"
               className="group flex flex-col rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/30 hover:bg-dark-700/50"
             >
-              <p className="text-xs font-semibold uppercase tracking-widest text-cloud-400">
-                {s.kicker}
-              </p>
-              <h3 className="mt-2 text-lg font-semibold transition group-hover:text-cloud-400">
+              <h3 className="text-lg font-semibold transition group-hover:text-cloud-400">
                 {s.title}
               </h3>
               <p className="mt-3 text-sm text-gray-400">{s.desc}</p>
@@ -182,7 +181,7 @@ export default function HomePage() {
             href="/services/"
             className="text-sm font-medium text-cloud-400 transition hover:text-cloud-300"
           >
-            See all services →
+            Services in detail →
           </Link>
         </div>
       </Section>
@@ -190,10 +189,7 @@ export default function HomePage() {
       {/* Latest insights */}
       <Section className="border-t border-white/5 bg-dark-800/30">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Insights
-          </p>
-          <h2 className="mt-2 text-3xl font-bold">Latest from the practice</h2>
+          <h2 className="text-3xl font-bold">Recent writing</h2>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {latestInsights.map((post) => (
@@ -219,7 +215,7 @@ export default function HomePage() {
             href="/insights/"
             className="text-sm font-medium text-cloud-400 transition hover:text-cloud-300"
           >
-            All insights →
+            All posts →
           </Link>
         </div>
       </Section>
@@ -227,9 +223,9 @@ export default function HomePage() {
       {/* CTA */}
       <Section className="bg-gradient-to-br from-dark-800 to-dark-900">
         <div className="rounded-2xl border border-white/5 bg-dark-700/30 p-12 text-center">
-          <h2 className="text-3xl font-bold">Begin a conversation</h2>
+          <h2 className="text-3xl font-bold">Start with a call</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Engagements typically start with a short call to understand the problem. If our practice is the right fit, we will say so. If not, we will recommend someone better suited.
+            Thirty minutes on video to go over what you&apos;re working on and whether we can help.
           </p>
           <a
             href={BOOKING_URL}

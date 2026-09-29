@@ -6,7 +6,7 @@ import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 
 const contactInfo = [
   { label: "Email", value: "hello@cloudwalker.it" },
-  { label: "Location", value: "United States — remote engagements" },
+  { label: "Location", value: "United States, working remotely" },
   { label: "Response time", value: "Within one business day" },
 ];
 
@@ -80,16 +80,15 @@ export default function ContactPage() {
           </p>
           <h1 className="mt-2 text-4xl font-bold">Get in touch</h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            The fastest path is booking a call directly. If you would rather write first, the form below reaches us within one business day.
+            Booking a call is quickest. If you&apos;d rather write first, use the form and we&apos;ll reply within one business day.
           </p>
         </div>
 
         <div className="mx-auto mt-10 max-w-2xl rounded-xl border border-cloud-400/20 bg-dark-800/50 p-8 text-center">
           <h2 className="text-xl font-bold">Book the intro call</h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-gray-400">
-            30 minutes, video via Proton Meet, no account needed. We use it to
-            understand the problem and tell you honestly whether we are the
-            right fit.
+            30 minutes on Proton Meet, no account needed. Bring the problem
+            you&apos;re working on.
           </p>
           <a
             href={BOOKING_URL}
@@ -113,9 +112,9 @@ export default function ContactPage() {
                 tabIndex={-1}
                 className="rounded-xl border border-accent-400/20 bg-accent-400/5 p-8 text-center outline-none"
               >
-                <p className="text-2xl font-bold text-accent-400">Thank you.</p>
+                <p className="text-2xl font-bold text-accent-400">Thanks, we got it.</p>
                 <p className="mt-2 text-gray-400">
-                  Your message has reached us. We will respond within one business day.
+                  We&apos;ll reply within one business day.
                 </p>
               </div>
             ) : (
@@ -226,7 +225,7 @@ export default function ContactPage() {
                   disabled={sending}
                   className="rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400 disabled:opacity-50"
                 >
-                  {sending ? "Sending..." : "Send Message"}
+                  {sending ? "Sending..." : "Send message"}
                 </button>
               </form>
             )}
@@ -254,19 +253,19 @@ export default function ContactPage() {
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cloud-500/10 text-xs font-bold text-cloud-400">
                       1
                     </span>
-                    We review your inquiry within one business day.
+                    We reply within one business day.
                   </li>
                   <li className="flex gap-3 text-sm text-gray-400">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cloud-500/10 text-xs font-bold text-cloud-400">
                       2
                     </span>
-                    A short call to understand the problem.
+                    We talk it through on a short call.
                   </li>
                   <li className="flex gap-3 text-sm text-gray-400">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cloud-500/10 text-xs font-bold text-cloud-400">
                       3
                     </span>
-                    A scoped proposal if it is a fit, or a referral if it is not.
+                    You get a written proposal, or a referral if we&apos;re not the right people.
                   </li>
                 </ol>
               </div>

@@ -7,25 +7,25 @@ import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Cloudwalker IT is a Microsoft-certified Azure cloud engineering practice that builds and operates the KrakenKey and Atomatize SaaS products. Verifiable credentials, direct senior delivery.",
+    "Cloudwalker IT is an Azure cloud engineering firm. We deliver AWS work with 010 Consulting and build our own products, KrakenKey and Atomatize.",
 };
 
 const values = [
   {
-    title: "Direct work",
-    desc: "The engineer who designs your platform is the same engineer implementing it. No project management layer between scoping and execution, no rotating account team.",
+    title: "Whoever scopes it builds it",
+    desc: "There's no project manager relaying messages between you and the engineer, and no account team that changes every quarter.",
   },
   {
-    title: "Right cloud for the job",
-    desc: "Azure is the primary practice; AWS is delivered through our 010 Consulting partnership rather than claimed as in-house depth. Recommendations are based on fit, never on partner margin.",
+    title: "Straight about AWS",
+    desc: "Our depth is in Azure. For AWS we bring in 010 Consulting instead of learning on your account, and we recommend whichever cloud suits the work.",
   },
   {
-    title: "Operator empathy",
-    desc: "We build and operate KrakenKey and Atomatize as production systems we own. The patterns we recommend to clients are ones we already use in our own infrastructure.",
+    title: "We run production too",
+    desc: "KrakenKey and Atomatize are ours, so we deal with real outages, renewals and bills. What we recommend to clients is what we already do there.",
   },
   {
-    title: "Work that fits",
-    desc: "Engagements typically begin small and expand as the fit becomes clear. When a project is not the right match for our practice, we will say so and point you toward someone better suited.",
+    title: "Start small",
+    desc: "Most work starts as one well-defined piece. It grows if that piece goes well.",
   },
 ];
 
@@ -37,8 +37,6 @@ const credentials = [
     image: "/badges/microsoft-certified-expert.svg",
     width: 256,
     height: 256,
-    verifyUrl:
-      "https://learn.microsoft.com/api/credentials/share/en-us/LukeWilkinson-2810/7E14B7D5016741F2?sharingId=9C8FE829760CE9BF",
   },
   {
     shortName: "Azure Architect Expert",
@@ -47,8 +45,6 @@ const credentials = [
     image: "/badges/microsoft-certified-expert.svg",
     width: 256,
     height: 256,
-    verifyUrl:
-      "https://learn.microsoft.com/api/credentials/share/en-us/LukeWilkinson-2810/9C23BA9BD8A81BF2?sharingId=9C8FE829760CE9BF",
   },
   {
     shortName: "CKA",
@@ -57,7 +53,6 @@ const credentials = [
     image: "/badges/cka.png",
     width: 672,
     height: 352,
-    verifyUrl: "https://www.credly.com/badges/9eb693d4-14b4-408f-aae0-4651dc0c2861/public_url",
   },
   {
     shortName: "Terraform Associate",
@@ -66,7 +61,6 @@ const credentials = [
     image: "/badges/terraform.png",
     width: 672,
     height: 352,
-    verifyUrl: "https://www.credly.com/badges/2e7923cd-c392-49cc-92ef-1635c769ba3b/public_url",
   },
   {
     shortName: "RHCSA",
@@ -75,7 +69,6 @@ const credentials = [
     image: "/badges/rhcsa.png",
     width: 600,
     height: 600,
-    verifyUrl: "https://www.credly.com/badges/63694e63-bab4-445d-bcdb-de19f2e54046/public_url",
   },
 ];
 
@@ -89,10 +82,10 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="mt-2 text-4xl font-bold">
-            Cloud engineering, anchored by the SaaS we run ourselves
+            An Azure firm that also runs its own software
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Cloudwalker IT is a Microsoft-certified Azure cloud engineering practice with an AWS delivery partnership through 010 Consulting. We build and operate two SaaS products of our own, so the production patterns we ship to clients are patterns we already run.
+            Cloudwalker IT designs, builds and operates Azure environments, and delivers AWS work with 010 Consulting. If what you need isn&apos;t a good match for us, we&apos;ll say so on the first call and suggest who might be.
           </p>
         </div>
       </Section>
@@ -101,40 +94,22 @@ export default function AboutPage() {
       <Section className="bg-dark-800/30">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-electric-400">
-              Approach
-            </p>
-            <h2 className="mt-2 text-3xl font-bold">
-              Senior engineering, kept close to delivery
-            </h2>
+            <h2 className="text-3xl font-bold">Who does the work</h2>
             <p className="mt-4 text-gray-400">
-              Each engagement at Cloudwalker IT is led by a senior engineer who remains directly involved from initial scoping through production delivery. No intermediate project management layer, no rotating account team — architectural decisions are made by the same people who will operate the result.
+              The engineer on your first call is the one who designs the platform, writes the Terraform and hands it over to your team. Decisions get made by someone who has to live with them.
             </p>
             <p className="mt-4 text-gray-400">
-              Azure is our primary focus, anchored by senior Microsoft certifications and the depth of delivery to back them. AWS engagements are led jointly with 010 Consulting — a deliberate choice to lead with capability rather than claim breadth. We also build and operate two SaaS products of our own, KrakenKey and Atomatize, so the patterns we recommend are ones we already use ourselves.
+              Azure is where we have the most experience, and the Microsoft certifications below back that up. On AWS we work with 010 Consulting, whose engineers do that work every day. Between client projects we build and run KrakenKey and Atomatize, so we&apos;re on the hook for production systems of our own.
             </p>
           </div>
           <div className="rounded-xl border border-white/5 bg-dark-700/30 p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
-              At a glance
-            </p>
-
-            <div className="mt-5 space-y-5">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
-                  Practice
-                </p>
-                <p className="mt-1 text-sm text-gray-300">
-                  Senior cloud engineering — engagements stay with the same engineer from first call through delivery.
-                </p>
-              </div>
-
+            <div className="space-y-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
                   Cloud focus
                 </p>
                 <p className="mt-1 text-sm text-gray-300">
-                  Azure (primary) · AWS delivered jointly with{" "}
+                  Azure, plus AWS with{" "}
                   <span className="text-gray-100">010 Consulting</span>
                 </p>
               </div>
@@ -150,21 +125,18 @@ export default function AboutPage() {
                   <li>HashiCorp Certified: Terraform Associate</li>
                   <li>Red Hat Certified System Administrator (RHCSA)</li>
                 </ul>
-                <p className="mt-2 text-xs text-gray-400">
-                  Verifiable badges below.
-                </p>
               </div>
 
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-cloud-400">
-                  SaaS in market
+                  Our products
                 </p>
                 <p className="mt-1 text-sm text-gray-300">
                   <a
                     href="https://krakenkey.io"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent-400 hover:underline"
+                    className="text-krakenkey-amber hover:underline"
                   >
                     KrakenKey
                   </a>
@@ -173,7 +145,7 @@ export default function AboutPage() {
                     href="https://atomatize.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-electric-400 hover:underline"
+                    className="text-atomatize-teal hover:underline"
                   >
                     Atomatize
                   </a>
@@ -187,39 +159,32 @@ export default function AboutPage() {
       {/* Credentials wall */}
       <Section id="credentials">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Credentials
-          </p>
-          <h2 className="mt-2 text-3xl font-bold">Verifiable, current, senior</h2>
+          <h2 className="text-3xl font-bold">Certifications</h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Every badge below links to its issuer. Click any to verify directly with Microsoft, the Linux Foundation, HashiCorp, or Red Hat.
+            Credential IDs and verification links are available on request.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
           {credentials.map((cred) => (
-            <a
+            <div
               key={cred.shortName}
-              href={cred.verifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`Verify ${cred.fullName} with ${cred.issuer}`}
-              className="group flex flex-col items-center rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-cloud-400/30 hover:bg-dark-700/50"
+              className="flex flex-col items-center rounded-xl border border-white/5 bg-dark-800/50 p-6"
             >
               <div className="flex h-28 w-full items-center justify-center">
                 <Image
                   src={cred.image}
-                  alt={`${cred.fullName} — issued by ${cred.issuer}`}
+                  alt={`${cred.fullName}, issued by ${cred.issuer}`}
                   width={cred.width}
                   height={cred.height}
                   className="max-h-28 w-auto object-contain"
                 />
               </div>
-              <p className="mt-4 text-center text-sm font-semibold text-white transition group-hover:text-cloud-400">
+              <p className="mt-4 text-center text-sm font-semibold text-white">
                 {cred.shortName}
               </p>
               <p className="mt-1 text-center text-xs text-gray-400">{cred.issuer}</p>
-            </a>
+            </div>
           ))}
         </div>
       </Section>
@@ -227,10 +192,7 @@ export default function AboutPage() {
       {/* Values */}
       <Section className="bg-dark-800/30">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Operating principles
-          </p>
-          <h2 className="mt-2 text-3xl font-bold">Four principles we hold to</h2>
+          <h2 className="text-3xl font-bold">How we work</h2>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
           {values.map((v) => (
@@ -248,9 +210,9 @@ export default function AboutPage() {
       {/* CTA */}
       <Section>
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Want to work together?</h2>
+          <h2 className="text-3xl font-bold">Talk to us</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Most engagements start with a short conversation. Tell us what you&apos;re trying to do and we&apos;ll tell you whether we&apos;re the right fit.
+            Tell us what you&apos;re trying to do. Most engagements start with a 30-minute call.
           </p>
           <a
             href={BOOKING_URL}
