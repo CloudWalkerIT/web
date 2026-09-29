@@ -17,7 +17,7 @@ const services = [
       "Landing zones, hub-and-spoke networking and Entra ID identity design",
       "Migrations to Azure, from lift-and-shift VMs to PaaS rebuilds",
       "Cost reviews: right-sizing, reservations and savings plans, tagging and policy cleanup",
-      "Production operations, incident response and on-call cover",
+      "Production operations and incident response during agreed hours",
     ],
     deliverables: [
       "Landing zone or solution architecture, written up as decision records and diagrams",
@@ -90,6 +90,19 @@ export default function ServicesPage() {
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
             Most clients come to us for one of these. Open any of them to see the deliverables you can expect.
           </p>
+        </div>
+      </Section>
+
+      <Section className="pt-0">
+        <div className="mx-auto max-w-4xl rounded-xl border border-cloud-400/20 bg-dark-800/50 p-8">
+          <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">Featured offer</p>
+          <h2 className="mt-3 text-2xl font-bold">Azure Terraform Adoption</h2>
+          <p className="mt-3 text-sm text-gray-300">
+            Bring existing Azure infrastructure under Terraform, one agreed production service at a time. Start with a scoped discovery, then import and validate a pilot without planned replacement.
+          </p>
+          <Link href="/services/azure-terraform-adoption/" className="mt-5 inline-block text-sm font-medium text-cloud-400 transition hover:text-cloud-300">
+            Explore the adoption offer →
+          </Link>
         </div>
       </Section>
 
