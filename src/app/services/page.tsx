@@ -6,79 +6,76 @@ import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Three focused cloud engineering services: Azure architecture and operations, AWS delivered jointly with 010 Consulting, and platform engineering with Managed Terraform.",
+    "Azure architecture and operations, AWS work delivered with 010 Consulting, and platform engineering with Terraform and Kubernetes.",
 };
 
 const services = [
   {
-    title: "Azure Cloud Engineering",
-    kicker: "Primary practice",
-    desc: "Design, build, and operate Azure platforms for teams that need senior cloud engineering without a full-time hire. Anchored by Microsoft Azure Solutions Architect Expert and DevOps Engineer Expert credentials.",
+    title: "Azure cloud engineering",
+    desc: "Design, build and run Azure environments for teams that need an experienced cloud engineer but not a full-time hire.",
     details: [
-      "Landing zones, hub-and-spoke networking, and Entra ID identity design",
-      "Migration to Azure — IaaS lift-and-shift through PaaS modernization",
-      "FinOps and cost optimization — right-sizing, reservations, policy hygiene",
-      "Production operations, incident response, and on-call coverage",
+      "Landing zones, hub-and-spoke networking and Entra ID identity design",
+      "Migrations to Azure, from lift-and-shift VMs to PaaS rebuilds",
+      "Cost reviews: right-sizing, reservations and savings plans, tagging and policy cleanup",
+      "Production operations, incident response and on-call cover",
     ],
     deliverables: [
-      "Azure landing zone or solution architecture, documented in decision records and diagrams",
-      "Terraform checked into your repository, with remote state and CI configured",
-      "Migration runbook covering pre-flight checks, cutover, rollback, and post-cutover validation (where relevant)",
-      "FinOps assessment with tagged usage analysis, right-sizing recommendations, and reservation strategy (where relevant)",
-      "Operational runbooks covering the scenarios your team will actually face",
-      "Pairing sessions and code reviews with your team during implementation, not only at handover",
-      "Handover session with your team and a defined post-engagement Q&A window",
+      "Landing zone or solution architecture, written up as decision records and diagrams",
+      "Terraform in your repository, with remote state and CI set up",
+      "A migration runbook with pre-flight checks, cutover, rollback and post-cutover checks, if you're migrating",
+      "A cost assessment covering tagged usage, right-sizing and reservation options, if cost is in scope",
+      "Runbooks for the incidents your team is most likely to hit",
+      "Pairing and code review with your team during the build",
+      "A handover session and an agreed window for follow-up questions",
     ],
   },
   {
-    title: "AWS — delivered with 010 Consulting",
-    kicker: "Partnership offering",
-    desc: "Same outcomes on AWS, delivered jointly with 010 Consulting. You get a single point of contact and the depth of two firms' senior engineers — no agency layers, no rotating account team.",
+    title: "AWS, with 010 Consulting",
+    desc: "The same kind of work on AWS, delivered with 010 Consulting. We run the engagement and stay your contact. Their engineers do the AWS-specific work.",
     details: [
-      "AWS architecture, migration, and ongoing operations",
-      "Joint delivery model: Cloudwalker IT leads the engagement, 010 brings AWS-specialist hands",
-      "Platform practice (IaC, GitOps, observability) consistent across Azure and AWS",
-      "Right-sized for SMB and mid-market — not optimized only for enterprise scale",
+      "AWS architecture, migration and ongoing operations",
+      "One engagement lead from Cloudwalker IT, with 010's AWS engineers on the build",
+      "IaC, GitOps and observability set up the same way on Azure and AWS",
+      "Sized for small and mid-sized companies",
     ],
     deliverables: [
-      "Joint engagement plan signed by both Cloudwalker IT and 010 Consulting at kickoff",
-      "AWS architecture and implementation, led by 010's specialists with cross-cloud platform decisions made jointly",
-      "Terraform or CDK (your preference) checked into your repository",
-      "Cross-cloud platform components — CI/CD, observability, IAM — consistent with your Azure footprint",
-      "Single point of contact (Cloudwalker IT) for the entire engagement",
-      "Joint pairing across both firms' engineers and your team during implementation",
-      "Joint handover so your team operates the result without ongoing dependency on either firm",
+      "A joint engagement plan agreed by both firms at kickoff",
+      "AWS architecture and implementation led by 010, with cross-cloud decisions made together",
+      "Terraform or CDK, your choice, in your repository",
+      "CI/CD, observability and IAM that match what you run on Azure",
+      "One point of contact at Cloudwalker IT for the whole engagement",
+      "Pairing between both firms' engineers and your team during the build",
+      "A joint handover, so your team can run it without either firm",
     ],
   },
   {
-    title: "Platform Engineering & Managed Terraform",
-    kicker: "Cross-cloud capability",
-    desc: "The platform layer that lets your engineers ship features instead of fighting infrastructure. Anchored by HashiCorp Terraform Associate, Certified Kubernetes Administrator, and RHCSA.",
+    title: "Platform engineering and Terraform",
+    desc: "Pipelines, modules and clusters that let your developers ship without filing an infrastructure ticket every time.",
     details: [
-      "Managed Terraform — pipelines, modules, state management, drift detection, automated remediation",
-      "Kubernetes platform engineering — AKS, EKS, and on-prem clusters",
-      "CI/CD with GitHub Actions and Azure DevOps Pipelines",
-      "Policy-as-code (OPA, Sentinel) and self-service developer platforms",
+      "Managed Terraform: pipelines, modules, state, drift detection and remediation",
+      "Kubernetes on AKS, EKS and on-prem clusters",
+      "CI/CD in GitHub Actions and Azure DevOps Pipelines",
+      "Policy as code with OPA or Sentinel, and self-service for developers",
     ],
     deliverables: [
-      "Terraform module library tailored to your environment — AKS or EKS, networking, IAM, and shared platform patterns",
-      "Pipeline configuration for terraform plan and apply, with policy gates and required approvals",
-      "Remote state management with backup, locking, and documented disaster recovery procedures",
-      "Drift detection schedule and remediation procedures",
-      "Policy-as-code definitions (OPA or Sentinel) covering your compliance scope",
-      "Walkthrough sessions and pairing while your team adopts the platform",
-      "Self-service documentation so your developers consume the platform without ongoing intervention",
+      "A Terraform module library for your environment: AKS or EKS, networking, IAM and shared patterns",
+      "Plan and apply pipelines with policy checks and required approvals",
+      "Remote state with locking, backups and a written recovery procedure",
+      "Scheduled drift detection and a procedure for fixing drift",
+      "OPA or Sentinel policies covering your compliance scope",
+      "Walkthroughs and pairing while your team adopts the platform",
+      "Documentation developers can use without asking us",
     ],
   },
 ];
 
 const everyEngagement = [
-  "Documentation written for your team to use, not for our records",
-  "Infrastructure-as-code and configuration committed to your repositories from day one",
-  "Active knowledge transfer during the engagement, not only at handover",
-  "A scoped handover so your team operates the result without ongoing dependency on us",
-  "A written summary of what was decided, what was deferred, and what we recommend next",
-  "A defined post-engagement Q&A window for follow-up questions",
+  "Documentation written for your team to use",
+  "Infrastructure code and configuration in your repositories from day one",
+  "Knowledge transfer while the work happens",
+  "A handover that leaves your team able to run it without us",
+  "A written summary of what we decided, what we deferred and what we'd do next",
+  "An agreed window for follow-up questions afterwards",
 ];
 
 export default function ServicesPage() {
@@ -89,11 +86,9 @@ export default function ServicesPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
             Services
           </p>
-          <h1 className="mt-2 text-4xl font-bold">
-            Cloud engineering, end to end
-          </h1>
+          <h1 className="mt-2 text-4xl font-bold">Azure, AWS and platform work</h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Three focused services from a senior cloud engineer — no agency layers, no rotating account team. Azure as the primary practice, AWS delivered jointly with 010 Consulting, and platform engineering across both clouds.
+            Most clients come to us for one of these. Open any of them to see the deliverables you can expect.
           </p>
         </div>
       </Section>
@@ -105,10 +100,7 @@ export default function ServicesPage() {
               key={s.title}
               className="rounded-xl border border-white/5 bg-dark-800/50 p-8 transition hover:border-cloud-400/20"
             >
-              <p className="text-xs font-semibold uppercase tracking-widest text-cloud-400">
-                {s.kicker}
-              </p>
-              <h2 className="mt-2 text-2xl font-bold">{s.title}</h2>
+              <h2 className="text-2xl font-bold">{s.title}</h2>
               <p className="mt-3 text-sm text-gray-400">{s.desc}</p>
               <ul className="mt-5 space-y-2">
                 {s.details.map((d) => (
@@ -134,7 +126,7 @@ export default function ServicesPage() {
                   Typical deliverables
                 </summary>
                 <p className="mt-3 ml-5 text-xs text-gray-400">
-                  Representative of what this service line typically produces. The actual deliverable set is scoped collaboratively at engagement kickoff.
+                  Examples. The actual list is agreed with you at kickoff.
                 </p>
                 <ul className="mt-3 ml-5 space-y-2 border-l border-white/5 pl-4">
                   {s.deliverables.map((d) => (
@@ -150,16 +142,13 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* Every engagement — cross-cutting deliverable baseline */}
+      {/* Included in every engagement */}
       <Section className="bg-dark-800/30">
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-              Every engagement
-            </p>
-            <h2 className="mt-2 text-3xl font-bold">Documentation that outlives the work</h2>
+            <h2 className="text-3xl font-bold">In every engagement</h2>
             <p className="mx-auto mt-4 text-gray-400">
-              Service-specific deliverables vary by engagement and are scoped with you at kickoff. The items below appear in every Cloudwalker IT engagement regardless of service line, so your team operates the result without ongoing dependency on us.
+              Whichever service you use, you get these.
             </p>
           </div>
           <ul className="mt-10 space-y-3">
@@ -178,15 +167,15 @@ export default function ServicesPage() {
 
       <Section>
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Unsure which service fits?</h2>
+          <h2 className="text-3xl font-bold">Not sure which one you need?</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Engagements typically start with a short call to understand what you are building. If our services can address it, we will scope an engagement. If not, we will point you toward a practice better suited.
+            Describe the problem on a call and we&apos;ll work out which of these it is.
           </p>
           <a
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
+            className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 transition hover:bg-cloud-400"
           >
             {BOOKING_CTA}
           </a>

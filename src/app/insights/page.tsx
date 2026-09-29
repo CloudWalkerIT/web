@@ -6,7 +6,7 @@ import { formatInsightDate, getAllInsights } from "@/lib/insights";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Practitioner notes on Azure, Kubernetes, platform engineering, and cloud security: field reports from real engagements and the SaaS we operate.",
+    "Notes on Azure, Kubernetes, platform engineering and cloud security, from client work and from running our own products.",
 };
 
 export default function InsightsPage() {
@@ -19,11 +19,9 @@ export default function InsightsPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
             Insights
           </p>
-          <h1 className="mt-2 text-4xl font-bold">
-            Analysis & thought leadership
-          </h1>
+          <h1 className="mt-2 text-4xl font-bold">Field notes</h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            Deep dives into cloud, AI, security, and enterprise technology trends — written by practitioners, not pundits.
+            Write-ups of Azure problems we&apos;ve hit, security advisories worth acting on, and what we&apos;ve learned running KrakenKey and Atomatize.
           </p>
           <p className="mt-4 text-sm">
             <a

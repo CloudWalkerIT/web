@@ -5,33 +5,33 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Cloudwalker IT products: KrakenKey for automated TLS certificate management and endpoint monitoring, and Atomatize for AI-powered content repurposing.",
+    "KrakenKey automates TLS certificates and monitors endpoints. Atomatize turns long-form writing into social, email and blog drafts. Both are built and run by Cloudwalker IT.",
 };
 
 const atomatizeFeatures = [
   {
-    title: "Twelve outputs per source",
-    desc: "Each piece of source content — a blog post, article, or newsletter — becomes twelve ready-to-use assets in seconds: LinkedIn posts, X/Twitter posts, a thread, an email block, and a long-form article.",
+    title: "Twelve drafts per piece",
+    desc: "Paste in a blog post, article or newsletter and get twelve drafts back: LinkedIn posts, X posts, a thread, an email block and a long-form article.",
   },
   {
-    title: "Trained on your voice",
-    desc: "Atomatize is trained on your writing style, so every output reads in your voice rather than as generic AI prose. Manage multiple voice profiles per account.",
+    title: "Written in your voice",
+    desc: "Atomatize learns from samples of your writing. You can keep several voice profiles on one account.",
   },
   {
-    title: "LinkedIn variations",
-    desc: "Four LinkedIn takes from every source — story, contrarian, tip, and discussion — so you can pick the angle that fits the audience and discard the rest.",
+    title: "Four LinkedIn angles",
+    desc: "Story, contrarian, tip and discussion versions of every piece. Use the one that suits the audience.",
   },
   {
-    title: "X / Twitter coverage",
-    desc: "Five standalone X/Twitter post variants per source (insight, tip, hot take, quote, question) plus a six-tweet narrative thread, each tailored to platform format.",
+    title: "X posts and a thread",
+    desc: "Five single posts (insight, tip, hot take, quote, question) and a six-post thread.",
   },
   {
-    title: "Long-form & email",
-    desc: "A 600–800 word article ready for blog publication, plus an email newsletter block formatted for any ESP — generated alongside the social outputs from the same source.",
+    title: "Article and newsletter block",
+    desc: "A 600 to 800 word article for your blog, and an email block that pastes into any newsletter tool.",
   },
   {
-    title: "No setup overhead",
-    desc: "Paste source content; receive twelve outputs in seconds. No prompt engineering, no template tweaking, no copying back and forth from a chatbot.",
+    title: "No prompt writing",
+    desc: "Paste the source and go. There are no prompts or templates to maintain.",
   },
 ];
 
@@ -49,7 +49,6 @@ const atomatizeTiers = [
   {
     name: "Pro",
     price: "$49/mo",
-    popular: true,
     features: [
       "20 source pieces per month",
       "12 outputs per piece",
@@ -71,28 +70,28 @@ const atomatizeTiers = [
 
 const krakenKeyFeatures = [
   {
-    title: "Automated ACME Challenges",
-    desc: "Two DNS records once — a TXT for ownership and a CNAME to delegate ACME challenges — then KrakenKey handles every Let's Encrypt validation automatically. No manual records per certificate, no cron jobs.",
+    title: "Automated ACME challenges",
+    desc: "Add two DNS records once: a TXT record to prove ownership and a CNAME that delegates ACME challenges. After that, KrakenKey handles every Let's Encrypt validation itself.",
   },
   {
-    title: "Client-Side CSR Generation",
-    desc: "Certificate Signing Requests are generated in-browser using the WebCrypto API. The private key is created locally and never transmitted to our servers — only the CSR is sent.",
+    title: "Client-side CSR generation",
+    desc: "Certificate signing requests are generated in the browser with the WebCrypto API. The private key is created locally and never sent to our servers. Only the CSR is.",
   },
   {
-    title: "REST API & CLI",
-    desc: "Every dashboard action is available via the REST API and the krakenkey CLI. AI agent tool definitions ship for automated workflows in agentic systems.",
+    title: "REST API and CLI",
+    desc: "Everything in the dashboard is also available through the REST API and the krakenkey CLI. Tool definitions for AI agents are included.",
   },
   {
-    title: "Endpoint Monitoring",
-    desc: "Register any TLS endpoint and KrakenKey scans it on a schedule from distributed probes. Each scan performs a real TLS handshake and reports certificate health, chain validation, and latency.",
+    title: "Endpoint monitoring",
+    desc: "Register any TLS endpoint and KrakenKey scans it on a schedule from probes in several regions. Each scan does a real TLS handshake and reports certificate health, chain validation and latency.",
   },
   {
-    title: "Free TLS Scanner",
-    desc: "A public scanner at krakenkey.io/scanner — no signup, instant TLS configuration check for any host. Powered by the same open-source probe that runs paid endpoint monitoring.",
+    title: "Free TLS scanner",
+    desc: "A public scanner at krakenkey.io/scanner checks any host's TLS setup without an account. It runs on the same open-source probe as paid monitoring.",
   },
   {
-    title: "Team Access & RBAC",
-    desc: "Invite team members into organizations with role-based access control — owner, admin, member, and viewer roles, available on the Team plan.",
+    title: "Team access and RBAC",
+    desc: "Organizations with owner, admin, member and viewer roles, on the Team plan.",
   },
 ];
 
@@ -111,7 +110,6 @@ const krakenKeyTiers = [
   {
     name: "Starter",
     price: "$29/mo",
-    popular: true,
     features: [
       "10 domains, 75 active certificates",
       "30-day auto-renewal window",
@@ -142,7 +140,7 @@ const jsonLd = [
     operatingSystem: "Cloud",
     url: "https://atomatize.com",
     description:
-      "AI-powered content repurposing platform by Cloudwalker IT — transform long-form content into platform-ready social media posts.",
+      "Content repurposing tool from Cloudwalker IT that turns long-form writing into social, email and blog drafts.",
     offers: [
       {
         "@type": "Offer",
@@ -175,7 +173,7 @@ const jsonLd = [
     operatingSystem: "Cloud",
     url: "https://krakenkey.io",
     description:
-      "Automated TLS certificate management — one-time DNS setup, then certificates in 4 minutes with no ongoing records to manage.",
+      "Automated TLS certificate management with a one-time DNS setup, plus endpoint monitoring.",
     offers: [
       {
         "@type": "Offer",
@@ -214,37 +212,34 @@ export default function ProductsPage() {
       <Section>
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Our Products
+            Products
           </p>
           <h1 className="mt-2 text-4xl font-bold sm:text-5xl">
-            Tools built for builders
+            Two products we build and run
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Purpose-built platforms that solve real problems — from certificate management to content operations.
+            KrakenKey for TLS certificates and endpoint monitoring, and Atomatize for turning long-form writing into social and email posts.
           </p>
         </div>
       </Section>
 
       {/* KrakenKey Hero */}
-      <Section id="krakenkey" className="relative scroll-mt-24 overflow-hidden bg-dark-800/30">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute right-1/3 top-1/3 h-80 w-80 rounded-full bg-accent-500/10 blur-3xl" />
-        </div>
+      <Section id="krakenkey" className="scroll-mt-24 bg-dark-800/30">
         <div className="text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Kraken<span className="text-accent-400">Key</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Automated TLS certificate management. One-time DNS setup, then certificates in 4 minutes — no ongoing records to manage, no cron jobs, no forgotten renewals. Plus endpoint monitoring from distributed probes.
+            Automated TLS certificates. After a one-time DNS setup, certificates issue in about four minutes and renew on their own. KrakenKey also monitors your endpoints from probes in several regions.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-accent-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 transition hover:bg-accent-600"
+              className="rounded-lg bg-accent-500 px-8 py-3 text-sm font-semibold text-white transition hover:bg-accent-600"
             >
-              Get Started Free
+              Start free
             </a>
             <a
               href="https://krakenkey.io/scanner?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
@@ -252,7 +247,7 @@ export default function ProductsPage() {
               rel="noopener noreferrer"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-accent-400/50 hover:text-accent-400"
             >
-              Try the Free Scanner
+              Try the free scanner
             </a>
           </div>
         </div>
@@ -276,9 +271,9 @@ export default function ProductsPage() {
       {/* KrakenKey Pricing */}
       <Section className="bg-dark-800/30">
         <div className="text-center">
-          <h2 className="text-3xl font-bold">KrakenKey Plans</h2>
+          <h2 className="text-3xl font-bold">KrakenKey plans</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Free to start — no credit card required. Scale as your infrastructure grows.
+            The free plan doesn&apos;t need a credit card.
           </p>
         </div>
 
@@ -286,17 +281,8 @@ export default function ProductsPage() {
           {krakenKeyTiers.map((tier) => (
             <div
               key={tier.name}
-              className={`rounded-xl border p-8 ${
-                tier.popular
-                  ? "border-accent-400/50 bg-dark-700/50 shadow-lg shadow-accent-500/10"
-                  : "border-white/5 bg-dark-800/50"
-              }`}
+              className="rounded-xl border p-8 border-white/5 bg-dark-800/50"
             >
-              {tier.popular && (
-                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent-400">
-                  Most Popular
-                </p>
-              )}
               <h3 className="text-xl font-bold">{tier.name}</h3>
               <p className="mt-2 text-2xl font-bold text-accent-400">{tier.price}</p>
               <ul className="mt-6 space-y-3">
@@ -311,36 +297,29 @@ export default function ProductsPage() {
                 href="https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=pricing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
-                  tier.popular
-                    ? "bg-accent-500 text-white hover:bg-accent-600"
-                    : "border border-white/10 text-gray-300 hover:border-accent-400/50"
-                }`}
+                className="mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition border border-white/10 text-gray-300 hover:border-accent-400/50"
               >
-                {tier.price === "$0" ? "Get Started Free" : "Start Free"}
+                {tier.price === "$0" ? "Start free" : "Start with the free plan"}
               </a>
             </div>
           ))}
         </div>
       </Section>
       {/* Atomatize Hero */}
-      <Section id="atomatize" className="relative scroll-mt-24 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-electric-500/10 blur-3xl" />
-        </div>
+      <Section id="atomatize" className="scroll-mt-24">
         <div className="text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Atom<span className="text-electric-400">atize</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Paste a blog post, article, or newsletter; receive twelve platform-ready outputs in your voice in seconds — LinkedIn variations, X/Twitter posts, a thread, an email block, and a long-form article.
+            Paste in a blog post, article or newsletter and get twelve drafts back in your voice: LinkedIn and X posts, a thread, an email block and a long-form article.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-electric-500/25 transition hover:bg-electric-400"
+              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 transition hover:bg-electric-400"
             >
               Try Atomatize
             </a>
@@ -348,7 +327,7 @@ export default function ProductsPage() {
               href="#atomatize-pricing"
               className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-electric-400/50 hover:text-electric-400"
             >
-              See Pricing
+              See pricing
             </a>
           </div>
         </div>
@@ -372,9 +351,9 @@ export default function ProductsPage() {
       {/* Atomatize Pricing */}
       <Section id="atomatize-pricing" className="scroll-mt-24">
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Atomatize Plans</h2>
+          <h2 className="text-3xl font-bold">Atomatize plans</h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Every plan includes a 14-day free trial — no credit card required.
+            Every plan has a 14-day free trial, and starting it doesn&apos;t need a credit card.
           </p>
         </div>
 
@@ -382,17 +361,8 @@ export default function ProductsPage() {
           {atomatizeTiers.map((tier) => (
             <div
               key={tier.name}
-              className={`rounded-xl border p-8 ${
-                tier.popular
-                  ? "border-electric-400/50 bg-dark-700/50 shadow-lg shadow-electric-500/10"
-                  : "border-white/5 bg-dark-800/50"
-              }`}
+              className="rounded-xl border p-8 border-white/5 bg-dark-800/50"
             >
-              {tier.popular && (
-                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-electric-400">
-                  Most Popular
-                </p>
-              )}
               <h3 className="text-xl font-bold">{tier.name}</h3>
               <p className="mt-2 text-2xl font-bold text-electric-400">{tier.price}</p>
               <ul className="mt-6 space-y-3">
@@ -407,13 +377,9 @@ export default function ProductsPage() {
                 href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=pricing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
-                  tier.popular
-                    ? "bg-electric-500 text-dark-900 hover:bg-electric-400"
-                    : "border border-white/10 text-gray-300 hover:border-electric-400/50"
-                }`}
+                className="mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition border border-white/10 text-gray-300 hover:border-electric-400/50"
               >
-                Start Free Trial
+                Start free trial
               </a>
             </div>
           ))}

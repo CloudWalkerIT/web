@@ -25,7 +25,7 @@ export default function Header() {
     <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-dark-900/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
-          <Image src="/logo.svg" alt="Cloudwalker IT" width={48} height={48} className="h-12 w-12 drop-shadow-[0_0_6px_rgba(103,232,249,0.4)]" />
+          <Image src="/logo.svg" alt="Cloudwalker IT" width={48} height={48} className="h-12 w-12" />
           <span>
             <span className="text-cloud-400">Cloud</span>
             <span className="text-white">walker</span>

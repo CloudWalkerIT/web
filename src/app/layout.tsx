@@ -15,11 +15,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://cloudwalker.it"),
   title: {
-    default: "Cloudwalker IT — Senior Azure Cloud Engineering",
+    default: "Cloudwalker IT | Azure cloud engineering",
     template: "%s | Cloudwalker IT",
   },
   description:
-    "Senior cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
+    "Azure architecture, migration and operations, with AWS work delivered alongside 010 Consulting. We also build and run KrakenKey and Atomatize.",
   keywords: [
     "Azure consulting",
     "Azure cloud engineering",
@@ -40,23 +40,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://cloudwalker.it",
     siteName: "Cloudwalker IT",
-    title: "Cloudwalker IT — Senior Azure Cloud Engineering",
+    title: "Cloudwalker IT | Azure cloud engineering",
     description:
-      "Senior cloud engineering practice — Azure-first, with AWS delivered jointly through 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
+      "We design, build and run Azure environments, with AWS work delivered alongside 010 Consulting.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Cloudwalker IT — Azure cloud engineering",
+        alt: "Cloudwalker IT, Azure cloud engineering",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cloudwalker IT — Senior Azure Cloud Engineering",
+    title: "Cloudwalker IT | Azure cloud engineering",
     description:
-      "Senior cloud engineering practice — Azure-first, with AWS via 010 Consulting. Builders of KrakenKey and Atomatize.",
+      "Azure engineering for teams that don't have a platform team. AWS through 010 Consulting.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -78,7 +78,7 @@ const jsonLd = {
   name: "Cloudwalker IT",
   url: "https://cloudwalker.it",
   description:
-    "Senior Azure cloud engineering practice. AWS delivered jointly with 010 Consulting. Builders of the KrakenKey and Atomatize SaaS products.",
+    "Azure cloud engineering firm. AWS engagements delivered with 010 Consulting. Maker of KrakenKey and Atomatize.",
   logo: "https://cloudwalker.it/logo.svg",
   contactPoint: {
     "@type": "ContactPoint",
