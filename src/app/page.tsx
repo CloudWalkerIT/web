@@ -22,8 +22,8 @@ const homeServices = [
   },
   {
     title: "Platform engineering and Terraform",
-    desc: "Bring existing Azure infrastructure under Terraform in scoped production slices, or build the pipelines and platforms your team needs.",
-    href: "/services/azure-terraform-adoption/",
+    desc: "Terraform modules and pipelines, AKS and EKS clusters, CI/CD, and bringing hand-built Azure resources under Terraform.",
+    href: "/services/#platform",
   },
 ];
 

@@ -49,10 +49,24 @@ const services = [
     ],
   },
   {
+    id: "platform",
     title: "Platform engineering and Terraform",
     desc: "Pipelines, modules and clusters that let your developers ship without filing an infrastructure ticket every time.",
+    terraformPaths: [
+      {
+        label: "One-off project",
+        title: "Terraform adoption",
+        desc: "Resources built in the portal, by scripts or by a previous team. We import them one production service at a time, until the plan shows no changes.",
+        href: "/services/azure-terraform-adoption/",
+        linkText: "How adoption works",
+      },
+      {
+        label: "Ongoing",
+        title: "Managed Terraform",
+        desc: "We run plan and apply with your approvals, catch and fix drift, and keep modules and providers current. Your team can take it over whenever it wants.",
+      },
+    ],
     details: [
-      "Managed Terraform: pipelines, modules, state, drift detection and remediation",
       "Kubernetes on AKS, EKS and on-prem clusters",
       "CI/CD in GitHub Actions and Azure DevOps Pipelines",
       "Policy as code with OPA or Sentinel, and self-service for developers",
@@ -73,7 +87,7 @@ const everyEngagement = [
   "Documentation written for your team to use",
   "Infrastructure code and configuration in your repositories from day one",
   "Knowledge transfer while the work happens",
-  "A handover that leaves your team able to run it without us",
+  "A handover whenever you want your team to run it without us",
   "A written summary of what we decided, what we deferred and what we'd do next",
   "An agreed window for follow-up questions afterwards",
 ];
@@ -94,24 +108,12 @@ export default function ServicesPage() {
       </Section>
 
       <Section className="pt-0">
-        <div className="mx-auto max-w-4xl rounded-xl border border-cloud-400/20 bg-dark-800/50 p-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">Featured offer</p>
-          <h2 className="mt-3 text-2xl font-bold">Azure Terraform Adoption</h2>
-          <p className="mt-3 text-sm text-gray-300">
-            Bring existing Azure infrastructure under Terraform, one agreed production service at a time. Start with a scoped discovery, then import and validate a pilot without planned replacement.
-          </p>
-          <Link href="/services/azure-terraform-adoption/" className="mt-5 inline-block text-sm font-medium text-cloud-400 transition hover:text-cloud-300">
-            Explore the adoption offer →
-          </Link>
-        </div>
-      </Section>
-
-      <Section className="pt-0">
         <div className="mx-auto max-w-4xl space-y-8">
           {services.map((s) => (
             <div
               key={s.title}
-              className="rounded-xl border border-white/5 bg-dark-800/50 p-8 transition hover:border-cloud-400/20"
+              id={s.id}
+              className="scroll-mt-24 rounded-xl border border-white/5 bg-dark-800/50 p-8 transition hover:border-cloud-400/20"
             >
               <h2 className="text-2xl font-bold">{s.title}</h2>
               <p className="mt-3 text-sm text-gray-400">{s.desc}</p>
@@ -123,6 +125,29 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
+
+              {s.terraformPaths && (
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {s.terraformPaths.map((t) => (
+                    <div
+                      key={t.title}
+                      className="flex flex-col rounded-lg border border-white/5 bg-dark-900/40 p-5"
+                    >
+                      <p className="text-xs text-gray-500">{t.label}</p>
+                      <h3 className="mt-1 font-semibold">{t.title}</h3>
+                      <p className="mt-2 text-sm text-gray-400">{t.desc}</p>
+                      {t.href && (
+                        <Link
+                          href={t.href}
+                          className="mt-auto pt-4 text-sm font-medium text-cloud-400 transition hover:text-cloud-300"
+                        >
+                          {t.linkText} →
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <details className="group mt-6 border-t border-white/5 pt-5">
                 <summary className="flex cursor-pointer select-none list-none items-center gap-2 text-sm font-medium text-cloud-400 transition hover:text-cloud-300 [&::-webkit-details-marker]:hidden">

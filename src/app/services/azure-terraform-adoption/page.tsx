@@ -4,33 +4,53 @@ import Section from "@/components/Section";
 import { BOOKING_CTA, BOOKING_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Azure Terraform Adoption",
+  title: "Azure Terraform adoption",
   description:
-    "Bring existing Azure infrastructure under Terraform one production service at a time, starting with a scoped discovery and an agreed pilot.",
+    "Bring hand-built Azure infrastructure under Terraform one production service at a time, starting with a fixed-scope discovery and a pilot that ends in a clean plan.",
 };
 
 const discoveryDeliverables = [
-  "An inventory of the agreed candidate service and its important dependencies",
-  "Import and change risks, with a recommended pilot boundary",
-  "A design for Terraform state, access and CI that fits your environment",
-  "A phased implementation estimate and a candid go/no-go recommendation",
+  "The resources in the candidate service and what they depend on",
+  "Anything that will be hard to import, and a recommended boundary for the pilot",
+  "A design for state, access and CI that fits how you already work",
+  "An estimate for the pilot and later waves, and a recommendation on whether to go ahead",
 ];
 
 const pilotSteps = [
   {
     title: "Agree the slice",
     description:
-      "After discovery, name the production service, included Azure resources, dependencies and acceptance checks. Shared or unrelated resources stay outside the pilot unless explicitly scoped.",
+      "Name the production service, the resources in scope and the checks that count as done. Shared resources such as a hub network or a shared SQL server stay out unless we agree otherwise.",
   },
   {
-    title: "Import and review",
+    title: "Import to a clean plan",
     description:
-      "Bring existing resources under Terraform without planned replacement. If a plan shows an unintended replacement or deletion, stop and assess it before any apply.",
+      "We write Terraform import blocks, often starting from aztfexport output, and refine the code until terraform plan shows no changes. If a plan wants to replace or delete anything, work stops until we know why.",
   },
   {
     title: "Approve and hand over",
     description:
-      "Review the plan together and obtain your approval before the first production apply. Validate the agreed resources, then document the state, workflow and handoff.",
+      "You review the plan before the first production apply. We check the agreed resources, then document the state, the workflow and the next services to bring in.",
+  },
+];
+
+const afterPilot = [
+  {
+    title: "Expand in waves",
+    description:
+      "Bring in the next services in the order discovery suggested, using the same pattern and the same checks.",
+  },
+  {
+    title: "We run it",
+    description:
+      "Managed Terraform: we run plan and apply with your approvals, catch and fix drift, and keep modules and providers current.",
+    href: "/services/#platform",
+    linkText: "Managed Terraform",
+  },
+  {
+    title: "Your team runs it",
+    description:
+      "We hand over the code, pipelines and runbooks, with an agreed window for questions afterwards.",
   },
 ];
 
@@ -43,13 +63,13 @@ export default function AzureTerraformAdoptionPage() {
         </div>
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-cloud-400">
-            Azure Terraform Adoption
+            Terraform adoption
           </p>
           <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
             Bring your existing Azure infrastructure under Terraform
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-            Start with one agreed production service. Understand what is there, choose a safe pilot boundary and expand in waves when it makes sense.
+            For resources built in the portal, by scripts or by a previous team. We start with one production service, get it to a clean plan, and expand from there.
           </p>
           <a
             href={BOOKING_URL}
@@ -64,9 +84,9 @@ export default function AzureTerraformAdoptionPage() {
 
       <Section className="border-y border-white/5 bg-dark-800/30">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold">Discover before changing production</h2>
+          <h2 className="text-3xl font-bold">Discovery first</h2>
           <p className="mt-4 text-gray-400">
-            We begin with a paid, fixed-scope discovery of one candidate Azure service. With agreed read-only access, we map its resources and important dependencies, assess import risks and design the state, access and CI approach. Discovery does not promise a complete-estate inventory or production changes.
+            A paid, fixed-scope look at one candidate service. With read-only access, we map its resources and dependencies, find what will be awkward to import, and design where state, access and pipelines will live. Nothing in production changes.
           </p>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {discoveryDeliverables.map((item) => (
@@ -91,7 +111,7 @@ export default function AzureTerraformAdoptionPage() {
             ))}
           </div>
           <p className="mt-8 text-sm text-gray-400">
-            The exact resources, validation checks and handoff artifacts are agreed after discovery. This is an incremental adoption path, not a promise to migrate an entire estate in one project.
+            The pilot covers one service, not the whole estate. The exact resources and checks are agreed after discovery.
           </p>
         </div>
       </Section>
@@ -100,7 +120,7 @@ export default function AzureTerraformAdoptionPage() {
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold">What a pilot might look like</h2>
           <p className="mt-4 text-gray-400">
-            For an illustrative Customer Portal production API, the pilot might bring an existing Azure App Service, its App Service plan, the Key Vault resource and Application Insights under Terraform. We would document dependencies on a shared SQL server and hub network without bringing those shared resources into scope unless agreed. This is an example, not a client case study or a prescribed architecture.
+            Take a customer portal API running on App Service. The web app, its App Service plan, its Key Vault and its Application Insights resource come under Terraform. The shared SQL server and hub network it depends on are referenced as data sources and documented, but stay out of scope. This is an illustration, not a client project.
           </p>
         </div>
       </Section>
@@ -109,28 +129,53 @@ export default function AzureTerraformAdoptionPage() {
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold">Your environment stays yours</h2>
           <p className="mt-4 text-gray-400">
-            You own the Azure infrastructure and Terraform state. We select a suitable state backend with you during discovery. By default, the repository and CI environment are yours too; Cloudwalker IT works through delegated access. We can operate the resulting Terraform workflow with your team, or integrate with your existing Git and CI/CD controls and hand it over.
+            The Azure resources, the Terraform code and the state are yours. State lives in your subscription, usually a storage account with locking, and the code and pipelines live in your Git and CI. We work through access you grant and can revoke.
           </p>
-          <div className="mt-8 rounded-xl border border-cloud-400/20 bg-dark-800/50 p-8">
-            <h3 className="text-xl font-semibold">Start with a fit call</h3>
-            <p className="mt-3 text-sm text-gray-400">
-              Tell us which Azure service you want to bring under Terraform. We&apos;ll assess whether a scoped discovery is the right first step and be direct if it is not.
-            </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-block rounded-lg bg-cloud-500 px-6 py-3 text-sm font-semibold text-dark-900 transition hover:bg-cloud-400"
-            >
-              {BOOKING_CTA}
-            </a>
-            <p className="mt-4 text-sm text-gray-400">
-              Prefer to write first?{" "}
-              <Link href="/contact/" className="text-cloud-400 transition hover:text-cloud-300">
-                Use the contact form
-              </Link>
-            </p>
+        </div>
+      </Section>
+
+      <Section className="bg-dark-800/30">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold">After the pilot</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {afterPilot.map((item) => (
+              <div key={item.title} className="flex flex-col rounded-xl border border-white/5 bg-dark-800/50 p-6">
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm text-gray-400">{item.description}</p>
+                {item.href && (
+                  <Link
+                    href={item.href}
+                    className="mt-auto pt-4 text-sm font-medium text-cloud-400 transition hover:text-cloud-300"
+                  >
+                    {item.linkText} →
+                  </Link>
+                )}
+              </div>
+            ))}
           </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold">Have a service in mind?</h2>
+          <p className="mx-auto mt-4 max-w-xl text-gray-400">
+            Tell us which one on a call and we&apos;ll say whether discovery is the right first step.
+          </p>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
+          >
+            {BOOKING_CTA}
+          </a>
+          <p className="mt-4 text-sm text-gray-400">
+            Prefer to write first?{" "}
+            <Link href="/contact/" className="text-cloud-400 transition hover:text-cloud-300">
+              Use the contact form
+            </Link>
+          </p>
         </div>
       </Section>
     </>
