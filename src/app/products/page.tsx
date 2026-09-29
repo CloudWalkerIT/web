@@ -1,37 +1,37 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "KrakenKey automates TLS certificates and monitors endpoints. Atomatize turns long-form writing into social, email and blog drafts. Both are built and run by Cloudwalker IT.",
+    "KrakenKey automates TLS certificates and monitors endpoints. Atomatize turns one article, PDF or video into a week of posts in your voice. Both are built and run by Cloudwalker IT.",
 };
 
 const atomatizeFeatures = [
   {
     title: "Twelve drafts per piece",
-    desc: "Paste in a blog post, article or newsletter and get twelve drafts back: LinkedIn posts, X posts, a thread, an email block and a long-form article.",
+    desc: "Give it a blog post, newsletter, PDF, YouTube video or link. You get four LinkedIn posts, five X posts, a thread, a newsletter section and an article back.",
   },
   {
     title: "Written in your voice",
-    desc: "Atomatize learns from samples of your writing. You can keep several voice profiles on one account.",
+    desc: "Atomatize builds a voice profile from a few things you've written: sentence length, tone, the words you use and the ones you avoid. You can read the profile and change it.",
   },
   {
     title: "Four LinkedIn angles",
-    desc: "Story, contrarian, tip and discussion versions of every piece. Use the one that suits the audience.",
+    desc: "A story, a contrarian take, a how-to and a discussion post from the same piece.",
   },
   {
     title: "X posts and a thread",
-    desc: "Five single posts (insight, tip, hot take, quote, question) and a six-post thread.",
+    desc: "Five standalone posts under 280 characters and a six-post thread, formatted and ready to copy.",
   },
   {
-    title: "Article and newsletter block",
-    desc: "A 600 to 800 word article for your blog, and an email block that pastes into any newsletter tool.",
+    title: "Newsletter section and article",
+    desc: "A block for your next issue with a suggested subject line, and a 600 to 800 word article that takes a new angle on the source.",
   },
   {
-    title: "No prompt writing",
-    desc: "Paste the source and go. There are no prompts or templates to maintain.",
+    title: "LinkedIn publishing",
+    desc: "On Pro and Scale, post to LinkedIn straight away or schedule it, with a calendar of what's queued.",
   },
 ];
 
@@ -40,31 +40,30 @@ const atomatizeTiers = [
     name: "Creator",
     price: "$19/mo",
     features: [
-      "5 source pieces per month",
-      "12 outputs per piece",
-      "1 brand voice profile",
-      "Copy-to-clipboard",
+      "5 source pieces a month",
+      "All 12 outputs from each piece",
+      "1 voice profile",
+      "Copy, edit and export",
     ],
   },
   {
     name: "Pro",
     price: "$49/mo",
-    popular: true,
     features: [
-      "20 source pieces per month",
-      "12 outputs per piece",
-      "2 brand voice profiles",
-      "Priority email support",
+      "20 source pieces a month",
+      "All 12 outputs from each piece",
+      "2 voice profiles",
+      "Publish and schedule to LinkedIn",
     ],
   },
   {
     name: "Scale",
     price: "$149/mo",
     features: [
-      "Unlimited source content per month",
-      "12 outputs per piece",
-      "5 brand voice profiles",
-      "24-hour email support",
+      "Unlimited source pieces",
+      "All 12 outputs from each piece",
+      "10 brands, 3 voice profiles each",
+      "Publish and schedule to LinkedIn",
     ],
   },
 ];
@@ -142,7 +141,7 @@ const jsonLd = [
     operatingSystem: "Cloud",
     url: "https://atomatize.com",
     description:
-      "Content repurposing tool from Cloudwalker IT that turns long-form writing into social, email and blog drafts.",
+      "Turns one article, PDF or video into a week of LinkedIn and X posts, a newsletter section and an article, written in your voice. Built by Cloudwalker IT.",
     offers: [
       {
         "@type": "Offer",
@@ -220,29 +219,32 @@ export default function ProductsPage() {
             Two products we build and run
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            KrakenKey for TLS certificates and endpoint monitoring, and Atomatize for turning long-form writing into social and email posts.
+            KrakenKey for TLS certificates and endpoint monitoring, and Atomatize for turning one article into a week of posts in your voice.
           </p>
         </div>
       </Section>
 
-      {/* KrakenKey Hero */}
+      {/* KrakenKey, in its own brand colours: amber actions, cyan highlights */}
       <Section id="krakenkey" className="relative scroll-mt-24 overflow-hidden bg-dark-800/30">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute right-1/3 top-1/3 h-80 w-80 rounded-full bg-accent-500/10 blur-3xl" />
+          <div className="absolute right-1/3 top-1/3 h-80 w-80 rounded-full bg-krakenkey-cyan/10 blur-3xl" />
+          <div className="absolute left-1/3 bottom-0 h-64 w-64 rounded-full bg-krakenkey-amber/5 blur-3xl" />
         </div>
         <div className="text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">
-            Kraken<span className="text-accent-400">Key</span>
+          <h2 className="flex items-center justify-center gap-3 text-3xl font-bold sm:text-4xl">
+            <Image src="/products/krakenkey.svg" alt="" width={48} height={45} className="h-11 w-auto" />
+            KrakenKey
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Automated TLS certificates. After a one-time DNS setup, certificates issue in about four minutes and renew on their own. KrakenKey also monitors your endpoints from probes in several regions.
+            TLS certificate management,{" "}
+            <span className="font-semibold text-krakenkey-cyan-light">automated</span>. After a one-time DNS setup, certificates issue in about four minutes and renew on their own. KrakenKey also monitors your endpoints from probes in several regions.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-accent-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 transition hover:bg-accent-600"
+              className="rounded-lg bg-krakenkey-amber px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-krakenkey-amber/25 transition hover:bg-krakenkey-amber-hover"
             >
               Start free
             </a>
@@ -250,7 +252,7 @@ export default function ProductsPage() {
               href="https://krakenkey.io/scanner?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-accent-400/50 hover:text-accent-400"
+              className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-krakenkey-cyan/50 hover:text-krakenkey-cyan-light"
             >
               Try the free scanner
             </a>
@@ -264,7 +266,7 @@ export default function ProductsPage() {
           {krakenKeyFeatures.map((f) => (
             <div
               key={f.title}
-              className="rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-accent-400/20"
+              className="rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-krakenkey-cyan/30"
             >
               <h3 className="text-lg font-semibold">{f.title}</h3>
               <p className="mt-2 text-sm text-gray-400">{f.desc}</p>
@@ -288,16 +290,16 @@ export default function ProductsPage() {
               key={tier.name}
               className={`rounded-xl border p-8 ${
                 tier.popular
-                  ? "border-accent-400/50 bg-dark-700/50 shadow-lg shadow-accent-500/10"
+                  ? "border-krakenkey-amber/50 bg-dark-700/50 shadow-lg shadow-krakenkey-amber/10"
                   : "border-white/5 bg-dark-800/50"
               }`}
             >
               <h3 className="text-xl font-bold">{tier.name}</h3>
-              <p className="mt-2 text-2xl font-bold text-accent-400">{tier.price}</p>
+              <p className="mt-2 text-2xl font-bold text-krakenkey-amber">{tier.price}</p>
               <ul className="mt-6 space-y-3">
                 {tier.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-gray-300">
-                    <span className="mt-0.5 text-accent-400">✓</span>
+                    <span className="mt-0.5 text-krakenkey-cyan-light">✓</span>
                     {f}
                   </li>
                 ))}
@@ -308,8 +310,8 @@ export default function ProductsPage() {
                 rel="noopener noreferrer"
                 className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
                   tier.popular
-                    ? "bg-accent-500 text-white hover:bg-accent-600"
-                    : "border border-white/10 text-gray-300 hover:border-accent-400/50"
+                    ? "bg-krakenkey-amber text-dark-900 hover:bg-krakenkey-amber-hover"
+                    : "border border-white/10 text-gray-300 hover:border-krakenkey-amber/50"
                 }`}
               >
                 {tier.price === "$0" ? "Start free" : "Start with the free plan"}
@@ -318,30 +320,37 @@ export default function ProductsPage() {
           ))}
         </div>
       </Section>
-      {/* Atomatize Hero */}
-      <Section id="atomatize" className="relative scroll-mt-24 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-electric-500/10 blur-3xl" />
+
+      {/* Atomatize, in its own brand colours: warm stone, orange actions, teal highlights */}
+      <Section id="atomatize" className="relative scroll-mt-24 overflow-hidden bg-atomatize-stone">
+        <div className="absolute inset-0">
+          <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-atomatize-orange/10 blur-3xl" />
+          <div className="absolute right-1/4 bottom-0 h-64 w-64 rounded-full bg-atomatize-teal/5 blur-3xl" />
         </div>
-        <div className="text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">
-            Atom<span className="text-electric-400">atize</span>
+        <div className="relative text-center">
+          <h2 className="flex items-center justify-center gap-3 text-3xl font-bold sm:text-4xl">
+            <Image src="/products/atomatize.svg" alt="" width={40} height={40} className="h-10 w-10" />
+            Atomatize
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-            Paste in a blog post, article or newsletter and get twelve drafts back in your voice: LinkedIn and X posts, a thread, an email block and a long-form article.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-400">
+            Turn one article into{" "}
+            <span className="text-stone-100 underline decoration-atomatize-teal decoration-2 underline-offset-4">
+              a week of posts
+            </span>
+            , written in your voice. Give it a blog post, newsletter, PDF, YouTube video or link, and it writes LinkedIn and X posts, a thread, a newsletter section and an article.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-electric-500/25 transition hover:bg-electric-400"
+              className="rounded-lg bg-atomatize-orange px-8 py-3 text-sm font-semibold text-atomatize-ink shadow-lg shadow-atomatize-orange/25 transition hover:bg-atomatize-orange-hover"
             >
               Try Atomatize
             </a>
             <a
               href="#atomatize-pricing"
-              className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-gray-300 transition hover:border-electric-400/50 hover:text-electric-400"
+              className="rounded-lg border border-white/10 px-8 py-3 text-sm font-semibold text-stone-300 transition hover:border-atomatize-teal/50 hover:text-atomatize-teal"
             >
               See pricing
             </a>
@@ -350,26 +359,26 @@ export default function ProductsPage() {
       </Section>
 
       {/* Atomatize Features */}
-      <Section className="bg-dark-800/30">
+      <Section className="bg-atomatize-ink">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {atomatizeFeatures.map((f) => (
             <div
               key={f.title}
-              className="rounded-xl border border-white/5 bg-dark-800/50 p-6 transition hover:border-electric-400/20"
+              className="rounded-xl border border-white/5 bg-atomatize-stone/60 p-6 transition hover:border-atomatize-teal/30"
             >
-              <h3 className="text-lg font-semibold">{f.title}</h3>
-              <p className="mt-2 text-sm text-gray-400">{f.desc}</p>
+              <h3 className="text-lg font-semibold text-stone-100">{f.title}</h3>
+              <p className="mt-2 text-sm text-stone-400">{f.desc}</p>
             </div>
           ))}
         </div>
       </Section>
 
       {/* Atomatize Pricing */}
-      <Section id="atomatize-pricing" className="scroll-mt-24">
+      <Section id="atomatize-pricing" className="scroll-mt-24 bg-atomatize-stone">
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Atomatize plans</h2>
-          <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Every plan has a 14-day free trial, and starting it doesn&apos;t need a credit card.
+          <h2 className="text-3xl font-bold text-stone-100">Atomatize plans</h2>
+          <p className="mx-auto mt-4 max-w-xl text-stone-400">
+            Every account starts with a 14-day trial: 3 source pieces and every feature, no card needed.
           </p>
         </div>
 
@@ -377,18 +386,14 @@ export default function ProductsPage() {
           {atomatizeTiers.map((tier) => (
             <div
               key={tier.name}
-              className={`rounded-xl border p-8 ${
-                tier.popular
-                  ? "border-electric-400/50 bg-dark-700/50 shadow-lg shadow-electric-500/10"
-                  : "border-white/5 bg-dark-800/50"
-              }`}
+              className="rounded-xl border border-white/5 bg-atomatize-ink/60 p-8"
             >
-              <h3 className="text-xl font-bold">{tier.name}</h3>
-              <p className="mt-2 text-2xl font-bold text-electric-400">{tier.price}</p>
+              <h3 className="text-xl font-bold text-stone-100">{tier.name}</h3>
+              <p className="mt-2 text-2xl font-bold text-atomatize-orange">{tier.price}</p>
               <ul className="mt-6 space-y-3">
                 {tier.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-gray-300">
-                    <span className="mt-0.5 text-accent-400">✓</span>
+                  <li key={f} className="flex items-start gap-2 text-sm text-stone-300">
+                    <span className="mt-0.5 text-atomatize-teal">✓</span>
                     {f}
                   </li>
                 ))}
@@ -397,11 +402,7 @@ export default function ProductsPage() {
                 href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=pricing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
-                  tier.popular
-                    ? "bg-electric-500 text-dark-900 hover:bg-electric-400"
-                    : "border border-white/10 text-gray-300 hover:border-electric-400/50"
-                }`}
+                className="mt-8 block rounded-lg border border-white/10 px-6 py-3 text-center text-sm font-semibold text-stone-300 transition hover:border-atomatize-orange/60 hover:text-atomatize-orange"
               >
                 Start free trial
               </a>

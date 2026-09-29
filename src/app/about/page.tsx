@@ -146,7 +146,7 @@ export default function AboutPage() {
                     href="https://krakenkey.io"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent-400 hover:underline"
+                    className="text-krakenkey-amber hover:underline"
                   >
                     KrakenKey
                   </a>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                     href="https://atomatize.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-electric-400 hover:underline"
+                    className="text-atomatize-teal hover:underline"
                   >
                     Atomatize
                   </a>

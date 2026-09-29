@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  /* Cloudwalker IT: site chrome, headings, links, the booking CTA, the hero
+     gradient and glows. Blue leads; green and purple support it. */
   --color-dark-900: #0a0e17;
   --color-dark-800: #111827;
   --color-dark-700: #1a2332;
@@ -14,6 +16,19 @@
   --color-electric-600: #7c3aed;
   --color-accent-400: #34d399;
   --color-accent-500: #10b981;
+
+  /* Product colours, taken from each product's own site. Use them only
+     where that product is the subject: its section, card, buttons and
+     pricing. Never for Cloudwalker's own UI. */
+  --color-krakenkey-amber: #f59e0b;
+  --color-krakenkey-amber-hover: #fbbf24;
+  --color-krakenkey-cyan: #06b6d4;
+  --color-krakenkey-cyan-light: #22d3ee;
+  --color-atomatize-orange: #ea9941;
+  --color-atomatize-orange-hover: #f0ad62;
+  --color-atomatize-teal: #2dd4bf;
+  --color-atomatize-stone: #1c1917;
+  --color-atomatize-ink: #0f0a07;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 

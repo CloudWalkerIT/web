@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
@@ -31,20 +32,26 @@ const artifacts: Array<{
   href: string;
   external: boolean;
   accentClass: string;
+  hoverClass: string;
+  logo?: { src: string; width: number; height: number };
 }> = [
   {
     name: "KrakenKey",
     desc: "Our TLS certificate service. Two DNS records once, then issuance and renewal run on their own.",
     href: "https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=home",
     external: true,
-    accentClass: "text-accent-400",
+    accentClass: "text-krakenkey-amber",
+    hoverClass: "hover:border-krakenkey-amber/40",
+    logo: { src: "/products/krakenkey.svg", width: 30, height: 28 },
   },
   {
     name: "Atomatize",
-    desc: "Our content tool. Turns one long post into LinkedIn, X, email and blog drafts.",
+    desc: "Our content tool. Turns one article, PDF or video into a week of posts in your voice.",
     href: "https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=home",
     external: true,
-    accentClass: "text-electric-400",
+    accentClass: "text-atomatize-teal",
+    hoverClass: "hover:border-atomatize-teal/40",
+    logo: { src: "/products/atomatize.svg", width: 28, height: 28 },
   },
   {
     name: "010 Consulting",
@@ -52,6 +59,7 @@ const artifacts: Array<{
     href: "https://zero10consulting.com",
     external: true,
     accentClass: "text-cloud-400",
+    hoverClass: "hover:border-white/20",
   },
   {
     name: "Certifications",
@@ -59,6 +67,7 @@ const artifacts: Array<{
     href: "/about/#credentials",
     external: false,
     accentClass: "text-cloud-400",
+    hoverClass: "hover:border-white/20",
   },
 ];
 
@@ -111,12 +120,22 @@ export default function HomePage() {
           {artifacts.map((a) => {
             const inner = (
               <>
-                <p className={`text-lg font-bold ${a.accentClass}`}>{a.name}</p>
+                <p className={`flex items-center gap-2 text-lg font-bold ${a.accentClass}`}>
+                  {a.logo && (
+                    <Image
+                      src={a.logo.src}
+                      alt=""
+                      width={a.logo.width}
+                      height={a.logo.height}
+                      className="h-7 w-auto"
+                    />
+                  )}
+                  {a.name}
+                </p>
                 <p className="mt-2 text-sm text-gray-400">{a.desc}</p>
               </>
             );
-            const cardClass =
-              "block rounded-xl border border-white/5 bg-dark-900/40 p-6 transition hover:border-white/20 hover:bg-dark-800/60";
+            const cardClass = `block rounded-xl border border-white/5 bg-dark-900/40 p-6 transition hover:bg-dark-800/60 ${a.hoverClass}`;
             return a.external ? (
               <a
                 key={a.name}
