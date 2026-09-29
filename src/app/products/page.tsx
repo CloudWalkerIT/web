@@ -49,6 +49,7 @@ const atomatizeTiers = [
   {
     name: "Pro",
     price: "$49/mo",
+    popular: true,
     features: [
       "20 source pieces per month",
       "12 outputs per piece",
@@ -110,6 +111,7 @@ const krakenKeyTiers = [
   {
     name: "Starter",
     price: "$29/mo",
+    popular: true,
     features: [
       "10 domains, 75 active certificates",
       "30-day auto-renewal window",
@@ -224,7 +226,10 @@ export default function ProductsPage() {
       </Section>
 
       {/* KrakenKey Hero */}
-      <Section id="krakenkey" className="scroll-mt-24 bg-dark-800/30">
+      <Section id="krakenkey" className="relative scroll-mt-24 overflow-hidden bg-dark-800/30">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute right-1/3 top-1/3 h-80 w-80 rounded-full bg-accent-500/10 blur-3xl" />
+        </div>
         <div className="text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Kraken<span className="text-accent-400">Key</span>
@@ -237,7 +242,7 @@ export default function ProductsPage() {
               href="https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-accent-500 px-8 py-3 text-sm font-semibold text-white transition hover:bg-accent-600"
+              className="rounded-lg bg-accent-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 transition hover:bg-accent-600"
             >
               Start free
             </a>
@@ -281,7 +286,11 @@ export default function ProductsPage() {
           {krakenKeyTiers.map((tier) => (
             <div
               key={tier.name}
-              className="rounded-xl border p-8 border-white/5 bg-dark-800/50"
+              className={`rounded-xl border p-8 ${
+                tier.popular
+                  ? "border-accent-400/50 bg-dark-700/50 shadow-lg shadow-accent-500/10"
+                  : "border-white/5 bg-dark-800/50"
+              }`}
             >
               <h3 className="text-xl font-bold">{tier.name}</h3>
               <p className="mt-2 text-2xl font-bold text-accent-400">{tier.price}</p>
@@ -297,7 +306,11 @@ export default function ProductsPage() {
                 href="https://krakenkey.io?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=pricing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition border border-white/10 text-gray-300 hover:border-accent-400/50"
+                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
+                  tier.popular
+                    ? "bg-accent-500 text-white hover:bg-accent-600"
+                    : "border border-white/10 text-gray-300 hover:border-accent-400/50"
+                }`}
               >
                 {tier.price === "$0" ? "Start free" : "Start with the free plan"}
               </a>
@@ -306,7 +319,10 @@ export default function ProductsPage() {
         </div>
       </Section>
       {/* Atomatize Hero */}
-      <Section id="atomatize" className="scroll-mt-24">
+      <Section id="atomatize" className="relative scroll-mt-24 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-electric-500/10 blur-3xl" />
+        </div>
         <div className="text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Atom<span className="text-electric-400">atize</span>
@@ -319,7 +335,7 @@ export default function ProductsPage() {
               href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=products"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 transition hover:bg-electric-400"
+              className="rounded-lg bg-electric-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-electric-500/25 transition hover:bg-electric-400"
             >
               Try Atomatize
             </a>
@@ -361,7 +377,11 @@ export default function ProductsPage() {
           {atomatizeTiers.map((tier) => (
             <div
               key={tier.name}
-              className="rounded-xl border p-8 border-white/5 bg-dark-800/50"
+              className={`rounded-xl border p-8 ${
+                tier.popular
+                  ? "border-electric-400/50 bg-dark-700/50 shadow-lg shadow-electric-500/10"
+                  : "border-white/5 bg-dark-800/50"
+              }`}
             >
               <h3 className="text-xl font-bold">{tier.name}</h3>
               <p className="mt-2 text-2xl font-bold text-electric-400">{tier.price}</p>
@@ -377,7 +397,11 @@ export default function ProductsPage() {
                 href="https://atomatize.com?utm_source=cloudwalker.it&utm_medium=referral&utm_campaign=pricing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition border border-white/10 text-gray-300 hover:border-electric-400/50"
+                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition ${
+                  tier.popular
+                    ? "bg-electric-500 text-dark-900 hover:bg-electric-400"
+                    : "border border-white/10 text-gray-300 hover:border-electric-400/50"
+                }`}
               >
                 Start free trial
               </a>

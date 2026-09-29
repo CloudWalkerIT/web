@@ -67,13 +67,21 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <Section>
+      <Section className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-cloud-500/10 blur-3xl" />
+          <div className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-electric-500/10 blur-3xl" />
+        </div>
+
         <div className="py-20 text-center lg:py-32">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-cloud-400">
             Cloudwalker IT
           </p>
           <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Azure engineering for teams that don&apos;t have a platform team
+            Azure engineering for teams{" "}
+            <span className="bg-gradient-to-r from-cloud-400 to-electric-400 bg-clip-text text-transparent">
+              that don&apos;t have a platform team
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
             We design, build and run Azure environments, and bring in 010 Consulting when the work is on AWS. We also run two products of our own, KrakenKey and Atomatize, on the same setup we build for clients.
@@ -83,7 +91,7 @@ export default function HomePage() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 transition hover:bg-cloud-400"
+              className="rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
             >
               {BOOKING_CTA}
             </a>
@@ -204,7 +212,7 @@ export default function HomePage() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 transition hover:bg-cloud-400"
+            className="mt-8 inline-block rounded-lg bg-cloud-500 px-8 py-3 text-sm font-semibold text-dark-900 shadow-lg shadow-cloud-500/25 transition hover:bg-cloud-400"
           >
             {BOOKING_CTA}
           </a>

@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-              <Image src="/logo.svg" alt="Cloudwalker IT" width={44} height={44} className="h-11 w-11" />
+              <Image src="/logo.svg" alt="Cloudwalker IT" width={44} height={44} className="h-11 w-11 drop-shadow-[0_0_6px_rgba(103,232,249,0.4)]" />
               <span>
                 <span className="text-cloud-400">Cloud</span>
                 <span className="text-white">walker</span>
