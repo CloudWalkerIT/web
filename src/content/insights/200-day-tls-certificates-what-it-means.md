@@ -1,5 +1,5 @@
 ---
-title: "200-Day TLS Certificates Take Effect March 15: Here's What Changes"
+title: "TLS Certificates Drop to 200 Days on March 15"
 description: "CA/B Forum Ballot SC-081 cuts maximum TLS certificate lifetime to 200 days starting March 15, 2026, with further reductions ahead. We break down the operational impact and the case for automation."
 date: "2026-03-10"
 author: "Cloudwalker IT"
@@ -7,11 +7,11 @@ tags: ["security", "tls", "certificates", "automation", "infrastructure"]
 readTime: "7 min read"
 ---
 
-## The Deadline You Can't Ignore
+## What happens on March 15
 
-On March 15, 2026, the maximum lifetime of a publicly trusted TLS certificate drops from 398 days to 200 days under [CA/Browser Forum Ballot SC-081](https://krakenkey.io/blog/200-day-tls-certs-are-here/). This is not a proposal or a draft. The ballot passed in April 2025, and enforcement begins in five days.
+On March 15, 2026, the maximum lifetime of a publicly trusted TLS certificate drops from 398 days to 200 days under [CA/Browser Forum Ballot SC-081](https://krakenkey.io/blog/200-day-tls-certs-are-here/). The ballot passed in April 2025, and the new limit applies in five days.
 
-If your organization still manages TLS renewals manually or semi-manually, this is the inflection point where that approach starts breaking down. And 200 days is only the first step.
+If your organization still manages TLS renewals manually or semi-manually, this is where that approach starts to break. And 200 days is only the first step.
 
 ## The SC-081 Timeline
 
@@ -104,17 +104,15 @@ ACME clients typically fall short in a few key areas:
 
 These gaps are manageable when you renew once a year. At four to eight renewals per year per certificate, they become operational liabilities. A Certbot cronjob that silently fails is invisible until a service goes down. At two renewals per year, you might catch it. At eight, the odds shift against you.
 
-## The Tooling Landscape
+## Tooling options
 
-Enterprise certificate lifecycle platforms like Venafi (now CyberArk) and Keyfactor address these gaps fully but carry price tags ($25K–$500K+/year) and implementation complexity that puts them out of reach for small-to-mid-size infrastructure teams.
+Enterprise certificate lifecycle platforms like Venafi (now CyberArk) and Keyfactor cover these gaps, but their licensing and implementation effort put them out of reach for most small and mid-size infrastructure teams.
 
 On the other end, open-source ACME clients are free and effective at what they do, but lack centralized visibility, team collaboration features, and the monitoring layer that prevents silent failures.
 
-This leaves a practical gap for teams that need more than a cron job but less than an enterprise platform. [KrakenKey](https://krakenkey.io/) is one tool worth evaluating in this space. It layers management, visibility, and team workflows on top of the certificate lifecycle with a web dashboard, REST API for certificate operations, centralized monitoring with renewal alerting, role-based access control, and audit logging. Their [free tier](https://krakenkey.io) covers 3 domains and 10 active certificates, with paid plans starting at $29/month, positioned for teams that have outgrown Certbot-on-a-cron-job but aren't ready to sign a six-figure CLM contract.
+That leaves a gap for teams that need more than a cron job but less than an enterprise platform. It's the gap we built [KrakenKey](https://krakenkey.io/) for, so weigh this part accordingly: KrakenKey is our product. It adds a web dashboard, a REST API for certificate operations, monitoring with renewal alerts, role-based access control and audit logging on top of ACME. The [free tier](https://krakenkey.io) covers 3 domains and 10 active certificates, and paid plans start at $29/month.
 
-We are not affiliated with KrakenKey, but their approach aligns well with the kind of infrastructure we build and manage for clients.
-
-## Practitioner Checklist
+## What to check before March 15
 
 If you manage TLS certificates for any environment, the March 15 deadline is an opportunity to audit your current process:
 
@@ -159,7 +157,7 @@ If you manage TLS certificates for any environment, the March 15 deadline is an 
   </table>
 </div>
 
-## The Bottom Line
+## Why it's worth doing now
 
 The shift to shorter TLS lifetimes is part of a wider industry push to reduce the window of exposure when a private key is compromised. The security rationale is sound. But security improvements that introduce operational fragility create their own risk. The organizations that benefit from shorter lifetimes are the ones with automation mature enough to absorb the increased velocity. For everyone else, the net effect is more outages, not fewer compromises.
 
@@ -167,8 +165,4 @@ The 200-day deadline is the gentlest version of this change you will see. Use it
 
 ---
 
-*This post references and builds on the analysis published by the KrakenKey team: [The 200-Day TLS Deadline Arrives — And It's Just the Beginning](https://krakenkey.io/blog/200-day-tls-certs-are-here/).*
-
----
-
-*Need help automating your certificate lifecycle or hardening your infrastructure for shorter TLS lifetimes? [Talk to our team](/contact). We help organizations build resilient, automated security operations.*
+*A longer version of the timeline analysis is on the KrakenKey blog: [The 200-Day TLS Deadline Arrives, and It's Just the Beginning](https://krakenkey.io/blog/200-day-tls-certs-are-here/).*

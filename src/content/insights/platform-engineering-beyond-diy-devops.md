@@ -7,17 +7,17 @@ tags: ["devops", "platform engineering", "developer experience", "infrastructure
 readTime: "8 min read"
 ---
 
-## The Problem Nobody Budgeted For
+## Where DevOps stops scaling
 
 DevOps gave developers ownership of the full lifecycle. "You build it, you run it" was the mantra, and it worked at a certain scale. A team of ten engineers sharing a single Kubernetes cluster and a handful of CI pipelines can operate without much abstraction. Everyone knows where things live. Tribal knowledge fills the gaps.
 
 At fifty engineers, that model starts cracking. At a hundred, it breaks.
 
-The symptoms are predictable: every team maintains its own Helm charts. CI pipelines drift into dozens of slightly different configurations that nobody fully understands. Terraform modules get copy-pasted across repositories and quietly diverge. New hires spend their first two weeks just learning how to deploy. Senior engineers spend 30–40% of their time on infrastructure tasks that have nothing to do with the product they were hired to build.
+The symptoms are predictable: every team maintains its own Helm charts. CI pipelines drift into dozens of slightly different configurations that nobody fully understands. Terraform modules get copy-pasted across repositories and quietly diverge. New hires spend their first two weeks just learning how to deploy. Senior engineers spend a large part of their week on infrastructure work that has nothing to do with the product they were hired to build.
 
-This is not a failure of DevOps. It is the natural consequence of distributing infrastructure responsibility without providing infrastructure abstractions. DevOps told every team to own their deployment pipeline but gave them raw primitives instead of paved roads.
+DevOps didn't fail here. This is what happens when infrastructure responsibility is spread across teams without infrastructure abstractions to go with it. DevOps told every team to own their deployment pipeline but gave them raw primitives instead of paved roads.
 
-## Platform Engineering Is Not Rebranded DevOps
+## How it differs from DevOps
 
 The term "platform engineering" has accumulated enough hype to make skepticism reasonable. But the core idea is straightforward and distinct from what came before.
 
@@ -25,7 +25,7 @@ In a DevOps model, every application team interacts directly with infrastructure
 
 In a platform engineering model, a dedicated team builds and maintains an internal developer platform: a set of self-service capabilities that abstract away infrastructure complexity. Application teams consume the platform through golden paths, which are opinionated, pre-configured workflows that handle the common case well.
 
-The key distinction is **product thinking**. A platform team treats internal developers as customers. They gather requirements, prioritize a backlog, measure adoption, and iterate. The platform is not a mandate handed down from infrastructure. It is a product that succeeds or fails based on whether developers actually use it.
+The key distinction is **product thinking**. A platform team treats internal developers as customers. They gather requirements, prioritize a backlog, measure adoption, and iterate. It succeeds or fails on whether developers choose to use it, not on whether infrastructure mandates it.
 
 This is a different operating model from a centralized ops team that takes tickets, and a different philosophy from "every team does everything themselves."
 
@@ -69,7 +69,7 @@ Across the organizations we work with, the same failure modes come up repeatedly
 
 **Boiling the ocean.** Attempting to build a full IDP from day one is a reliable way to deliver nothing for a year. Start with the single highest-friction workflow (usually deploying a new service to production) and make that excellent before expanding scope.
 
-**No escape hatch.** Mandating platform adoption without providing a way to handle edge cases breeds resentment. Every golden path needs an off-ramp for the 20% of cases it does not cover.
+**No escape hatch.** Mandating platform adoption without providing a way to handle edge cases breeds resentment. Every golden path needs an off-ramp for the cases it doesn't cover.
 
 **Treating it as an infrastructure project.** If the platform team reports into infrastructure and measures success by uptime metrics alone, you are building a managed hosting layer, not a developer platform. Product management skills matter here: roadmap prioritization, user research, adoption metrics.
 
@@ -120,12 +120,8 @@ If you are at Stage 1 or 2 and want to move toward platform engineering without 
   </table>
 </div>
 
-## The Bottom Line
+## Do you need one yet?
 
-Platform engineering is not a trend to adopt. It is a scaling pattern to recognize. If your engineering organization has grown past the point where every team can reasonably own their entire infrastructure stack, you are already feeling the pain that platform engineering addresses. The question is whether you solve it intentionally with product thinking and golden paths, or accidentally with a growing pile of shared scripts that nobody owns.
+If your engineering organization has grown past the point where every team can reasonably own its whole infrastructure stack, you already have the problem platform engineering addresses. You can solve it on purpose, with product thinking and golden paths, or by accident, with a growing pile of shared scripts that nobody owns.
 
-The organizations that get this right do not start with tooling. They start with developer friction, build one good path, and iterate from there.
-
----
-
-*Evaluating how platform engineering fits your organization? [Talk to our DevOps & Platform Engineering team](/contact/). We help companies build internal platforms that developers actually want to use.*
+The teams that get this right don't start with tooling. They start with whatever developers complain about most, build one good path for it, and go from there.
